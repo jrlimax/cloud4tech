@@ -5,7 +5,7 @@
 <h1 align="center">Cloud4Tech</h1>
 
 <p align="center">
-  <strong>Segurança · Inteligência · Domínio Tecnológico</strong>
+  <strong>Segurança · Inteligência · Infraestrutura Cloud</strong>
 </p>
 
 <p align="center">

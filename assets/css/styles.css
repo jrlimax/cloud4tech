@@ -1116,4 +1116,74 @@ h1, h2, h3, h4 {
     }
 }
 
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: clamp(1.6rem, 8vw, 2.2rem);
+    }
+
+    .hero__desc {
+        font-size: 0.95rem;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero__actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .logo-anim__falcon img {
+        width: 180px;
+    }
+
+    .logo-anim {
+        font-size: clamp(1.6rem, 9vw, 2.4rem);
+    }
+
+    .phone-row {
+        flex-direction: column;
+    }
+
+    .country-select__btn {
+        width: 100%;
+    }
+
+    .cta__title {
+        font-size: clamp(1.3rem, 6vw, 1.8rem);
+    }
+
+    .section__title {
+        font-size: clamp(1.4rem, 6vw, 2rem);
+    }
+
+    .navbar__inner {
+        gap: 8px;
+    }
+
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        margin-left: 4px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .service-card {
+        padding: 28px 20px;
+    }
+
+    .mission-card {
+        padding: 28px 20px;
+    }
+
+    .stat-card {
+        padding: 18px 16px;
+    }
+}
+
 /* end of file */
