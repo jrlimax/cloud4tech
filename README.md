@@ -9,7 +9,6 @@
 </p>
 
 <p align="center">
-  <a href="https://delightful-ground-0f105d410.azurestaticapps.net">🌐 Ver Site</a> •
   <a href="#-sobre">Sobre</a> •
   <a href="#-tecnologias">Tecnologias</a> •
   <a href="#-estrutura">Estrutura</a> •
@@ -140,26 +139,6 @@ Cloud4Tech/
 ## ⚙️ Deploy
 
 O site é hospedado no **Azure Static Web Apps** com deploy automático via GitHub Actions. Cada push na branch `main` dispara o workflow de build e deploy.
-
-**URL de produção:** [delightful-ground-0f105d410.azurestaticapps.net](https://delightful-ground-0f105d410.azurestaticapps.net)
-
----
-
-## 🛠️ Desenvolvimento Local
-
-```bash
-# Clone o repositório
-git clone https://github.com/jrlimax/cloud4tech.git
-cd cloud4tech
-
-# Abra diretamente no navegador
-start index.html
-
-# Ou use qualquer servidor local
-npx serve .
-```
-
-Não há dependências ou build steps — é HTML/CSS/JS puro.
 
 ---
 
