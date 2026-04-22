@@ -25,7 +25,9 @@
             var target = document.getElementById(targetId);
             if (target) {
                 e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth' });
+                var offset = navbar ? navbar.offsetHeight + 8 : 70;
+                var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: top, behavior: 'smooth' });
             }
         });
     });

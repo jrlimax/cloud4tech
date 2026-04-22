@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloud4Tech — Segurança, Inteligência e Domínio Tecnológico</title>
-    <meta name="description" content="Cloud4Tech — Soluções em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos.">
+    <meta name="description" content="Cloud4Tech">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -252,15 +252,15 @@
                     <input type="hidden" name="from_name" value="Cloud4Tech Site">
                     <input type="text" name="botcheck" style="display:none">
                     <div class="form-group">
-                        <label class="form-label">Nome completo *</label>
-                        <input type="text" name="name" placeholder="Ex: João Silva" required autocomplete="name">
+                        <label class="form-label" for="field-name">Nome completo *</label>
+                        <input type="text" name="name" id="field-name" placeholder="Ex: João Silva" required autocomplete="name">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">E-mail corporativo *</label>
-                        <input type="email" name="email" placeholder="Ex: joao@empresa.com.br" required autocomplete="email">
+                        <label class="form-label" for="field-email">E-mail corporativo *</label>
+                        <input type="email" name="email" id="field-email" placeholder="Ex: joao@empresa.com.br" required autocomplete="email">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Telefone</label>
+                        <label class="form-label" for="field-phone">Telefone</label>
                         <div class="phone-row">
                             <input type="hidden" name="country_code" id="countryCodeInput" value="+55">
                             <div class="country-select" id="countrySelect">
@@ -285,12 +285,12 @@
                                     <li data-code="+52" data-flag="mx"><img src="https://flagcdn.com/w40/mx.png" alt=""> +52</li>
                                 </ul>
                             </div>
-                            <input type="tel" name="phone" placeholder="(11) 99999-9999" class="phone-number" autocomplete="tel">
+                            <input type="tel" name="phone" id="field-phone" placeholder="(11) 99999-9999" class="phone-number" autocomplete="tel">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Mensagem *</label>
-                        <textarea name="message" rows="4" placeholder="Descreva brevemente o que precisa: segurança, cloud, consultoria..." required></textarea>
+                        <label class="form-label" for="field-message">Mensagem *</label>
+                        <textarea name="message" id="field-message" rows="4" placeholder="Descreva brevemente o que precisa: segurança, cloud, consultoria..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn--primary btn--lg btn--full">Enviar Mensagem</button>
                 </form>
