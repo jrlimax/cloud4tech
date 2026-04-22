@@ -253,7 +253,8 @@
                 });
                 var activeLink = navLinks.querySelector('a[href="#' + id + '"]');
                 if (activeLink && !activeLink.classList.contains('btn')) {
-                    activeLink.style.color = '#F3EEFF';
+                    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+                    activeLink.style.color = isDark ? '#F3EEFF' : '#1A1036';
                 }
             }
         });
