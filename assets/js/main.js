@@ -6,9 +6,8 @@
     'use strict';
 
     // --- Theme toggle (dark/light) ---
+    // Theme is already set by inline script in <head> to avoid FOUC
     var themeToggle = document.getElementById('themeToggle');
-    var savedTheme = localStorage.getItem('c4t-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
 
     if (themeToggle) {
         themeToggle.addEventListener('click', function () {
@@ -19,56 +18,91 @@
         });
     }
 
-    // --- Navbar scroll effect ---
+    // --- DOM cache ---
     var navbar = document.getElementById('navbar');
-
-    function handleNavScroll() {
-        if (window.scrollY > 60) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    }
-
-    window.addEventListener('scroll', handleNavScroll, { passive: true });
-
-    // --- Mobile menu toggle ---
     var navToggle = document.getElementById('navToggle');
     var navLinks = document.getElementById('navLinks');
+    var navAnchors = navLinks ? navLinks.querySelectorAll('a') : [];
+    var aosElements = document.querySelectorAll('[data-aos]');
+    var sections = document.querySelectorAll('section[id]');
 
-    navToggle.addEventListener('click', function () {
-        navLinks.classList.toggle('open');
-        navToggle.classList.toggle('active');
-    });
+    // --- Navbar scroll effect ---
+    function handleNavScroll() {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }
 
-    navLinks.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
-            navLinks.classList.remove('open');
-            navToggle.classList.remove('active');
+    // --- Mobile menu toggle ---
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function () {
+            navLinks.classList.toggle('open');
+            navToggle.classList.toggle('active');
         });
-    });
+
+        navAnchors.forEach(function (link) {
+            link.addEventListener('click', function () {
+                navLinks.classList.remove('open');
+                navToggle.classList.remove('active');
+            });
+        });
+    }
 
     // --- Scroll reveal (data-aos) ---
     function revealOnScroll() {
-        var elements = document.querySelectorAll('[data-aos]');
         var windowHeight = window.innerHeight;
-        elements.forEach(function (el) {
-            var rect = el.getBoundingClientRect();
-            if (rect.top < windowHeight - 80) {
+        var pending = [];
+        aosElements.forEach(function (el) {
+            if (el.classList.contains('visible')) return;
+            if (el.getBoundingClientRect().top < windowHeight - 80) {
                 el.classList.add('visible');
+            } else {
+                pending.push(el);
             }
+        });
+        // Shrink list to only unrevealed elements
+        aosElements = pending;
+    }
+
+    // --- Active link highlight (CSS class-based) ---
+    function highlightNav() {
+        var scrollPos = window.scrollY + 120;
+        var activeId = '';
+
+        for (var i = 0; i < sections.length; i++) {
+            var section = sections[i];
+            if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                activeId = section.id;
+                break;
+            }
+        }
+
+        navAnchors.forEach(function (a) {
+            if (a.classList.contains('btn')) return;
+            a.classList.toggle('active', a.getAttribute('href') === '#' + activeId);
         });
     }
 
-    window.addEventListener('scroll', revealOnScroll, { passive: true });
-    window.addEventListener('load', revealOnScroll);
+    // --- Unified scroll handler with rAF throttle ---
+    var scrollTicking = false;
+
+    function onScroll() {
+        if (!scrollTicking) {
+            requestAnimationFrame(function () {
+                handleNavScroll();
+                if (aosElements.length) revealOnScroll();
+                highlightNav();
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     // =============================================
     // LOGO ANIMATION: CLOUD4TECH → C4T
     // =============================================
     var logoLetters = document.getElementById('logoLetters');
     var logoFalcon = document.getElementById('logoFalcon');
-    var heroScroll = document.getElementById('heroScroll');
     var letters = logoLetters ? logoLetters.querySelectorAll('.logo-anim__letter') : [];
 
     function runLogoAnimation() {
@@ -91,19 +125,17 @@
         }, revealDone);
 
         // Phase 2: Collapse to C4T (after pause)
-        var collapseTiming = revealDone + 2000;
-
         setTimeout(function () {
             logoLetters.classList.add('phase-collapse');
-            // Enable hover expand after collapse animation finishes
             setTimeout(function () {
                 logoLetters.classList.add('hover-ready');
             }, 900);
-        }, collapseTiming);
+        }, revealDone + 2000);
     }
 
     // Start animation on load
     window.addEventListener('load', function () {
+        revealOnScroll();
         setTimeout(runLogoAnimation, 300);
     });
 
@@ -131,7 +163,6 @@
             });
         });
 
-        // Close on outside click
         document.addEventListener('click', function (e) {
             if (!countrySelect.contains(e.target)) {
                 countrySelect.classList.remove('open');
@@ -142,7 +173,6 @@
     // --- Contact form (Formsubmit) ---
     var contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        // Auto-format phone: (XX) XXXXX-XXXX
         var phoneInput = contactForm.querySelector('.phone-number');
         if (phoneInput) {
             phoneInput.addEventListener('input', function () {
@@ -170,26 +200,14 @@
                 return;
             }
 
-            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 alert('Por favor, informe um e-mail válido.');
                 return;
             }
 
-            // Merge phone fields into a single hidden value
-            var cc = (countryCodeInput ? countryCodeInput.value : '+55');
+            var cc = countryCodeInput ? countryCodeInput.value : '+55';
             var phone = (formData.get('phone') || '').toString().trim();
             var fullPhone = phone ? cc + ' ' + phone : '';
-
-            // Build final FormData for Formsubmit
-            var sendData = new FormData();
-            sendData.append('name', name);
-            sendData.append('email', email);
-            sendData.append('Telefone', fullPhone);
-            sendData.append('message', message);
-            sendData.append('_subject', formData.get('_subject'));
-            sendData.append('_captcha', 'false');
-            sendData.append('_template', 'table');
 
             var submitBtn = contactForm.querySelector('button[type="submit"]');
             var originalText = submitBtn.textContent;
@@ -209,24 +227,20 @@
                     _template: 'table'
                 })
             }).then(function (res) {
-                return res.json().then(function (data) {
-                    if (res.ok && data.success) {
-                        submitBtn.textContent = 'Mensagem Enviada ✓';
-                        submitBtn.style.background = 'linear-gradient(135deg, #22D68F, #1AAF74)';
-                        contactForm.reset();
-                    } else {
-                        submitBtn.textContent = 'Erro ao enviar';
-                        submitBtn.style.background = 'linear-gradient(135deg, #e53e3e, #c53030)';
-                    }
-                    setTimeout(function () {
-                        submitBtn.textContent = originalText;
-                        submitBtn.style.background = '';
-                        submitBtn.disabled = false;
-                    }, 3000);
-                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                return res.json();
+            }).then(function (data) {
+                if (data.success) {
+                    submitBtn.textContent = 'Mensagem Enviada \u2713';
+                    submitBtn.style.background = 'linear-gradient(135deg, #22D68F, #1AAF74)';
+                    contactForm.reset();
+                } else {
+                    throw new Error('API error');
+                }
             }).catch(function () {
-                submitBtn.textContent = 'Erro de conexão';
+                submitBtn.textContent = 'Erro ao enviar';
                 submitBtn.style.background = 'linear-gradient(135deg, #e53e3e, #c53030)';
+            }).finally(function () {
                 setTimeout(function () {
                     submitBtn.textContent = originalText;
                     submitBtn.style.background = '';
@@ -235,30 +249,4 @@
             });
         });
     }
-
-    // --- Smooth active link highlight ---
-    var sections = document.querySelectorAll('section[id]');
-
-    function highlightNav() {
-        var scrollPos = window.scrollY + 120;
-
-        sections.forEach(function (section) {
-            var top = section.offsetTop;
-            var height = section.offsetHeight;
-            var id = section.getAttribute('id');
-
-            if (scrollPos >= top && scrollPos < top + height) {
-                navLinks.querySelectorAll('a').forEach(function (a) {
-                    a.style.color = '';
-                });
-                var activeLink = navLinks.querySelector('a[href="#' + id + '"]');
-                if (activeLink && !activeLink.classList.contains('btn')) {
-                    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-                    activeLink.style.color = isDark ? '#F3EEFF' : '#1A1036';
-                }
-            }
-        });
-    }
-
-    window.addEventListener('scroll', highlightNav, { passive: true });
 })();

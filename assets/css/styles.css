@@ -196,6 +196,10 @@ h1, h2, h3, h4 {
     padding-bottom: 8px;
 }
 
+.navbar__links a.active {
+    color: var(--c-white);
+}
+
 .navbar__links a:not(.btn)::after {
     content: '';
     position: absolute;
@@ -989,10 +993,6 @@ h1, h2, h3, h4 {
 [data-theme="light"] .logo-anim__falcon {
     background: radial-gradient(circle, rgba(124,58,237,0.22) 0%, rgba(124,58,237,0.12) 45%, transparent 70%);
     border-radius: 50%;
-}
-
-[data-theme="light"] .logo-anim__falcon img {
-    filter: contrast(1.2) saturate(1.4) brightness(0.88) drop-shadow(0 0 20px rgba(124,58,237,0.2));
 }
 
 /* ============================
