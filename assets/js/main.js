@@ -214,18 +214,19 @@
             submitBtn.textContent = 'Enviando...';
             submitBtn.disabled = true;
 
+            var sendData = new FormData();
+            sendData.append('name', name);
+            sendData.append('email', email);
+            sendData.append('Telefone', fullPhone);
+            sendData.append('message', message);
+            sendData.append('_subject', 'Nova mensagem do site Cloud4Tech');
+            sendData.append('_captcha', 'false');
+            sendData.append('_template', 'table');
+
             fetch('https://formsubmit.co/ajax/contato@cloud4tech.com.br', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    Telefone: fullPhone,
-                    message: message,
-                    _subject: 'Nova mensagem do site Cloud4Tech',
-                    _captcha: 'false',
-                    _template: 'table'
-                })
+                headers: { 'Accept': 'application/json' },
+                body: sendData
             }).then(function (res) {
                 if (!res.ok) throw new Error('HTTP ' + res.status);
                 return res.json();
