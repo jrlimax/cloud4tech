@@ -37,7 +37,7 @@ Ser referência nacional em segurança digital e inovação em nuvem, reconhecid
 | **CSS3** | Estilização com CSS Custom Properties (variáveis) |
 | **JavaScript** (Vanilla) | Interatividade e animações |
 | **Google Fonts** | Inter (corpo) + Space Grotesk (títulos) |
-| **Formsubmit.co** | Backend de formulário de contato (AJAX/JSON) |
+| **Web3Forms** | Backend de formulário de contato (AJAX/JSON) |
 | **flagcdn.com** | Bandeiras dos países no seletor de telefone |
 | **Azure Static Web Apps** | Hospedagem e deploy contínuo via GitHub Actions |
 | **Cloudflare** | DNS e roteamento de e-mail |
@@ -49,6 +49,7 @@ Ser referência nacional em segurança digital e inovação em nuvem, reconhecid
 ```
 Cloud4Tech/
 ├── index.html                  # Página principal (single-page)
+├── favicon.ico                 # Favicon (falcão)
 ├── assets/
 │   ├── css/
 │   │   └── styles.css          # Estilos completos (dark + light mode)
@@ -84,7 +85,7 @@ Cloud4Tech/
 - Grid flexível nos cards de serviços
 
 ### 📬 Formulário de Contato
-- Integração com Formsubmit.co via AJAX (JSON)
+- Integração com Web3Forms via AJAX (JSON)
 - Seletor de país com bandeiras reais (flagcdn.com)
 - Máscara automática de telefone: `(XX) XXXXX-XXXX`
 - Validação client-side de campos obrigatórios e e-mail
