@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud4Tech — Segurança, Inteligência e Domínio Tecnológico</title>
+    <meta name="description" content="Cloud4Tech — Soluções em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar__inner">
+            <a href="#hero" class="navbar__logo">
+                <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
+            </a>
+            <ul class="navbar__links" id="navLinks">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#mission">Missão & Valores</a></li>
+                <li><a href="#contact" class="btn btn--sm btn--primary">Fale Conosco</a></li>
+            </ul>
+            <button class="navbar__toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="container hero__inner">
+            <!-- Left: content -->
+            <div class="hero__content" id="heroContent">
+                <p class="hero__tag">Segurança &bull; Inteligência &bull; Domínio Tecnológico</p>
+                <h1 class="hero__title">
+                    Protegemos o futuro<br>
+                    <span class="gradient-text">digital da sua empresa</span>
+                </h1>
+                <p class="hero__desc">
+                    Soluções avançadas em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos modernos, escaláveis e altamente seguros.
+                </p>
+                <div class="hero__actions">
+                    <a href="#contact" class="btn btn--primary btn--lg">Solicitar Consultoria</a>
+                    <a href="#services" class="btn btn--outline btn--lg">Conheça os Serviços</a>
+                </div>
+            </div>
+
+            <!-- Right: falcon + logo animation -->
+            <div class="hero__visual" id="logoAnim">
+                <div class="logo-anim__falcon" id="logoFalcon">
+                    <img src="assets/images/falcon.png" alt="Falcão Cloud4Tech" loading="eager">
+                </div>
+                <div class="logo-anim" id="logoLetters">
+                    <span class="logo-anim__letter logo-anim__keep" data-letter="C">C</span>
+                    <span class="logo-anim__letter logo-anim__hide">L</span>
+                    <span class="logo-anim__letter logo-anim__hide">O</span>
+                    <span class="logo-anim__letter logo-anim__hide">U</span>
+                    <span class="logo-anim__letter logo-anim__hide">D</span>
+                    <span class="logo-anim__letter logo-anim__keep logo-anim__accent" data-letter="4">4</span>
+                    <span class="logo-anim__letter logo-anim__keep" data-letter="T">T</span>
+                    <span class="logo-anim__letter logo-anim__hide">E</span>
+                    <span class="logo-anim__letter logo-anim__hide">C</span>
+                    <span class="logo-anim__letter logo-anim__hide">H</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll" id="heroScroll">
+            <a href="#about" aria-label="Rolar para baixo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Quem Somos</span>
+                <h2 class="section__title">Tecnologia que protege e <span class="gradient-text">impulsiona</span></h2>
+            </div>
+            <div class="about__grid">
+                <div class="about__text">
+                    <p>
+                        A <strong>Cloud4Tech</strong> é uma empresa de tecnologia especializada em cloud computing, inteligência artificial e cibersegurança, com foco em entregar soluções modernas, escaláveis e altamente seguras para ambientes corporativos.
+                    </p>
+                    <p>
+                        Com uma abordagem orientada à inovação, atuamos na proteção e otimização de infraestruturas digitais por meio de tecnologias avançadas como <strong>EDR</strong>, <strong>XDR</strong> e soluções inteligentes baseadas em IA, garantindo visibilidade, controle e resposta rápida a ameaças.
+                    </p>
+                </div>
+                <div class="about__stats">
+                    <div class="stat-card">
+                        <div class="stat-card__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3>Segurança Avançada</h3>
+                        <p>Proteção em múltiplas camadas com EDR e XDR</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3>Resposta Rápida</h3>
+                        <p>Detecção e resposta a ameaças em tempo real</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="2"/></svg>
+                        </div>
+                        <h3>Cloud Inteligente</h3>
+                        <p>Infraestrutura escalável com IA integrada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Portfólio</span>
+                <h2 class="section__title">Nossos <span class="gradient-text">Serviços</span></h2>
+                <p class="section__subtitle">Soluções completas para proteger e modernizar o seu ambiente digital</p>
+            </div>
+            <div class="services__grid">
+                <!-- EDR -->
+                <div class="service-card" data-aos>
+                    <div class="service-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 10l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3 class="service-card__title">EDR</h3>
+                    <p class="service-card__subtitle">Endpoint Detection and Response</p>
+                    <p class="service-card__desc">Monitoramento contínuo e resposta automatizada em endpoints, identificando e neutralizando ameaças antes que causem danos.</p>
+                    <div class="service-card__line"></div>
+                </div>
+
+                <!-- XDR -->
+                <div class="service-card" data-aos>
+                    <div class="service-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke="currentColor" stroke-width="2"/><path d="M2 12h20" stroke="currentColor" stroke-width="2"/></svg>
+                    </div>
+                    <h3 class="service-card__title">XDR</h3>
+                    <p class="service-card__subtitle">Extended Detection and Response</p>
+                    <p class="service-card__desc">Visibilidade unificada e correlação de eventos em toda a infraestrutura, com detecção de ameaças estendida e automatizada.</p>
+                    <div class="service-card__line"></div>
+                </div>
+
+                <!-- Cloud -->
+                <div class="service-card" data-aos>
+                    <div class="service-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3 class="service-card__title">Infraestrutura em Cloud</h3>
+                    <p class="service-card__subtitle">Ambientes escaláveis e seguros</p>
+                    <p class="service-card__desc">Planejamento, migração e gestão de infraestruturas em nuvem com segurança integrada e otimização de custos.</p>
+                    <div class="service-card__line"></div>
+                </div>
+
+                <!-- IA -->
+                <div class="service-card" data-aos>
+                    <div class="service-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/></svg>
+                    </div>
+                    <h3 class="service-card__title">Inteligência Artificial</h3>
+                    <p class="service-card__subtitle">IA aplicada à segurança</p>
+                    <p class="service-card__desc">Algoritmos inteligentes que aprendem padrões, detectam anomalias e automatizam respostas a incidentes de segurança.</p>
+                    <div class="service-card__line"></div>
+                </div>
+
+                <!-- Cybersec -->
+                <div class="service-card" data-aos>
+                    <div class="service-card__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3 class="service-card__title">Cibersegurança Corporativa</h3>
+                    <p class="service-card__subtitle">Proteção completa</p>
+                    <p class="service-card__desc">Estratégias personalizadas de segurança cibernética, desde avaliação de riscos até implementação de frameworks de proteção.</p>
+                    <div class="service-card__line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MISSION, VISION & VALUES ===== -->
+    <section class="section mission" id="mission">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Propósito</span>
+                <h2 class="section__title">Missão, Visão e <span class="gradient-text">Valores</span></h2>
+            </div>
+            <div class="mission__grid">
+                <div class="mission-card">
+                    <div class="mission-card__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+                    </div>
+                    <h3>Missão</h3>
+                    <p>Proteger e impulsionar empresas por meio de soluções inovadoras em cloud, inteligência artificial e cibersegurança, garantindo ambientes digitais modernos, seguros e eficientes.</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-card__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </div>
+                    <h3>Visão</h3>
+                    <p>Ser referência nacional em tecnologia avançada para ambientes corporativos, reconhecida pela excelência em segurança, inovação e confiabilidade.</p>
+                </div>
+                <div class="mission-card mission-card--values">
+                    <div class="mission-card__icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Valores</h3>
+                    <ul class="values-list">
+                        <li><span class="values-list__dot"></span>Inovação contínua</li>
+                        <li><span class="values-list__dot"></span>Segurança em primeiro lugar</li>
+                        <li><span class="values-list__dot"></span>Transparência e ética</li>
+                        <li><span class="values-list__dot"></span>Foco no cliente</li>
+                        <li><span class="values-list__dot"></span>Agilidade e precisão</li>
+                        <li><span class="values-list__dot"></span>Colaboração e respeito</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section cta" id="contact">
+        <div class="container">
+            <div class="cta__inner">
+                <div class="cta__content">
+                    <h2 class="cta__title">Pronto para proteger o seu <span class="gradient-text">ambiente digital</span>?</h2>
+                    <p class="cta__desc">Fale com nossos especialistas e descubra como a Cloud4Tech pode transformar a segurança e a infraestrutura da sua empresa.</p>
+                </div>
+                <form class="cta__form" id="contactForm" action="https://formsubmit.co/contato@cloud4tech.com.br" method="POST" novalidate>
+                    <input type="hidden" name="_subject" value="Nova mensagem do site Cloud4Tech">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+                    <div class="form-group">
+                        <label class="form-label">Nome completo *</label>
+                        <input type="text" name="name" placeholder="Ex: João Silva" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">E-mail corporativo *</label>
+                        <input type="email" name="email" placeholder="Ex: joao@empresa.com.br" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Telefone</label>
+                        <div class="phone-row">
+                            <input type="hidden" name="country_code" id="countryCodeInput" value="+55">
+                            <div class="country-select" id="countrySelect">
+                                <button type="button" class="country-select__btn" id="countryBtn">
+                                    <img src="https://flagcdn.com/w40/br.png" alt="" class="country-flag" id="countryFlag">
+                                    <span class="country-code" id="countryCode">+55</span>
+                                    <svg class="country-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </button>
+                                <ul class="country-select__list" id="countryList">
+                                    <li data-code="+55" data-flag="br"><img src="https://flagcdn.com/w40/br.png" alt=""> +55</li>
+                                    <li data-code="+1" data-flag="us"><img src="https://flagcdn.com/w40/us.png" alt=""> +1</li>
+                                    <li data-code="+351" data-flag="pt"><img src="https://flagcdn.com/w40/pt.png" alt=""> +351</li>
+                                    <li data-code="+34" data-flag="es"><img src="https://flagcdn.com/w40/es.png" alt=""> +34</li>
+                                    <li data-code="+44" data-flag="gb"><img src="https://flagcdn.com/w40/gb.png" alt=""> +44</li>
+                                    <li data-code="+49" data-flag="de"><img src="https://flagcdn.com/w40/de.png" alt=""> +49</li>
+                                    <li data-code="+33" data-flag="fr"><img src="https://flagcdn.com/w40/fr.png" alt=""> +33</li>
+                                    <li data-code="+39" data-flag="it"><img src="https://flagcdn.com/w40/it.png" alt=""> +39</li>
+                                    <li data-code="+81" data-flag="jp"><img src="https://flagcdn.com/w40/jp.png" alt=""> +81</li>
+                                    <li data-code="+54" data-flag="ar"><img src="https://flagcdn.com/w40/ar.png" alt=""> +54</li>
+                                    <li data-code="+56" data-flag="cl"><img src="https://flagcdn.com/w40/cl.png" alt=""> +56</li>
+                                    <li data-code="+57" data-flag="co"><img src="https://flagcdn.com/w40/co.png" alt=""> +57</li>
+                                    <li data-code="+52" data-flag="mx"><img src="https://flagcdn.com/w40/mx.png" alt=""> +52</li>
+                                </ul>
+                            </div>
+                            <input type="tel" name="phone" placeholder="(11) 99999-9999" class="phone-number" autocomplete="tel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mensagem *</label>
+                        <textarea name="message" rows="4" placeholder="Descreva brevemente o que precisa: segurança, cloud, consultoria..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--lg btn--full">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <a href="#hero" class="navbar__logo">
+                    <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
+                </a>
+                <p>Segurança, inteligência e domínio tecnológico.</p>
+            </div>
+            <div class="footer__links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#mission">Missão & Valores</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="#services">EDR</a></li>
+                    <li><a href="#services">XDR</a></li>
+                    <li><a href="#services">Cloud</a></li>
+                    <li><a href="#services">Cibersegurança</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="mailto:contato@cloud4tech.com.br">contato@cloud4tech.com.br</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer__bottom">
+                <p>&copy; 2026 Cloud4Tech. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
