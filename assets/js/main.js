@@ -5,6 +5,20 @@
 (function () {
     'use strict';
 
+    // --- Theme toggle (dark/light) ---
+    var themeToggle = document.getElementById('themeToggle');
+    var savedTheme = localStorage.getItem('c4t-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            var current = document.documentElement.getAttribute('data-theme');
+            var next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('c4t-theme', next);
+        });
+    }
+
     // --- Navbar scroll effect ---
     var navbar = document.getElementById('navbar');
 
