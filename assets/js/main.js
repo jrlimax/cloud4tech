@@ -241,8 +241,8 @@
                 return;
             }
 
-            var turnstileToken = (formData.get('cf-turnstile-response') || '').toString();
-            if (!turnstileToken) {
+            var captchaToken = (formData.get('h-captcha-response') || '').toString();
+            if (!captchaToken) {
                 setStatus('Por favor, complete a verificação de segurança antes de enviar.', 'error');
                 return;
             }
@@ -269,7 +269,7 @@
                     email: email,
                     Telefone: fullPhone,
                     message: message,
-                    'cf-turnstile-response': turnstileToken
+                    'h-captcha-response': captchaToken
                 })
             }).then(function (res) {
                 return res.json().then(function (data) {
@@ -281,7 +281,7 @@
                     submitBtn.style.background = 'linear-gradient(135deg, #22D68F, #1AAF74)';
                     setStatus('Mensagem enviada com sucesso! Em breve nossa equipe entrará em contato.', 'success');
                     contactForm.reset();
-                    if (window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
+                    if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch (e) {} }
                 } else {
                     var apiMsg = (result.data && result.data.message) ? result.data.message : 'Não foi possível enviar a mensagem.';
                     throw new Error(apiMsg);
@@ -290,7 +290,7 @@
                 submitBtn.textContent = 'Erro ao enviar';
                 submitBtn.style.background = 'linear-gradient(135deg, #e53e3e, #c53030)';
                 setStatus((err && err.message ? err.message : 'Erro ao enviar.') + ' Tente novamente em instantes ou escreva para contato@cloud4tech.com.br.', 'error');
-                if (window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
+                if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch (e) {} }
             }).finally(function () {
                 setTimeout(function () {
                     submitBtn.textContent = originalText;

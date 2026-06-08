@@ -1341,16 +1341,16 @@ h1, h2, h3, h4 {
     color: var(--c-text-dim);
 }
 
-.form-group--turnstile {
+.form-group--captcha {
     display: flex;
     justify-content: center;
     margin-top: 4px;
-    min-height: 65px;
+    min-height: 78px;
 }
 
-.cf-turnstile {
-    width: 100%;
-    max-width: 300px;
+.h-captcha {
+    display: flex;
+    justify-content: center;
 }
 
 .form-status--info {

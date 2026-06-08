@@ -39,7 +39,7 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" href="assets/images/falcon.png" as="image" fetchpriority="high">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     <script>
         (function(){var t=localStorage.getItem('c4t-theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
     </script>
@@ -394,7 +394,7 @@
                     <p class="cta__desc">Fale com nossos especialistas e descubra como a Cloud4Tech pode transformar a segurança e a infraestrutura da sua empresa.</p>
                 </div>
                 <form class="cta__form" id="contactForm" novalidate>
-                    <input type="hidden" name="access_key" value="563eed27-3ff1-42a1-bff7-263b4ce677a1">
+                    <input type="hidden" name="access_key" value="cff3dc6c-f851-486f-92bd-47d1e7ce6827">
                     <input type="hidden" name="subject" value="Nova mensagem do site Cloud4Tech">
                     <input type="hidden" name="from_name" value="Cloud4Tech Site">
                     <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -439,8 +439,8 @@
                         <label class="form-label" for="field-message">Mensagem *</label>
                         <textarea name="message" id="field-message" rows="4" placeholder="Descreva brevemente o que precisa: segurança, cloud, consultoria..." required></textarea>
                     </div>
-                    <div class="form-group form-group--turnstile">
-                        <div class="cf-turnstile" data-sitekey="0x4AAAAAADg2RZo0hWLlDBmn" data-theme="auto" data-size="flexible"></div>
+                    <div class="form-group form-group--captcha">
+                        <div class="h-captcha" data-sitekey="891cf678-2d68-41c0-b730-84d0877e1562" data-theme="dark" data-size="normal"></div>
                     </div>
                     <button type="submit" class="btn btn--primary btn--lg btn--full">Enviar Mensagem</button>
                     <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
