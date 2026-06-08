@@ -1,0 +1,20 @@
+{
+    "name": "Cloud4Tech",
+    "short_name": "Cloud4Tech",
+    "description": "Segurança, Inteligência e Infraestrutura Cloud.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#0D0B1E",
+    "theme_color": "#0D0B1E",
+    "lang": "pt-BR",
+    "dir": "ltr",
+    "icons": [
+        {
+            "src": "/assets/images/falcon.png",
+            "sizes": "340x340",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}

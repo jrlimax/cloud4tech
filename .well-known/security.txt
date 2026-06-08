@@ -1,0 +1,4 @@
+Contact: mailto:contato@cloud4tech.com.br
+Expires: 2027-06-08T00:00:00.000Z
+Preferred-Languages: pt-BR, en
+Canonical: https://cloud4tech.com.br/.well-known/security.txt

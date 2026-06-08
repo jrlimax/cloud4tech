@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud4Tech — Segurança, Inteligência e Infraestrutura Cloud</title>
-    <meta name="description" content="Cloud4Tech — Soluções em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos modernos, escaláveis e altamente seguros.">
-    <meta name="robots" content="index, follow">
+    <title>Cloud4Tech</title>
+    <meta name="description" content="Cloud4Tech: cibersegurança corporativa, EDR, XDR, cloud computing e IA aplicada para proteger e modernizar sua infraestrutura. Solicite uma consultoria gratuita.">
+    <meta name="keywords" content="cibersegurança, EDR, XDR, cloud computing, inteligência artificial, infraestrutura cloud, segurança corporativa, Cloud4Tech">
+    <meta name="author" content="Cloud4Tech">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#0D0B1E" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#F5F3FF" media="(prefers-color-scheme: light)">
 
     <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cloud4Tech">
     <meta property="og:title" content="Cloud4Tech — Segurança, Inteligência e Infraestrutura Cloud">
-    <meta property="og:description" content="Soluções avançadas em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos.">
+    <meta property="og:description" content="Soluções avançadas em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos. Solicite uma consultoria gratuita.">
     <meta property="og:image" content="https://cloud4tech.com.br/assets/images/falcon.png">
-    <meta property="og:url" content="https://cloud4tech.com.br">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cloud4Tech — Segurança e Cloud para empresas">
+    <meta property="og:url" content="https://cloud4tech.com.br/">
     <meta property="og:locale" content="pt_BR">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cloud4Tech — Segurança, Inteligência e Infraestrutura Cloud">
-    <meta name="twitter:description" content="Soluções avançadas em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos.">
+    <meta name="twitter:description" content="Cibersegurança, EDR, XDR, cloud e IA para empresas. Solicite uma consultoria gratuita.">
     <meta name="twitter:image" content="https://cloud4tech.com.br/assets/images/falcon.png">
 
     <link rel="canonical" href="https://cloud4tech.com.br/">
@@ -27,7 +35,9 @@
     <link rel="preconnect" href="https://flagcdn.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="preload" href="assets/images/falcon.png" as="image">
+    <link rel="apple-touch-icon" href="assets/images/falcon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preload" href="assets/images/falcon.png" as="image" fetchpriority="high">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script>
         (function(){var t=localStorage.getItem('c4t-theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
@@ -35,14 +45,72 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Cloud4Tech",
-      "url": "https://cloud4tech.com.br",
-      "logo": "https://cloud4tech.com.br/assets/images/falcon.png",
-      "description": "Soluções em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos modernos, escaláveis e altamente seguros.",
-      "email": "contato@cloud4tech.com.br",
-      "areaServed": "BR",
-      "sameAs": []
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://cloud4tech.com.br/#organization",
+          "name": "Cloud4Tech",
+          "url": "https://cloud4tech.com.br/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://cloud4tech.com.br/assets/images/falcon.png",
+            "width": 340,
+            "height": 340
+          },
+          "description": "Soluções em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos modernos, escaláveis e altamente seguros.",
+          "email": "contato@cloud4tech.com.br",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Brasil"
+          },
+          "knowsAbout": ["Cibersegurança", "EDR", "XDR", "Cloud Computing", "Inteligência Artificial", "Infraestrutura em Nuvem"],
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cloud4tech.com.br/#website",
+          "url": "https://cloud4tech.com.br/",
+          "name": "Cloud4Tech",
+          "description": "Segurança, Inteligência e Infraestrutura Cloud",
+          "publisher": { "@id": "https://cloud4tech.com.br/#organization" },
+          "inLanguage": "pt-BR"
+        },
+        {
+          "@type": "Service",
+          "name": "EDR — Endpoint Detection and Response",
+          "provider": { "@id": "https://cloud4tech.com.br/#organization" },
+          "areaServed": "BR",
+          "description": "Monitoramento contínuo e resposta automatizada em endpoints, identificando e neutralizando ameaças antes que causem danos."
+        },
+        {
+          "@type": "Service",
+          "name": "XDR — Extended Detection and Response",
+          "provider": { "@id": "https://cloud4tech.com.br/#organization" },
+          "areaServed": "BR",
+          "description": "Visibilidade unificada e correlação de eventos em toda a infraestrutura, com detecção de ameaças estendida e automatizada."
+        },
+        {
+          "@type": "Service",
+          "name": "Infraestrutura em Cloud",
+          "provider": { "@id": "https://cloud4tech.com.br/#organization" },
+          "areaServed": "BR",
+          "description": "Planejamento, migração e gestão de infraestruturas em nuvem com segurança integrada e otimização de custos."
+        },
+        {
+          "@type": "Service",
+          "name": "Inteligência Artificial Aplicada à Segurança",
+          "provider": { "@id": "https://cloud4tech.com.br/#organization" },
+          "areaServed": "BR",
+          "description": "Algoritmos inteligentes que aprendem padrões, detectam anomalias e automatizam respostas a incidentes de segurança."
+        },
+        {
+          "@type": "Service",
+          "name": "Cibersegurança Corporativa",
+          "provider": { "@id": "https://cloud4tech.com.br/#organization" },
+          "areaServed": "BR",
+          "description": "Estratégias personalizadas de segurança cibernética, desde avaliação de riscos até implementação de frameworks de proteção."
+        }
+      ]
     }
     </script>
 </head>
@@ -297,24 +365,24 @@
                             <input type="hidden" name="country_code" id="countryCodeInput" value="+55">
                             <div class="country-select" id="countrySelect">
                                 <button type="button" class="country-select__btn" id="countryBtn">
-                                    <img src="https://flagcdn.com/w40/br.png" alt="" class="country-flag" id="countryFlag">
+                                    <img src="https://flagcdn.com/w40/br.png" alt="" class="country-flag" id="countryFlag" width="22" height="14" decoding="async">
                                     <span class="country-code" id="countryCode">+55</span>
                                     <svg class="country-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                 </button>
                                 <ul class="country-select__list" id="countryList">
-                                    <li data-code="+55" data-flag="br"><img src="https://flagcdn.com/w40/br.png" alt=""> +55</li>
-                                    <li data-code="+1" data-flag="us"><img src="https://flagcdn.com/w40/us.png" alt=""> +1</li>
-                                    <li data-code="+351" data-flag="pt"><img src="https://flagcdn.com/w40/pt.png" alt=""> +351</li>
-                                    <li data-code="+34" data-flag="es"><img src="https://flagcdn.com/w40/es.png" alt=""> +34</li>
-                                    <li data-code="+44" data-flag="gb"><img src="https://flagcdn.com/w40/gb.png" alt=""> +44</li>
-                                    <li data-code="+49" data-flag="de"><img src="https://flagcdn.com/w40/de.png" alt=""> +49</li>
-                                    <li data-code="+33" data-flag="fr"><img src="https://flagcdn.com/w40/fr.png" alt=""> +33</li>
-                                    <li data-code="+39" data-flag="it"><img src="https://flagcdn.com/w40/it.png" alt=""> +39</li>
-                                    <li data-code="+81" data-flag="jp"><img src="https://flagcdn.com/w40/jp.png" alt=""> +81</li>
-                                    <li data-code="+54" data-flag="ar"><img src="https://flagcdn.com/w40/ar.png" alt=""> +54</li>
-                                    <li data-code="+56" data-flag="cl"><img src="https://flagcdn.com/w40/cl.png" alt=""> +56</li>
-                                    <li data-code="+57" data-flag="co"><img src="https://flagcdn.com/w40/co.png" alt=""> +57</li>
-                                    <li data-code="+52" data-flag="mx"><img src="https://flagcdn.com/w40/mx.png" alt=""> +52</li>
+                                    <li data-code="+55" data-flag="br"><img src="https://flagcdn.com/w40/br.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +55</li>
+                                    <li data-code="+1" data-flag="us"><img src="https://flagcdn.com/w40/us.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +1</li>
+                                    <li data-code="+351" data-flag="pt"><img src="https://flagcdn.com/w40/pt.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +351</li>
+                                    <li data-code="+34" data-flag="es"><img src="https://flagcdn.com/w40/es.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +34</li>
+                                    <li data-code="+44" data-flag="gb"><img src="https://flagcdn.com/w40/gb.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +44</li>
+                                    <li data-code="+49" data-flag="de"><img src="https://flagcdn.com/w40/de.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +49</li>
+                                    <li data-code="+33" data-flag="fr"><img src="https://flagcdn.com/w40/fr.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +33</li>
+                                    <li data-code="+39" data-flag="it"><img src="https://flagcdn.com/w40/it.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +39</li>
+                                    <li data-code="+81" data-flag="jp"><img src="https://flagcdn.com/w40/jp.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +81</li>
+                                    <li data-code="+54" data-flag="ar"><img src="https://flagcdn.com/w40/ar.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +54</li>
+                                    <li data-code="+56" data-flag="cl"><img src="https://flagcdn.com/w40/cl.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +56</li>
+                                    <li data-code="+57" data-flag="co"><img src="https://flagcdn.com/w40/co.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +57</li>
+                                    <li data-code="+52" data-flag="mx"><img src="https://flagcdn.com/w40/mx.png" alt="" width="22" height="14" loading="lazy" decoding="async"> +52</li>
                                 </ul>
                             </div>
                             <input type="tel" name="phone" id="field-phone" placeholder="(11) 99999-9999" class="phone-number" autocomplete="tel">

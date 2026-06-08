@@ -1,0 +1,16 @@
+/* TEAM */
+    Empresa: Cloud4Tech
+    Site:    https://cloud4tech.com.br
+    E-mail:  contato@cloud4tech.com.br
+    Local:   Brasil
+
+/* THANKS */
+    Cloudflare — hospedagem e CDN
+    Web3Forms  — backend de formulário
+
+/* SITE */
+    Última atualização: 2026/06/08
+    Linguagem:          Português (Brasil)
+    Doctype:            HTML5
+    IDE:                Visual Studio Code
+    Stack:              HTML, CSS, JavaScript (vanilla)
