@@ -21,14 +21,29 @@
     <meta name="twitter:description" content="Soluções avançadas em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos.">
     <meta name="twitter:image" content="https://cloud4tech.com.br/assets/images/falcon.png">
 
+    <link rel="canonical" href="https://cloud4tech.com.br/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://flagcdn.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preload" href="assets/images/falcon.png" as="image">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script>
         (function(){var t=localStorage.getItem('c4t-theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Cloud4Tech",
+      "url": "https://cloud4tech.com.br",
+      "logo": "https://cloud4tech.com.br/assets/images/falcon.png",
+      "description": "Soluções em cloud computing, inteligência artificial e cibersegurança para ambientes corporativos modernos, escaláveis e altamente seguros.",
+      "email": "contato@cloud4tech.com.br",
+      "areaServed": "BR",
+      "sameAs": []
+    }
     </script>
 </head>
 <body>
@@ -76,7 +91,7 @@
             <!-- Right: falcon + logo animation -->
             <div class="hero__visual" id="logoAnim">
                 <div class="logo-anim__falcon" id="logoFalcon">
-                    <img src="assets/images/falcon.png" alt="Falcão Cloud4Tech" loading="eager">
+                    <img src="assets/images/falcon.png" alt="Falcão Cloud4Tech" width="340" height="340" loading="eager" decoding="async" fetchpriority="high">
                 </div>
                 <div class="logo-anim" id="logoLetters">
                     <span class="logo-anim__letter logo-anim__keep" data-letter="C">C</span>
@@ -267,7 +282,7 @@
                     <input type="hidden" name="access_key" value="563eed27-3ff1-42a1-bff7-263b4ce677a1">
                     <input type="hidden" name="subject" value="Nova mensagem do site Cloud4Tech">
                     <input type="hidden" name="from_name" value="Cloud4Tech Site">
-                    <input type="text" name="botcheck" style="display:none">
+                    <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="form-group">
                         <label class="form-label" for="field-name">Nome completo *</label>
                         <input type="text" name="name" id="field-name" placeholder="Ex: João Silva" required autocomplete="name">
@@ -310,6 +325,7 @@
                         <textarea name="message" id="field-message" rows="4" placeholder="Descreva brevemente o que precisa: segurança, cloud, consultoria..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn--primary btn--lg btn--full">Enviar Mensagem</button>
+                    <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </div>

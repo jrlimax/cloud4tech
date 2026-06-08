@@ -50,6 +50,9 @@ Ser referência nacional em segurança digital e inovação em nuvem, reconhecid
 Cloud4Tech/
 ├── index.html                  # Página principal (single-page)
 ├── favicon.ico                 # Favicon (falcão)
+├── robots.txt                  # Regras de crawler
+├── sitemap.xml                 # Mapa do site
+├── .editorconfig               # Padrão de indentação do projeto
 ├── assets/
 │   ├── css/
 │   │   └── styles.css          # Estilos completos (dark + light mode)
@@ -109,7 +112,7 @@ Cloud4Tech/
 |---|---|
 | **Hero** | Apresentação principal com falcão, animação C4T e CTAs |
 | **Sobre** | Quem somos, diferenciais e pilares de atuação |
-| **Serviços** | 5 cards: Cloud, IA, Cyber, DevOps, Consultoria |
+| **Serviços** | 5 cards: EDR, XDR, Infraestrutura em Cloud, Inteligência Artificial e Cibersegurança Corporativa |
 | **Missão & Valores** | Missão, visão e valores da empresa |
 | **Contato** | Formulário completo com envio real de e-mail |
 | **Footer** | Links de navegação, serviços e informações legais |
@@ -119,21 +122,21 @@ Cloud4Tech/
 ## 🎨 Paleta de Cores
 
 ### Modo Escuro (padrão)
-| Variável | Cor | Hex |
-|---|---|---|
-| Background | ![#0D0B1E](https://via.placeholder.com/12/0D0B1E/0D0B1E) | `#0D0B1E` |
-| Purple | ![#7C3AED](https://via.placeholder.com/12/7C3AED/7C3AED) | `#7C3AED` |
-| Green | ![#22D68F](https://via.placeholder.com/12/22D68F/22D68F) | `#22D68F` |
-| Text | ![#C4BDE6](https://via.placeholder.com/12/C4BDE6/C4BDE6) | `#C4BDE6` |
-| Light | ![#F3EEFF](https://via.placeholder.com/12/F3EEFF/F3EEFF) | `#F3EEFF` |
+| Variável | Hex |
+|---|---|
+| Background | `#0D0B1E` |
+| Purple | `#7C3AED` |
+| Green | `#22D68F` |
+| Text | `#C4BDE6` |
+| Light | `#F3EEFF` |
 
 ### Modo Claro
-| Variável | Cor | Hex |
-|---|---|---|
-| Background | ![#F5F3FF](https://via.placeholder.com/12/F5F3FF/F5F3FF) | `#F5F3FF` |
-| Cards | ![#FFFFFF](https://via.placeholder.com/12/FFFFFF/FFFFFF) | `#FFFFFF` |
-| Text | ![#4A4568](https://via.placeholder.com/12/4A4568/4A4568) | `#4A4568` |
-| Headings | ![#1A1036](https://via.placeholder.com/12/1A1036/1A1036) | `#1A1036` |
+| Variável | Hex |
+|---|---|
+| Background | `#F5F3FF` |
+| Cards | `#FFFFFF` |
+| Text | `#4A4568` |
+| Headings | `#1A1036` |
 
 ---
 

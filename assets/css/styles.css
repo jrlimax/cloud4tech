@@ -315,7 +315,7 @@ h1, h2, h3, h4 {
 }
 
 .logo-anim__falcon img {
-    width: 340px;
+    width: clamp(160px, 28vw, 340px);
     height: auto;
     filter: contrast(1.2) saturate(1.4) brightness(0.88) drop-shadow(0 0 30px rgba(124,58,237,0.25));
 }
@@ -1311,6 +1311,64 @@ h1, h2, h3, h4 {
 
     .hero__scroll {
         display: none;
+    }
+}
+
+/* ============================
+   HONEYPOT (anti-spam)
+   ============================ */
+.hp-field {
+    position: absolute !important;
+    left: -10000px !important;
+    top: auto !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* ============================
+   FORM STATUS MESSAGE
+   ============================ */
+.form-status {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 4px;
+    min-height: 1.2em;
+    color: var(--c-text-dim);
+}
+
+.form-status--info {
+    color: var(--c-purple-l);
+}
+
+.form-status--success {
+    color: var(--c-green);
+}
+
+.form-status--error {
+    color: #ff6b6b;
+}
+
+[data-theme="light"] .form-status--error {
+    color: #c53030;
+}
+
+/* ============================
+   REDUCED MOTION
+   ============================ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
 

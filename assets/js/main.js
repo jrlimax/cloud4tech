@@ -5,6 +5,16 @@
 (function () {
     'use strict';
 
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // --- DOM cache ---
+    var navbar = document.getElementById('navbar');
+    var navToggle = document.getElementById('navToggle');
+    var navLinks = document.getElementById('navLinks');
+    var navAnchors = navLinks ? navLinks.querySelectorAll('a') : [];
+    var aosElements = document.querySelectorAll('[data-aos]');
+    var sections = document.querySelectorAll('section[id]');
+
     // --- Theme toggle (dark/light) ---
     // Theme is already set by inline script in <head> to avoid FOUC
     var themeToggle = document.getElementById('themeToggle');
@@ -27,22 +37,14 @@
                 e.preventDefault();
                 var offset = navbar ? navbar.offsetHeight + 8 : 70;
                 var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top: top, behavior: 'smooth' });
+                window.scrollTo({ top: top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
             }
         });
     });
 
-    // --- DOM cache ---
-    var navbar = document.getElementById('navbar');
-    var navToggle = document.getElementById('navToggle');
-    var navLinks = document.getElementById('navLinks');
-    var navAnchors = navLinks ? navLinks.querySelectorAll('a') : [];
-    var aosElements = document.querySelectorAll('[data-aos]');
-    var sections = document.querySelectorAll('section[id]');
-
     // --- Navbar scroll effect ---
     function handleNavScroll() {
-        navbar.classList.toggle('scrolled', window.scrollY > 60);
+        if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
     }
 
     // --- Mobile menu toggle ---
@@ -122,6 +124,17 @@
     function runLogoAnimation() {
         if (!logoLetters) return;
 
+        // Respect prefers-reduced-motion: render final state instantly
+        if (prefersReducedMotion) {
+            letters.forEach(function (letter) {
+                letter.style.opacity = '1';
+                letter.style.transform = 'none';
+            });
+            logoLetters.classList.add('phase-reveal', 'phase-collapse', 'hover-ready');
+            if (logoFalcon) logoFalcon.classList.add('visible');
+            return;
+        }
+
         // Phase 1: Reveal letters one by one (staggered)
         letters.forEach(function (letter, i) {
             setTimeout(function () {
@@ -184,10 +197,18 @@
         });
     }
 
-    // --- Contact form (Formsubmit) ---
+    // --- Contact form (Web3Forms) ---
     var contactForm = document.getElementById('contactForm');
     if (contactForm) {
         var phoneInput = contactForm.querySelector('.phone-number');
+        var formStatus = document.getElementById('formStatus');
+
+        function setStatus(message, kind) {
+            if (!formStatus) return;
+            formStatus.textContent = message || '';
+            formStatus.className = 'form-status' + (kind ? ' form-status--' + kind : '');
+        }
+
         if (phoneInput) {
             phoneInput.addEventListener('input', function () {
                 var v = this.value.replace(/\D/g, '').slice(0, 11);
@@ -203,6 +224,7 @@
 
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
+            setStatus('', '');
 
             var formData = new FormData(contactForm);
             var name = (formData.get('name') || '').toString().trim();
@@ -210,12 +232,12 @@
             var message = (formData.get('message') || '').toString().trim();
 
             if (!name || !email || !message) {
-                alert('Por favor, preencha todos os campos obrigatórios.');
+                setStatus('Por favor, preencha todos os campos obrigatórios.', 'error');
                 return;
             }
 
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                alert('Por favor, informe um e-mail válido.');
+                setStatus('Por favor, informe um e-mail válido.', 'error');
                 return;
             }
 
@@ -225,14 +247,16 @@
 
             var submitBtn = contactForm.querySelector('button[type="submit"]');
             var originalText = submitBtn.textContent;
+            var accessKey = contactForm.querySelector('input[name="access_key"]').value;
             submitBtn.textContent = 'Enviando...';
             submitBtn.disabled = true;
+            setStatus('Enviando sua mensagem...', 'info');
 
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({
-                    access_key: '563eed27-3ff1-42a1-bff7-263b4ce677a1',
+                    access_key: accessKey,
                     subject: 'Nova mensagem do site Cloud4Tech',
                     from_name: 'Cloud4Tech Site',
                     name: name,
@@ -241,19 +265,23 @@
                     message: message
                 })
             }).then(function (res) {
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-                return res.json();
-            }).then(function (data) {
-                if (data.success) {
+                return res.json().then(function (data) {
+                    return { ok: res.ok, data: data };
+                });
+            }).then(function (result) {
+                if (result.ok && result.data && result.data.success) {
                     submitBtn.textContent = 'Mensagem Enviada \u2713';
                     submitBtn.style.background = 'linear-gradient(135deg, #22D68F, #1AAF74)';
+                    setStatus('Mensagem enviada com sucesso! Em breve nossa equipe entrará em contato.', 'success');
                     contactForm.reset();
                 } else {
-                    throw new Error('API error');
+                    var apiMsg = (result.data && result.data.message) ? result.data.message : 'Não foi possível enviar a mensagem.';
+                    throw new Error(apiMsg);
                 }
-            }).catch(function () {
+            }).catch(function (err) {
                 submitBtn.textContent = 'Erro ao enviar';
                 submitBtn.style.background = 'linear-gradient(135deg, #e53e3e, #c53030)';
+                setStatus((err && err.message ? err.message : 'Erro ao enviar.') + ' Tente novamente em instantes ou escreva para contato@cloud4tech.com.br.', 'error');
             }).finally(function () {
                 setTimeout(function () {
                     submitBtn.textContent = originalText;
