@@ -253,24 +253,19 @@
 
             var submitBtn = contactForm.querySelector('button[type="submit"]');
             var originalText = submitBtn.textContent;
-            var accessKey = contactForm.querySelector('input[name="access_key"]').value;
             submitBtn.textContent = 'Enviando...';
             submitBtn.disabled = true;
             setStatus('Enviando sua mensagem...', 'info');
 
+            // Atualiza o campo Telefone com country code antes de enviar
+            formData.set('Telefone', fullPhone);
+            formData.set('from_name', 'Cloud4Tech Site');
+            formData.set('subject', 'Nova mensagem do site Cloud4Tech');
+
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({
-                    access_key: accessKey,
-                    subject: 'Nova mensagem do site Cloud4Tech',
-                    from_name: 'Cloud4Tech Site',
-                    name: name,
-                    email: email,
-                    Telefone: fullPhone,
-                    message: message,
-                    'h-captcha-response': captchaToken
-                })
+                headers: { 'Accept': 'application/json' },
+                body: formData
             }).then(function (res) {
                 return res.json().then(function (data) {
                     return { ok: res.ok, data: data };
