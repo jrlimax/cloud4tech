@@ -9,10 +9,15 @@
 </p>
 
 <p align="center">
+  <a href="https://cloud4tech.com.br">cloud4tech.com.br</a>
+</p>
+
+<p align="center">
   <a href="#-sobre">Sobre</a> •
   <a href="#-tecnologias">Tecnologias</a> •
   <a href="#-estrutura">Estrutura</a> •
-  <a href="#-funcionalidades">Funcionalidades</a>
+  <a href="#-funcionalidades">Funcionalidades</a> •
+  <a href="#%EF%B8%8F-deploy">Deploy</a>
 </p>
 
 ---
@@ -39,8 +44,8 @@ Ser referência nacional em segurança digital e inovação em nuvem, reconhecid
 | **Google Fonts** | Inter (corpo) + Space Grotesk (títulos) |
 | **Web3Forms** | Backend de formulário de contato (AJAX/JSON) |
 | **flagcdn.com** | Bandeiras dos países no seletor de telefone |
-| **Azure Static Web Apps** | Hospedagem e deploy contínuo via GitHub Actions |
-| **Cloudflare** | DNS e roteamento de e-mail |
+| **Cloudflare Workers** | Hospedagem (Static Assets via `wrangler`) |
+| **Cloudflare DNS + CDN** | DNS, proxy, SSL/TLS, cache global |
 
 ---
 
@@ -48,22 +53,25 @@ Ser referência nacional em segurança digital e inovação em nuvem, reconhecid
 
 ```
 Cloud4Tech/
-├── index.html                  # Página principal (single-page)
-├── favicon.ico                 # Favicon (falcão)
-├── robots.txt                  # Regras de crawler
-├── sitemap.xml                 # Mapa do site
-├── .editorconfig               # Padrão de indentação do projeto
+├── index.html                 # Página principal (single-page)
+├── favicon.ico                # Favicon (falcão)
+├── robots.txt                 # Regras de crawler
+├── sitemap.xml                # Mapa do site
+├── humans.txt                 # Créditos / metadados do time
+├── site.webmanifest           # PWA manifest
+├── _headers                   # Cabeçalhos HTTP (cache, HSTS, CSP)
+├── wrangler.jsonc             # Configuração do Cloudflare Workers
+├── .editorconfig              # Padrão de indentação do projeto
+├── .well-known/
+│   └── security.txt           # Política de segurança (RFC 9116)
 ├── assets/
 │   ├── css/
-│   │   └── styles.css          # Estilos completos (dark + light mode)
+│   │   └── styles.css         # Estilos completos (dark + light mode)
 │   ├── js/
-│   │   └── main.js             # Interatividade e lógica
+│   │   └── main.js            # Interatividade e lógica
 │   └── images/
-│       ├── falcon.png          # Mascote (falcão)
-│       └── logo.png            # Logo da empresa
-├── .github/
-│   └── workflows/
-│       └── azure-static-web-apps-*.yml  # CI/CD para Azure
+│       ├── falcon.png         # Mascote (falcão)
+│       └── logo.png           # Logo da empresa
 └── README.md
 ```
 
@@ -75,24 +83,28 @@ Cloud4Tech/
 - Toggle na navbar com ícones de sol/lua
 - Preferência salva no `localStorage`
 - Carregamento sem flash (script inline no `<head>`)
+- `theme-color` adapta a cor da barra do navegador (mobile)
 
 ### 🦅 Animação do Logo
 - Letras "CLOUD4TECH" aparecem uma a uma (stagger)
 - Falcão surge com fade-in
 - Letras colapsam para "C4T"
 - Hover expande de volta para "CLOUD4TECH"
+- Respeita `prefers-reduced-motion`
 
 ### 📱 Design Responsivo
 - Layout adaptável para desktop, tablet e mobile
 - Menu hamburger em telas menores
 - Grid flexível nos cards de serviços
+- Falcão com `clamp()` para escala responsiva
 
 ### 📬 Formulário de Contato
 - Integração com Web3Forms via AJAX (JSON)
-- Seletor de país com bandeiras reais (flagcdn.com)
+- Seletor de país com bandeiras reais (flagcdn.com, lazy-loaded)
 - Máscara automática de telefone: `(XX) XXXXX-XXXX`
 - Validação client-side de campos obrigatórios e e-mail
-- Feedback visual no botão (enviando/sucesso/erro)
+- Mensagens de status inline com `aria-live` (acessível)
+- Honeypot anti-spam fora da tela
 
 ### 🧭 Navegação
 - Navbar fixa com efeito blur ao rolar
@@ -103,6 +115,20 @@ Cloud4Tech/
 ### 🎬 Scroll Reveal
 - Elementos surgem suavemente ao entrar no viewport
 - Atributo `data-aos` para controle por elemento
+
+### 🔍 SEO & Acessibilidade
+- **JSON-LD** completo com `@graph` (Organization, WebSite e 5x Service)
+- Open Graph + Twitter Card para preview social
+- Canonical, robots e sitemap configurados
+- `prefers-reduced-motion` respeitado globalmente
+- `role="status"` e `aria-live` no formulário
+
+### 🔒 Segurança (via `_headers` na Cloudflare)
+- **HSTS** com preload
+- **Content-Security-Policy** estrita
+- `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`
+- Cache imutável de 1 ano em `/assets/*`
+- HTML com revalidação forçada (deploys aparecem na hora)
 
 ---
 
@@ -115,7 +141,7 @@ Cloud4Tech/
 | **Serviços** | 5 cards: EDR, XDR, Infraestrutura em Cloud, Inteligência Artificial e Cibersegurança Corporativa |
 | **Missão & Valores** | Missão, visão e valores da empresa |
 | **Contato** | Formulário completo com envio real de e-mail |
-| **Footer** | Links de navegação, serviços e informações legais |
+| **Footer** | Links de navegação, serviços e informações de contato |
 
 ---
 
@@ -142,7 +168,18 @@ Cloud4Tech/
 
 ## ⚙️ Deploy
 
-O site é hospedado no **Azure Static Web Apps** com deploy automático via GitHub Actions. Cada push na branch `main` dispara o workflow de build e deploy.
+O site é hospedado no **Cloudflare Workers (Static Assets)** com deploy automático via integração nativa do Cloudflare com o GitHub. Cada push na branch `main` dispara o build (`npx wrangler deploy`) usando o `wrangler.jsonc` da raiz.
+
+**DNS, SSL/TLS, CDN e WAF** são gerenciados pela Cloudflare. O modo SSL recomendado é **Full**.
+
+### Configuração local (opcional)
+```bash
+# Preview local com Wrangler
+npx wrangler dev
+
+# Deploy manual
+npx wrangler deploy
+```
 
 ---
 
