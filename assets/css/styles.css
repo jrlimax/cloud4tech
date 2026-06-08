@@ -872,6 +872,14 @@ h1, h2, h3, h4 {
     color: var(--c-text-dim);
 }
 
+.footer__bottom a {
+    color: var(--c-text-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer__bottom a:hover { color: var(--c-purple-l); }
+
 /* ============================
    THEME TOGGLE
    ============================ */
@@ -1618,5 +1626,158 @@ h1, h2, h3, h4 {
         gap: 12px;
     }
 }
+
+/* ============================
+   WHATSAPP FLOATING BUTTON
+   ============================ */
+.wa-float {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 2px 6px rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wa-float:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.55), 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.wa-float:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.wa-float__pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+    animation: waPulse 2.2s ease-out infinite;
+    pointer-events: none;
+}
+
+@keyframes waPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+    70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@media (max-width: 480px) {
+    .wa-float {
+        right: 16px;
+        bottom: 16px;
+        width: 52px;
+        height: 52px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wa-float__pulse { animation: none; }
+}
+
+/* ============================
+   SUBMIT BUTTON — SPINNER
+   ============================ */
+.btn--primary {
+    position: relative;
+}
+
+.btn__label { display: inline-block; transition: opacity 0.2s ease; }
+
+.btn__spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: btnSpin 0.7s linear infinite;
+}
+
+.btn--loading .btn__label { opacity: 0; }
+.btn--loading .btn__spinner { opacity: 1; }
+.btn--loading { cursor: wait; }
+
+.btn--success { background: linear-gradient(135deg, #22D68F, #1AAF74) !important; }
+.btn--error   { background: linear-gradient(135deg, #e53e3e, #c53030) !important; }
+.btn--success .btn__spinner,
+.btn--error   .btn__spinner { opacity: 0; }
+.btn--success .btn__label,
+.btn--error   .btn__label { opacity: 1; }
+
+@keyframes btnSpin {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn__spinner { animation: none; }
+}
+
+/* ============================
+   FORM TRUST MICROCOPY
+   ============================ */
+.form-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--c-text-dim);
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form-trust svg {
+    color: var(--c-green);
+    flex-shrink: 0;
+}
+
+/* ============================
+   LGPD CONSENT CHECKBOX
+   ============================ */
+.form-group--consent { margin-top: 4px; }
+
+.consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--c-text-dim);
+    cursor: pointer;
+}
+
+.consent input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--c-purple);
+    cursor: pointer;
+}
+
+.consent a {
+    color: var(--c-purple-l);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.consent a:hover { color: var(--c-green); }
 
 /* end of file */

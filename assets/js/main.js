@@ -25,6 +25,9 @@
             var next = current === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('c4t-theme', next);
+            if (typeof window.renderC4tHCaptcha === 'function') {
+                window.renderC4tHCaptcha(next);
+            }
         });
     }
 
@@ -226,6 +229,15 @@
             e.preventDefault();
             setStatus('', '');
 
+            // Honeypot: bots tendem a marcar todos os inputs (inclusive escondidos)
+            var honeypot = contactForm.querySelector('[name="botcheck"]');
+            if (honeypot && honeypot.checked) {
+                // Finge sucesso para não dar dica ao bot
+                setStatus('Mensagem enviada com sucesso!', 'success');
+                contactForm.reset();
+                return;
+            }
+
             // Remove qualquer campo g-recaptcha-response injetado pelo hCaptcha (compat reCAPTCHA)
             // O Web3Forms confunde com tentativa de usar reCAPTCHA Pro e rejeita o envio.
             contactForm.querySelectorAll('[name="g-recaptcha-response"]').forEach(function (el) {
@@ -236,6 +248,7 @@
             var name = (formData.get('name') || '').toString().trim();
             var email = (formData.get('email') || '').toString().trim();
             var message = (formData.get('message') || '').toString().trim();
+            var consent = contactForm.querySelector('#field-consent');
 
             if (!name || !email || !message) {
                 setStatus('Por favor, preencha todos os campos obrigatórios.', 'error');
@@ -244,6 +257,11 @@
 
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 setStatus('Por favor, informe um e-mail válido.', 'error');
+                return;
+            }
+
+            if (consent && !consent.checked) {
+                setStatus('Você precisa aceitar a Política de Privacidade para enviar.', 'error');
                 return;
             }
 
@@ -258,8 +276,11 @@
             var fullPhone = phone ? cc + ' ' + phone : '';
 
             var submitBtn = contactForm.querySelector('button[type="submit"]');
-            var originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Enviando...';
+            var btnLabel = submitBtn.querySelector('.btn__label');
+            var originalText = btnLabel ? btnLabel.textContent : submitBtn.textContent;
+            if (btnLabel) btnLabel.textContent = 'Enviando';
+            else submitBtn.textContent = 'Enviando...';
+            submitBtn.classList.add('btn--loading');
             submitBtn.disabled = true;
             setStatus('Enviando sua mensagem...', 'info');
 
@@ -280,8 +301,10 @@
                 });
             }).then(function (result) {
                 if (result.ok && result.data && result.data.success) {
-                    submitBtn.textContent = 'Mensagem Enviada \u2713';
-                    submitBtn.style.background = 'linear-gradient(135deg, #22D68F, #1AAF74)';
+                    if (btnLabel) btnLabel.textContent = 'Mensagem Enviada \u2713';
+                    else submitBtn.textContent = 'Mensagem Enviada \u2713';
+                    submitBtn.classList.remove('btn--loading');
+                    submitBtn.classList.add('btn--success');
                     setStatus('Mensagem enviada com sucesso! Em breve nossa equipe entrará em contato.', 'success');
                     contactForm.reset();
                     if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch (e) {} }
@@ -290,14 +313,17 @@
                     throw new Error(apiMsg);
                 }
             }).catch(function (err) {
-                submitBtn.textContent = 'Erro ao enviar';
-                submitBtn.style.background = 'linear-gradient(135deg, #e53e3e, #c53030)';
+                if (btnLabel) btnLabel.textContent = 'Erro ao enviar';
+                else submitBtn.textContent = 'Erro ao enviar';
+                submitBtn.classList.remove('btn--loading');
+                submitBtn.classList.add('btn--error');
                 setStatus((err && err.message ? err.message : 'Erro ao enviar.') + ' Tente novamente em instantes ou escreva para contato@cloud4tech.com.br.', 'error');
                 if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch (e) {} }
             }).finally(function () {
                 setTimeout(function () {
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.background = '';
+                    if (btnLabel) btnLabel.textContent = originalText;
+                    else submitBtn.textContent = originalText;
+                    submitBtn.classList.remove('btn--loading', 'btn--success', 'btn--error');
                     submitBtn.disabled = false;
                 }, 3000);
             });

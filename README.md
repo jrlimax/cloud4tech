@@ -42,7 +42,8 @@ Ser referência nacional em segurança digital e inovação em nuvem, reconhecid
 | **CSS3** | Estilização com CSS Custom Properties (variáveis) |
 | **JavaScript** (Vanilla) | Interatividade e animações |
 | **Google Fonts** | Inter (corpo) + Space Grotesk (títulos) |
-| **Web3Forms** | Backend de formulário de contato (AJAX/JSON) |
+| **Web3Forms** | Backend de formulário de contato (multipart) |
+| **hCaptcha** | Verificação anti-bot no formulário |
 | **flagcdn.com** | Bandeiras dos países no seletor de telefone |
 | **Cloudflare Workers** | Hospedagem (Static Assets via `wrangler`) |
 | **Cloudflare DNS + CDN** | DNS, proxy, SSL/TLS, cache global |
@@ -53,25 +54,28 @@ Ser referência nacional em segurança digital e inovação em nuvem, reconhecid
 
 ```
 Cloud4Tech/
-├── index.html                 # Página principal (single-page)
-├── favicon.ico                # Favicon (falcão)
-├── robots.txt                 # Regras de crawler
-├── sitemap.xml                # Mapa do site
-├── humans.txt                 # Créditos / metadados do time
-├── site.webmanifest           # PWA manifest
-├── _headers                   # Cabeçalhos HTTP (cache, HSTS, CSP)
-├── wrangler.jsonc             # Configuração do Cloudflare Workers
-├── .editorconfig              # Padrão de indentação do projeto
+├── index.html                      # Página principal (single-page)
+├── privacidade.html                # Política de Privacidade (LGPD)
+├── favicon.ico                     # Favicon (falcão)
+├── robots.txt                      # Regras de crawler
+├── sitemap.xml                     # Mapa do site
+├── humans.txt                      # Créditos / metadados do time
+├── site.webmanifest                # PWA manifest
+├── _headers                        # Cabeçalhos HTTP (cache, HSTS, CSP)
+├── wrangler.jsonc                  # Configuração do Cloudflare Workers
+├── .editorconfig                   # Padrão de indentação do projeto
 ├── .well-known/
-│   └── security.txt           # Política de segurança (RFC 9116)
+│   └── security.txt                # Política de segurança (RFC 9116)
 ├── assets/
 │   ├── css/
-│   │   └── styles.css         # Estilos completos (dark + light mode)
+│   │   └── styles.css              # Estilos completos (dark + light mode)
 │   ├── js/
-│   │   └── main.js            # Interatividade e lógica
+│   │   ├── theme-init.js           # Aplica tema antes do paint (sem FOUC)
+│   │   ├── hcaptcha-bootstrap.js   # Render explícito do hCaptcha por tema
+│   │   └── main.js                 # Interatividade e lógica
 │   └── images/
-│       ├── falcon.png         # Mascote (falcão)
-│       └── logo.png           # Logo da empresa
+│       ├── falcon.png              # Mascote (falcão)
+│       └── logo.png                # Logo da empresa
 └── README.md
 ```
 
@@ -82,8 +86,9 @@ Cloud4Tech/
 ### 🎨 Tema Claro / Escuro
 - Toggle na navbar com ícones de sol/lua
 - Preferência salva no `localStorage`
-- Carregamento sem flash (script inline no `<head>`)
+- Carregamento sem flash (script externo `theme-init.js` no `<head>`)
 - `theme-color` adapta a cor da barra do navegador (mobile)
+- hCaptcha re-renderiza automaticamente seguindo o tema ativo
 
 ### 🦅 Animação do Logo
 - Letras "CLOUD4TECH" aparecem uma a uma (stagger)
@@ -99,12 +104,16 @@ Cloud4Tech/
 - Falcão com `clamp()` para escala responsiva
 
 ### 📬 Formulário de Contato
-- Integração com Web3Forms via AJAX (JSON)
+- Integração com Web3Forms via `FormData` multipart
+- **hCaptcha** com render explícito (segue tema claro/escuro)
+- **Checkbox LGPD** obrigatório com link para Política de Privacidade
+- **Honeypot** validado client-side (defesa em profundidade)
 - Seletor de país com bandeiras reais (flagcdn.com, lazy-loaded)
 - Máscara automática de telefone: `(XX) XXXXX-XXXX`
 - Validação client-side de campos obrigatórios e e-mail
 - Mensagens de status inline com `aria-live` (acessível)
-- Honeypot anti-spam fora da tela
+- **Spinner animado** no botão durante o envio
+- Microcopy de confiança: “Resposta em até 24h úteis. Seus dados não são compartilhados.”
 
 ### 🧭 Navegação
 - Navbar fixa com efeito blur ao rolar
@@ -123,12 +132,20 @@ Cloud4Tech/
 - `prefers-reduced-motion` respeitado globalmente
 - `role="status"` e `aria-live` no formulário
 
+### � Botão WhatsApp Flutuante
+- Fixo no canto inferior direito (z-index alto, fora do fluxo)
+- Animação de pulso (respeita `prefers-reduced-motion`)
+- Mensagem pré-preenchida com origem do lead (atribuição automática)
+
 ### 🔒 Segurança (via `_headers` na Cloudflare)
 - **HSTS** com preload
-- **Content-Security-Policy** estrita
+- **Content-Security-Policy** estrita (todo JS executável em arquivos externos)
 - `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`
 - Cache imutável de 1 ano em `/assets/*`
 - HTML com revalidação forçada (deploys aparecem na hora)
+- **LGPD**: Política de Privacidade dedicada + consentimento explícito no formulário
+- **hCaptcha** (sitekey compartilhada do Web3Forms) bloqueia bots
+- **Honeypot** captura bots que ignoram captcha
 
 ---
 
@@ -138,10 +155,11 @@ Cloud4Tech/
 |---|---|
 | **Hero** | Apresentação principal com falcão, animação C4T e CTAs |
 | **Sobre** | Quem somos, diferenciais e pilares de atuação |
+| **Tecnologias** | Parceiros (Microsoft, Azure, Oracle, Acronis) em barra horizontal com hover |
 | **Serviços** | 5 cards: EDR, XDR, Infraestrutura em Cloud, Inteligência Artificial e Cibersegurança Corporativa |
 | **Missão & Valores** | Missão, visão e valores da empresa |
-| **Contato** | Formulário completo com envio real de e-mail |
-| **Footer** | Links de navegação, serviços e informações de contato |
+| **Contato** | Formulário completo com hCaptcha, LGPD e envio real de e-mail |
+| **Footer** | Links de navegação, serviços, contato e Política de Privacidade |
 
 ---
 

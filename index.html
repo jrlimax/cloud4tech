@@ -39,10 +39,9 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" href="assets/images/falcon.png" as="image" fetchpriority="high">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="https://js.hcaptcha.com/1/api.js?recaptchacompat=off" async defer></script>
-    <script>
-        (function(){var t=localStorage.getItem('c4t-theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
-    </script>
+    <script src="assets/js/theme-init.js"></script>
+    <script src="assets/js/hcaptcha-bootstrap.js"></script>
+    <script src="https://js.hcaptcha.com/1/api.js?recaptchacompat=off&render=explicit&onload=onHCaptchaLoad" async defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -440,9 +439,22 @@
                         <textarea name="message" id="field-message" rows="4" placeholder="Descreva brevemente o que precisa: segurança, cloud, consultoria..." required></textarea>
                     </div>
                     <div class="form-group form-group--captcha">
-                        <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-captcha="true" data-theme="dark" data-size="normal"></div>
+                        <div id="hcaptchaContainer" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
                     </div>
-                    <button type="submit" class="btn btn--primary btn--lg btn--full">Enviar Mensagem</button>
+                    <div class="form-group form-group--consent">
+                        <label class="consent">
+                            <input type="checkbox" name="consent" id="field-consent" required>
+                            <span>Li e concordo com a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo o tratamento dos meus dados conforme a LGPD.</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--lg btn--full" id="submitBtn">
+                        <span class="btn__label">Enviar Mensagem</span>
+                        <span class="btn__spinner" aria-hidden="true"></span>
+                    </button>
+                    <p class="form-trust">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Resposta em até 24h úteis. Seus dados não são compartilhados.
+                    </p>
                     <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
@@ -484,10 +496,21 @@
         </div>
         <div class="container">
             <div class="footer__bottom">
-                <p>&copy; 2026 Cloud4Tech. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Cloud4Tech. Todos os direitos reservados. &middot; <a href="privacidade.html">Política de Privacidade</a></p>
             </div>
         </div>
     </footer>
+
+    <a href="https://wa.me/5511987839637?text=Ol%C3%A1!%20Vim%20pelo%20site%20Cloud4Tech%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+       class="wa-float"
+       target="_blank"
+       rel="noopener"
+       aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+            <path fill="currentColor" d="M16.003 3C9.376 3 4 8.376 4 15.003c0 2.117.555 4.184 1.61 6.005L4 29l8.184-1.564a12.01 12.01 0 0 0 3.819.622h.005C22.628 28.058 28 22.682 28 16.055 28 9.428 22.628 3 16.003 3zm0 22.66h-.004a9.97 9.97 0 0 1-3.452-.638l-.247-.093-4.86.929.91-4.74-.16-.246a9.95 9.95 0 0 1-1.55-5.336c0-5.5 4.475-9.974 9.974-9.974 2.665 0 5.17 1.038 7.053 2.922a9.91 9.91 0 0 1 2.92 7.05c0 5.5-4.474 9.973-9.974 9.973zm5.47-7.477c-.3-.15-1.772-.873-2.046-.972-.275-.1-.475-.15-.674.15-.2.3-.774.972-.95 1.171-.174.2-.349.225-.648.075-.3-.15-1.265-.466-2.41-1.486-.89-.793-1.49-1.773-1.665-2.072-.175-.3-.018-.462.131-.611.135-.135.3-.349.45-.524.15-.175.2-.3.3-.499.1-.2.05-.374-.025-.524-.075-.15-.674-1.624-.924-2.224-.244-.583-.491-.504-.674-.514l-.574-.01a1.1 1.1 0 0 0-.799.374c-.274.3-1.049 1.025-1.049 2.499s1.074 2.898 1.224 3.099c.15.2 2.114 3.227 5.119 4.527.715.308 1.273.493 1.708.632.717.228 1.37.196 1.886.119.575-.086 1.772-.724 2.022-1.424.25-.7.25-1.299.175-1.424-.075-.124-.275-.2-.575-.349z"/>
+        </svg>
+        <span class="wa-float__pulse" aria-hidden="true"></span>
+    </a>
 
     <script src="assets/js/main.js"></script>
 </body>
