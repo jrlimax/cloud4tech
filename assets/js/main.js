@@ -261,6 +261,8 @@
             formData.set('Telefone', fullPhone);
             formData.set('from_name', 'Cloud4Tech Site');
             formData.set('subject', 'Nova mensagem do site Cloud4Tech');
+            // Remove g-recaptcha-response (hCaptcha pode injetar por compat e Web3Forms confunde com Pro feature)
+            formData.delete('g-recaptcha-response');
 
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
