@@ -1051,9 +1051,11 @@ h1, h2, h3, h4 {
     }
 
     .values-list {
+        display: flex;
+        flex-direction: column;
         align-items: flex-start;
-        display: inline-flex;
         margin: 0 auto;
+        max-width: 280px;
     }
 
     .cta__inner {
@@ -1369,6 +1371,228 @@ h1, h2, h3, h4 {
     [data-aos] {
         opacity: 1 !important;
         transform: none !important;
+    }
+}
+
+/* ============================
+   PARTNERS / TECNOLOGIAS
+   ============================ */
+.partners {
+    background: var(--c-bg);
+}
+
+.section__header--compact {
+    margin-bottom: 48px;
+}
+
+.partners__bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 36px 48px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(34, 214, 143, 0.04));
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(6px);
+}
+
+.partners__bar::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: var(--radius-lg);
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), transparent 40%, rgba(34, 214, 143, 0.25));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.partner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    justify-content: center;
+    color: var(--c-white);
+    transition: color var(--transition), transform var(--transition);
+}
+
+.partner + .partner::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(to bottom, transparent, var(--c-border), transparent);
+}
+
+.partner:hover {
+    transform: translateY(-2px);
+}
+
+.partner__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--c-purple-l);
+    transition: color var(--transition);
+}
+
+.partner:hover .partner__icon {
+    color: var(--c-green);
+}
+
+.partner__icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
+.partner__name {
+    font-family: var(--ff-heading);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    color: var(--c-white);
+}
+
+/* ============================
+   MOBILE POLISH (extras)
+   ============================ */
+@media (max-width: 768px) {
+    .partners__bar {
+        flex-wrap: wrap;
+        padding: 24px 20px;
+        gap: 18px 12px;
+    }
+
+    .partner {
+        flex: 0 0 calc(50% - 6px);
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .partner + .partner::before {
+        display: none;
+    }
+
+    .partner__icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .partner__name {
+        font-size: 0.95rem;
+    }
+
+    /* Tap targets mais amig\u00e1veis no mobile */
+    .navbar__links a,
+    .footer__links a {
+        padding: 4px 0;
+    }
+
+    /* Evita scroll horizontal acidental */
+    .container {
+        overflow-x: clip;
+    }
+
+    /* Form labels com mais respiro */
+    .form-label {
+        font-size: 0.82rem;
+    }
+
+    /* Inputs maiores no mobile pra evitar zoom autom\u00e1tico do iOS (precisa ser >=16px) */
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 16px;
+        padding: 12px 16px;
+    }
+
+    .country-select__btn {
+        font-size: 0.9rem;
+        padding: 12px 14px;
+    }
+
+    /* Hero scroll desativado tamb\u00e9m em mobile (j\u00e1 ocupa pouco espa\u00e7o) */
+    .hero__scroll {
+        bottom: 16px;
+    }
+
+    /* Valores: limpa o layout inline-flex estranho */
+    .mission-card--values .values-list {
+        display: flex;
+        align-items: flex-start;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    /* Mission card center alignment fix */
+    [data-theme="light"] .navbar__links {
+        background: rgba(245,243,255,0.98);
+    }
+}
+
+@media (max-width: 480px) {
+    .partners__bar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px 18px;
+        gap: 14px;
+    }
+
+    .partner {
+        flex: 1 1 auto;
+        justify-content: flex-start;
+        padding: 6px 0;
+    }
+
+    .partner + .partner::before {
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 1px;
+        transform: none;
+        background: linear-gradient(to right, transparent, var(--c-border), transparent);
+    }
+
+    /* Quando dropdown de pa\u00eds est\u00e1 stacked, lista expande width inteira */
+    .country-select.open .country-select__list {
+        width: 100%;
+        min-width: auto;
+    }
+
+    /* Footer mais compacto */
+    .footer__inner {
+        gap: 24px 12px;
+    }
+
+    /* Navbar logo n\u00e3o quebra em duas linhas */
+    .navbar__logo {
+        letter-spacing: 1.5px;
+    }
+
+    /* Hero mais respir\u00e1vel */
+    .hero {
+        padding-top: 72px;
+    }
+
+    .hero__actions {
+        gap: 12px;
     }
 }
 
