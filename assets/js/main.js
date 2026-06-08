@@ -226,6 +226,12 @@
             e.preventDefault();
             setStatus('', '');
 
+            // Remove qualquer campo g-recaptcha-response injetado pelo hCaptcha (compat reCAPTCHA)
+            // O Web3Forms confunde com tentativa de usar reCAPTCHA Pro e rejeita o envio.
+            contactForm.querySelectorAll('[name="g-recaptcha-response"]').forEach(function (el) {
+                el.parentNode.removeChild(el);
+            });
+
             var formData = new FormData(contactForm);
             var name = (formData.get('name') || '').toString().trim();
             var email = (formData.get('email') || '').toString().trim();
