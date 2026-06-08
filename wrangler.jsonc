@@ -1,0 +1,8 @@
+{
+    "name": "cloud4tech",
+    "compatibility_date": "2026-06-08",
+    "assets": {
+        "directory": "./",
+        "not_found_handling": "single-page-application"
+    }
+}
