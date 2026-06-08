@@ -39,6 +39,7 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" href="assets/images/falcon.png" as="image" fetchpriority="high">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script>
         (function(){var t=localStorage.getItem('c4t-theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
     </script>
@@ -437,6 +438,9 @@
                     <div class="form-group">
                         <label class="form-label" for="field-message">Mensagem *</label>
                         <textarea name="message" id="field-message" rows="4" placeholder="Descreva brevemente o que precisa: segurança, cloud, consultoria..." required></textarea>
+                    </div>
+                    <div class="form-group form-group--turnstile">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAADg2RZo0hWLlDBmn" data-theme="auto" data-size="flexible"></div>
                     </div>
                     <button type="submit" class="btn btn--primary btn--lg btn--full">Enviar Mensagem</button>
                     <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>

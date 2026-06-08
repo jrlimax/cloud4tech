@@ -241,6 +241,12 @@
                 return;
             }
 
+            var turnstileToken = (formData.get('cf-turnstile-response') || '').toString();
+            if (!turnstileToken) {
+                setStatus('Por favor, complete a verificação de segurança antes de enviar.', 'error');
+                return;
+            }
+
             var cc = countryCodeInput ? countryCodeInput.value : '+55';
             var phone = (formData.get('phone') || '').toString().trim();
             var fullPhone = phone ? cc + ' ' + phone : '';
@@ -262,7 +268,8 @@
                     name: name,
                     email: email,
                     Telefone: fullPhone,
-                    message: message
+                    message: message,
+                    'cf-turnstile-response': turnstileToken
                 })
             }).then(function (res) {
                 return res.json().then(function (data) {
@@ -274,6 +281,7 @@
                     submitBtn.style.background = 'linear-gradient(135deg, #22D68F, #1AAF74)';
                     setStatus('Mensagem enviada com sucesso! Em breve nossa equipe entrará em contato.', 'success');
                     contactForm.reset();
+                    if (window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
                 } else {
                     var apiMsg = (result.data && result.data.message) ? result.data.message : 'Não foi possível enviar a mensagem.';
                     throw new Error(apiMsg);
@@ -282,6 +290,7 @@
                 submitBtn.textContent = 'Erro ao enviar';
                 submitBtn.style.background = 'linear-gradient(135deg, #e53e3e, #c53030)';
                 setStatus((err && err.message ? err.message : 'Erro ao enviar.') + ' Tente novamente em instantes ou escreva para contato@cloud4tech.com.br.', 'error');
+                if (window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
             }).finally(function () {
                 setTimeout(function () {
                     submitBtn.textContent = originalText;
