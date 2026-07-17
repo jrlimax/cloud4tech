@@ -274,33 +274,6 @@ h1, h2, h3, h4 {
     transform: translateY(0);
 }
 
-/* Phase 2: hidden letters collapse out */
-.logo-anim.phase-collapse .logo-anim__hide {
-    max-width: 0;
-    opacity: 0;
-    transform: scale(0.5);
-    margin: 0;
-    padding: 0;
-    letter-spacing: 0;
-    font-size: 0;
-}
-
-.logo-anim.phase-collapse .logo-anim__keep {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Phase 3: hover expand back to CLOUD4TECH */
-.logo-anim.phase-collapse.hover-ready {
-    cursor: pointer;
-}
-
-.logo-anim.phase-collapse.hover-ready:hover .logo-anim__hide {
-    max-width: 1em;
-    opacity: 1;
-    transform: scale(1);
-}
-
 /* --- Falcon in logo animation --- */
 .logo-anim__falcon {
     margin-bottom: 24px;
@@ -641,6 +614,62 @@ h1, h2, h3, h4 {
 }
 
 /* ============================
+   RISK BAND
+   ============================ */
+.risk-band {
+    background: linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(34,214,143,0.06) 100%);
+    border-top: 1px solid var(--c-border);
+    border-bottom: 1px solid var(--c-border);
+    padding: 48px 0;
+}
+
+.risk-band__inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.risk-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.risk-stat__number {
+    font-family: var(--ff-heading);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: var(--c-green);
+    line-height: 1;
+}
+
+.risk-stat__label {
+    font-size: 0.88rem;
+    color: var(--c-text);
+    max-width: 280px;
+}
+
+.risk-band__cta {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--c-white);
+}
+
+.risk-band__cta a {
+    color: var(--c-green);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.risk-band__cta a:hover {
+    opacity: 0.8;
+}
+
+/* ============================
    CTA / CONTACT
    ============================ */
 .cta {
@@ -663,6 +692,25 @@ h1, h2, h3, h4 {
 .cta__desc {
     font-size: 1.05rem;
     color: var(--c-text);
+}
+
+.cta__whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.btn--whatsapp {
+    background: #25D366;
+    color: #fff;
+    border: none;
+}
+
+.btn--whatsapp:hover {
+    background: #1ebe5b;
+    color: #fff;
+    transform: translateY(-2px);
 }
 
 .cta__form {
@@ -715,102 +763,7 @@ h1, h2, h3, h4 {
     min-height: 100px;
 }
 
-/* Phone row */
-.phone-row {
-    display: flex;
-    gap: 8px;
-}
-
-/* Custom country dropdown */
-.country-select {
-    position: relative;
-    flex-shrink: 0;
-}
-
-.country-select__btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--c-bg-card);
-    border: 1px solid var(--c-border);
-    border-radius: var(--radius-sm);
-    padding: 10px 14px;
-    color: var(--c-white);
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: var(--transition);
-    white-space: nowrap;
-    height: 100%;
-}
-
-.country-select__btn:hover {
-    border-color: rgba(124,58,237,0.3);
-}
-
-.country-flag {
-    width: 22px;
-    height: auto;
-    border-radius: 2px;
-}
-
-.country-code {
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.country-arrow {
-    color: var(--c-text-dim);
-    transition: transform 0.2s ease;
-}
-
-.country-select.open .country-arrow {
-    transform: rotate(180deg);
-}
-
-.country-select__list {
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
-    min-width: 140px;
-    background: var(--c-bg-card);
-    border: 1px solid var(--c-border);
-    border-radius: var(--radius-sm);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-    list-style: none;
-    padding: 6px 0;
-    margin: 0;
-    z-index: 50;
-    max-height: 240px;
-    overflow-y: auto;
-    display: none;
-}
-
-.country-select.open .country-select__list {
-    display: block;
-}
-
-.country-select__list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 14px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    color: var(--c-text);
-    transition: background 0.15s ease;
-}
-
-.country-select__list li:hover {
-    background: rgba(124,58,237,0.12);
-    color: var(--c-white);
-}
-
-.country-select__list li img {
-    width: 22px;
-    height: auto;
-    border-radius: 2px;
-}
-
+/* Phone field */
 .phone-number {
     flex: 1;
     min-width: 0;
@@ -972,22 +925,6 @@ h1, h2, h3, h4 {
 [data-theme="light"] .form-group input::placeholder,
 [data-theme="light"] .form-group textarea::placeholder {
     color: var(--c-text-dim);
-}
-
-[data-theme="light"] .country-select__btn {
-    background: var(--c-bg-card);
-    color: var(--c-white);
-    border-color: var(--c-border);
-}
-
-[data-theme="light"] .country-select__list {
-    background: var(--c-bg-card);
-    border-color: var(--c-border);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-}
-
-[data-theme="light"] .country-select__list li:hover {
-    background: rgba(124,58,237,0.08);
 }
 
 [data-theme="light"] .logo-anim__falcon {
@@ -1263,17 +1200,9 @@ h1, h2, h3, h4 {
         margin-bottom: 12px;
     }
 
-    .phone-row {
-        flex-direction: column;
-    }
-
-    .country-select {
-        width: 100%;
-    }
-
-    .country-select__btn {
-        width: 100%;
-        justify-content: center;
+    .risk-band__inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 
     .cta__title {
@@ -1552,11 +1481,6 @@ h1, h2, h3, h4 {
         padding: 12px 16px;
     }
 
-    .country-select__btn {
-        font-size: 0.9rem;
-        padding: 12px 14px;
-    }
-
     /* Hero scroll desativado tamb\u00e9m em mobile (j\u00e1 ocupa pouco espa\u00e7o) */
     .hero__scroll {
         bottom: 16px;
@@ -1599,12 +1523,6 @@ h1, h2, h3, h4 {
 
     .partner__name {
         font-size: 1.1rem;
-    }
-
-    /* Quando dropdown de pa\u00eds est\u00e1 stacked, lista expande width inteira */
-    .country-select.open .country-select__list {
-        width: 100%;
-        min-width: auto;
     }
 
     /* Footer mais compacto */

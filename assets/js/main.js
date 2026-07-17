@@ -133,7 +133,7 @@
                 letter.style.opacity = '1';
                 letter.style.transform = 'none';
             });
-            logoLetters.classList.add('phase-reveal', 'phase-collapse', 'hover-ready');
+            logoLetters.classList.add('phase-reveal');
             if (logoFalcon) logoFalcon.classList.add('visible');
             return;
         }
@@ -153,14 +153,6 @@
             logoLetters.classList.add('phase-reveal');
             if (logoFalcon) logoFalcon.classList.add('visible');
         }, revealDone);
-
-        // Phase 2: Collapse to C4T (after pause)
-        setTimeout(function () {
-            logoLetters.classList.add('phase-collapse');
-            setTimeout(function () {
-                logoLetters.classList.add('hover-ready');
-            }, 900);
-        }, revealDone + 2000);
     }
 
     // Start animation on load
@@ -168,37 +160,6 @@
         revealOnScroll();
         setTimeout(runLogoAnimation, 300);
     });
-
-    // --- Country selector dropdown ---
-    var countrySelect = document.getElementById('countrySelect');
-    var countryBtn = document.getElementById('countryBtn');
-    var countryList = document.getElementById('countryList');
-    var countryCodeInput = document.getElementById('countryCodeInput');
-    var countryFlag = document.getElementById('countryFlag');
-    var countryCodeSpan = document.getElementById('countryCode');
-
-    if (countryBtn && countryList) {
-        countryBtn.addEventListener('click', function () {
-            countrySelect.classList.toggle('open');
-        });
-
-        countryList.querySelectorAll('li').forEach(function (li) {
-            li.addEventListener('click', function () {
-                var code = li.getAttribute('data-code');
-                var flag = li.getAttribute('data-flag');
-                countryCodeInput.value = code;
-                countryFlag.src = 'https://flagcdn.com/w40/' + flag + '.png';
-                countryCodeSpan.textContent = code;
-                countrySelect.classList.remove('open');
-            });
-        });
-
-        document.addEventListener('click', function (e) {
-            if (!countrySelect.contains(e.target)) {
-                countrySelect.classList.remove('open');
-            }
-        });
-    }
 
     // --- Contact form (Web3Forms) ---
     var contactForm = document.getElementById('contactForm');
@@ -271,7 +232,7 @@
                 return;
             }
 
-            var cc = countryCodeInput ? countryCodeInput.value : '+55';
+            var cc = '+55';
             var phone = (formData.get('phone') || '').toString().trim();
             var fullPhone = phone ? cc + ' ' + phone : '';
 
