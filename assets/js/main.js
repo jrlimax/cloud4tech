@@ -161,6 +161,18 @@
         setTimeout(runLogoAnimation, 300);
     });
 
+    // --- Dropdown aria-expanded (navbar) ---
+    document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
+        var trigger = dd.querySelector(':scope > a');
+        if (!trigger) return;
+        function setExpanded(value) { trigger.setAttribute('aria-expanded', value); }
+        setExpanded('false');
+        dd.addEventListener('mouseenter', function () { setExpanded('true'); });
+        dd.addEventListener('mouseleave', function () { setExpanded('false'); });
+        dd.addEventListener('focusin', function () { setExpanded('true'); });
+        dd.addEventListener('focusout', function () { setExpanded('false'); });
+    });
+
     // --- Contact form (Web3Forms) ---
     var contactForm = document.getElementById('contactForm');
     if (contactForm) {

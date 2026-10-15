@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Aplicada à Segurança: Detecção de Anomalias e Resposta | Cloud4Tech</title>
+    <meta name="description" content="Inteligência artificial aplicada à cibersegurança: detecção de anomalias em tempo real, triagem automática de alertas e resposta a incidentes em segundos. Conheça a abordagem da Cloud4Tech.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#0B0D14" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#F7F8FA" media="(prefers-color-scheme: light)">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cloud4Tech">
+    <meta property="og:title" content="IA aplicada à Segurança: do alerta à resposta em segundos | Cloud4Tech">
+    <meta property="og:description" content="Detecção de anomalias, triagem automática de alertas e resposta a incidentes com inteligência artificial.">
+    <meta property="og:image" content="https://cloud4tech.com.br/assets/images/og-card.png">
+    <meta property="og:url" content="https://cloud4tech.com.br/ia-seguranca">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="https://cloud4tech.com.br/ia-seguranca">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/falcon.png">
+    <link rel="stylesheet" href="assets/css/styles.css?v=5">
+    <script src="assets/js/theme-init.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://cloud4tech.com.br/" },
+            { "@type": "ListItem", "position": 2, "name": "IA Aplicada à Segurança", "item": "https://cloud4tech.com.br/ia-seguranca" }
+          ]
+        },
+        {
+          "@type": "Service",
+          "name": "Inteligência Artificial Aplicada à Segurança",
+          "serviceType": "AI Security",
+          "provider": { "@id": "https://cloud4tech.com.br/#organization" },
+          "areaServed": "BR",
+          "description": "IA aplicada à cibersegurança: detecção de anomalias por aprendizado de comportamento, triagem automática de alertas e automação de resposta a incidentes."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Como a IA detecta uma ameaça que nunca foi vista antes?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Em vez de procurar assinaturas de ameaças conhecidas, a IA aprende o comportamento normal do seu ambiente: horários de acesso, volumes de dados, padrões de cada usuário e sistema. Quando algo desvia desse padrão — um acesso massivo a arquivos às 3h da manhã, por exemplo — é sinalizado e tratado, mesmo que o ataque seja inédito." }
+            },
+            {
+              "@type": "Question",
+              "name": "A IA substitui a equipe de segurança?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Não — ela multiplica a capacidade da equipe. A IA faz a triagem de milhares de alertas, descarta falsos positivos e prioriza o que importa, liberando os analistas para investigação e decisão. A resposta automatizada age nos casos claros; o julgamento humano continua nos casos ambíguos." }
+            },
+            {
+              "@type": "Question",
+              "name": "Isso não gera muitos falsos positivos?",
+              "acceptedAnswer": { "@type": "Answer", "text": "É o contrário: o excesso de falsos positivos é o problema das ferramentas tradicionais baseadas em regras fixas. Modelos de comportamento reduzem drasticamente o ruído porque entendem o contexto — o mesmo acesso pode ser normal para um usuário e anômalo para outro." }
+            },
+            {
+              "@type": "Question",
+              "name": "Meus dados são usados para treinar modelos de terceiros?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Não. As soluções que implantamos processam os dados do seu ambiente para proteger o seu ambiente, com contratos e configurações que impedem uso externo. Privacidade e LGPD fazem parte do desenho da solução." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container navbar__inner">
+            <a href="/" class="navbar__logo">
+                <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
+            </a>
+            <ul class="navbar__links" id="navLinks">
+                <li><a href="/#about">Sobre</a></li>
+                <li class="nav-dropdown">
+                    <a href="/#partners" aria-haspopup="true" aria-expanded="false">Tecnologias</a>
+                    <div class="nav-dropdown__menu">
+                        <a href="/migracao-azure">Microsoft Azure</a>
+                        <a href="/cloud-gerenciada">Microsoft 365 & Entra ID</a>
+                        <a href="/cloud-gerenciada">Microsoft Intune</a>
+                        <a href="/migracao-azure">Oracle Cloud (OCI)</a>
+                        <a href="/cloud-gerenciada">Acronis Cyber Protect</a>
+                        <a href="/ciberseguranca-edr-xdr">Sophos & Fortinet</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="/#services" aria-haspopup="true" aria-expanded="false">Serviços</a>
+                    <div class="nav-dropdown__menu">
+                        <a href="/migracao-azure">Migração para Azure</a>
+                        <a href="/ciberseguranca-edr-xdr">Cibersegurança EDR & XDR</a>
+                        <a href="/cloud-gerenciada">Cloud Gerenciada</a>
+                        <a href="/ia-seguranca">IA para Segurança</a>
+                    </div>
+                </li>
+                <li><a href="/#mission">Missão & Valores</a></li>
+                <li><a href="/#contact" class="btn btn--sm btn--primary">Fale Conosco</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                <svg class="theme-icon theme-icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="theme-icon theme-icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="navbar__toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <header class="page-hero">
+        <div class="container">
+            <p class="page-hero__breadcrumb"><a href="/">Início</a> / <span>IA Aplicada à Segurança</span></p>
+            <h1 class="page-hero__title">Segurança que <span class="gradient-text">aprende e reage sozinha</span></h1>
+            <p class="page-hero__desc">
+                Nenhuma equipe humana analisa milhões de eventos por dia. A IA aprende o comportamento normal do seu ambiente, detecta o anômalo em tempo real e responde em segundos — enquanto sua equipe foca no que exige julgamento.
+            </p>
+            <div class="page-hero__actions">
+                <a href="/#contact" class="btn btn--primary btn--lg">Conversar com Especialista</a>
+                <a href="#como-funciona" class="btn btn--outline btn--lg">Como funciona</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== CONTEÚDO ===== -->
+    <section class="section" id="como-funciona">
+        <div class="container prose">
+            <h2>Do oceano de alertas à <span class="gradient-text">resposta precisa</span></h2>
+            <p>
+                O problema da segurança moderna não é falta de dados — é excesso. Firewalls, endpoints, identidade e cloud geram <strong>milhares de alertas por dia</strong>, e a maioria é ruído. O resultado conhecido: alerta importante ignorado no meio de mil irrelevantes, e o incidente só é percebido quando o dano está feito.
+            </p>
+            <p>
+                A IA aplicada à segurança inverte o jogo em três camadas: <strong>aprendizado de comportamento</strong> (o que é normal para cada usuário e sistema), <strong>detecção de anomalias</strong> (desvios sinalizados em tempo real, mesmo de ataques inéditos) e <strong>automação de resposta</strong> (isolamento, bloqueio e contenção em segundos, não em horas).
+            </p>
+            <h3>O que entregamos</h3>
+            <ul class="check-list">
+                <li>Análise de maturidade e desenho da estratégia de IA para segurança do seu ambiente</li>
+                <li>Detecção de anomalias por comportamento em identidade, endpoints e cloud</li>
+                <li>Triagem automática de alertas: menos ruído, prioridade no que importa</li>
+                <li>Playbooks de resposta automatizada a incidentes (isolamento, bloqueio, contenção)</li>
+                <li>Integração com seu ambiente Microsoft (Defender, Sentinel) ou multicloud</li>
+                <li>Governança e privacidade: dados do seu ambiente protegem só o seu ambiente</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== PROCESSO ===== -->
+    <section class="section" style="background: var(--c-bg-alt);">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Como Funciona</span>
+                <h2 class="section__title">Implantação em <span class="gradient-text">4 etapas</span></h2>
+            </div>
+            <div class="steps">
+                <div class="step" data-aos>
+                    <span class="step__num">Etapa 01</span>
+                    <h3>Diagnóstico</h3>
+                    <p>Avaliamos fontes de dados, ferramentas atuais e maturidade de segurança para definir onde a IA gera mais valor.</p>
+                </div>
+                <div class="step" data-aos>
+                    <span class="step__num">Etapa 02</span>
+                    <h3>Aprendizado</h3>
+                    <p>Os modelos aprendem o comportamento normal do ambiente: usuários, sistemas, horários e padrões de acesso.</p>
+                </div>
+                <div class="step" data-aos>
+                    <span class="step__num">Etapa 03</span>
+                    <h3>Automação</h3>
+                    <p>Playbooks de resposta configurados e testados: o que isolar, o que bloquear e o que escalar para humanos.</p>
+                </div>
+                <div class="step" data-aos>
+                    <span class="step__num">Etapa 04</span>
+                    <h3>Evolução</h3>
+                    <p>Ajuste contínuo dos modelos, revisão de falsos positivos e expansão gradual da cobertura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Dúvidas Frequentes</span>
+                <h2 class="section__title">Perguntas sobre <span class="gradient-text">IA e segurança</span></h2>
+            </div>
+            <div class="faq">
+                <details>
+                    <summary>Como a IA detecta uma ameaça que nunca foi vista antes?</summary>
+                    <p>Em vez de procurar assinaturas de ameaças conhecidas, a IA aprende o comportamento normal do seu ambiente: horários de acesso, volumes de dados, padrões de cada usuário e sistema. Quando algo desvia desse padrão — um acesso massivo a arquivos às 3h da manhã, por exemplo — é sinalizado e tratado, mesmo que o ataque seja inédito.</p>
+                </details>
+                <details>
+                    <summary>A IA substitui a equipe de segurança?</summary>
+                    <p>Não — ela multiplica a capacidade da equipe. A IA faz a triagem de milhares de alertas, descarta falsos positivos e prioriza o que importa, liberando os analistas para investigação e decisão. A resposta automatizada age nos casos claros; o julgamento humano continua nos casos ambíguos.</p>
+                </details>
+                <details>
+                    <summary>Isso não gera muitos falsos positivos?</summary>
+                    <p>É o contrário: o excesso de falsos positivos é o problema das ferramentas tradicionais baseadas em regras fixas. Modelos de comportamento reduzem drasticamente o ruído porque entendem o contexto — o mesmo acesso pode ser normal para um usuário e anômalo para outro.</p>
+                </details>
+                <details>
+                    <summary>Meus dados são usados para treinar modelos de terceiros?</summary>
+                    <p>Não. As soluções que implantamos processam os dados do seu ambiente para proteger o seu ambiente, com contratos e configurações que impedem uso externo. Privacidade e LGPD fazem parte do desenho da solução.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BAND ===== -->
+    <section class="cta-band">
+        <div class="container">
+            <h2>Quantos alertas sua equipe <span class="gradient-text">ignorou hoje?</span></h2>
+            <p>Converse com um especialista e descubra como a IA pode reduzir o ruído e acelerar a resposta no seu ambiente.</p>
+            <div class="cta-band__actions">
+                <a href="/#contact" class="btn btn--primary btn--lg">Conversar com Especialista</a>
+                <a href="https://wa.me/5511987839637?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20IA%20aplicada%20%C3%A0%20seguran%C3%A7a."
+                   class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">Falar no WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <a href="/" class="navbar__logo">
+                    <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
+                </a>
+                <p>Segurança, inteligência e infraestrutura cloud.</p>
+            </div>
+            <div class="footer__links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="/#about">Sobre</a></li>
+                    <li><a href="/#services">Serviços</a></li>
+                    <li><a href="/#mission">Missão & Valores</a></li>
+                    <li><a href="/#contact">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="/migracao-azure">Migração para Azure</a></li>
+                    <li><a href="/ciberseguranca-edr-xdr">Cibersegurança EDR & XDR</a></li>
+                    <li><a href="/cloud-gerenciada">Cloud Gerenciada</a></li>
+                    <li><a href="/ia-seguranca">IA para Segurança</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="mailto:contato@cloud4tech.com.br">contato@cloud4tech.com.br</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer__bottom">
+                <p>&copy; 2026 Cloud4Tech. Todos os direitos reservados. &middot; <a href="/privacidade">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5511987839637?text=Ol%C3%A1!%20Vim%20pelo%20site%20Cloud4Tech%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+       class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+            <path fill="currentColor" d="M16.003 3C9.376 3 4 8.376 4 15.003c0 2.117.555 4.184 1.61 6.005L4 29l8.184-1.564a12.01 12.01 0 0 0 3.819.622h.005C22.628 28.058 28 22.682 28 16.055 28 9.428 22.628 3 16.003 3zm0 22.66h-.004a9.97 9.97 0 0 1-3.452-.638l-.247-.093-4.86.929.91-4.74-.16-.246a9.95 9.95 0 0 1-1.55-5.336c0-5.5 4.475-9.974 9.974-9.974 2.665 0 5.17 1.038 7.053 2.922a9.91 9.91 0 0 1 2.92 7.05c0 5.5-4.474 9.973-9.974 9.973zm5.47-7.477c-.3-.15-1.772-.873-2.046-.972-.275-.1-.475-.15-.674.15-.2.3-.774.972-.95 1.171-.174.2-.349.225-.648.075-.3-.15-1.265-.466-2.41-1.486-.89-.793-1.49-1.773-1.665-2.072-.175-.3-.018-.462.131-.611.135-.135.3-.349.45-.524.15-.175.2-.3.3-.499.1-.2.05-.374-.025-.524-.075-.15-.674-1.624-.924-2.224-.244-.583-.491-.504-.674-.514l-.574-.01a1.1 1.1 0 0 0-.799.374c-.274.3-1.049 1.025-1.049 2.499s1.074 2.898 1.224 3.099c.15.2 2.114 3.227 5.119 4.527.715.308 1.273.493 1.708.632.717.228 1.37.196 1.886.119.575-.086 1.772-.724 2.022-1.424.25-.7.25-1.299.175-1.424-.075-.124-.275-.2-.575-.349z"/>
+        </svg>
+        <span class="wa-float__pulse" aria-hidden="true"></span>
+    </a>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migração para Azure: Assessment, Planejamento e Execução | Cloud4Tech</title>
+    <meta name="description" content="Migre servidores, bancos de dados e aplicações para o Microsoft Azure sem parar sua operação. Assessment gratuito, migração em ondas e otimização de custos desde o primeiro dia.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#0B0D14" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#F7F8FA" media="(prefers-color-scheme: light)">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cloud4Tech">
+    <meta property="og:title" content="Migração para Azure sem parar sua operação | Cloud4Tech">
+    <meta property="og:description" content="Assessment gratuito, migração em ondas validadas e custos sob controle desde o primeiro dia.">
+    <meta property="og:image" content="https://cloud4tech.com.br/assets/images/og-card.png">
+    <meta property="og:url" content="https://cloud4tech.com.br/migracao-azure">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="https://cloud4tech.com.br/migracao-azure">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/falcon.png">
+    <link rel="stylesheet" href="assets/css/styles.css?v=5">
+    <script src="assets/js/theme-init.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://cloud4tech.com.br/" },
+            { "@type": "ListItem", "position": 2, "name": "Migração para Azure", "item": "https://cloud4tech.com.br/migracao-azure" }
+          ]
+        },
+        {
+          "@type": "Service",
+          "name": "Migração para Microsoft Azure",
+          "serviceType": "Cloud Migration",
+          "provider": { "@id": "https://cloud4tech.com.br/#organization" },
+          "areaServed": "BR",
+          "description": "Assessment, planejamento e execução de migração de servidores, bancos de dados e aplicações para o Microsoft Azure, com migração em ondas e otimização de custos."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Quanto tempo leva uma migração para o Azure?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Depende do tamanho e da complexidade do ambiente. Migrações simples de poucos servidores (lift-and-shift) levam de 2 a 6 semanas. Ambientes maiores são migrados em ondas planejadas, validando cada etapa. O assessment inicial é o que gera a estimativa realista de prazo." }
+            },
+            {
+              "@type": "Question",
+              "name": "Vou precisar parar minha operação durante a migração?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Na grande maioria dos casos, não. Replicamos os dados enquanto o ambiente atual continua no ar e fazemos a virada (cutover) em janelas de baixo movimento, geralmente fora do horário comercial. Para cargas críticas, usamos replicação contínua que reduz a indisponibilidade a minutos." }
+            },
+            {
+              "@type": "Question",
+              "name": "Quanto custa migrar para o Azure?",
+              "acceptedAnswer": { "@type": "Answer", "text": "O custo tem dois componentes: o projeto de migração (proporcional ao número de servidores e complexidade) e o consumo mensal do Azure. No assessment gratuito estimamos os dois, incluindo economia com Reserved Instances, Azure Hybrid Benefit e right-sizing — que frequentemente reduzem o consumo em 30% ou mais versus uma migração sem otimização." }
+            },
+            {
+              "@type": "Question",
+              "name": "Meus dados ficam no Brasil? E a LGPD?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Sim. O Azure possui a região Brazil South (São Paulo), permitindo hospedar dados em território nacional com baixa latência. Configuramos controles de acesso, criptografia e governança alinhados à LGPD como parte da arquitetura." }
+            },
+            {
+              "@type": "Question",
+              "name": "E depois da migração, quem gerencia o ambiente?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Você escolhe: sua equipe assume com a documentação completa que entregamos, ou contratamos a gestão contínua — monitoramento, segurança, backup e otimização de custos mensal. Veja nosso serviço de Cloud Gerenciada." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container navbar__inner">
+            <a href="/" class="navbar__logo">
+                <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
+            </a>
+            <ul class="navbar__links" id="navLinks">
+                <li><a href="/#about">Sobre</a></li>
+                <li class="nav-dropdown">
+                    <a href="/#partners" aria-haspopup="true" aria-expanded="false">Tecnologias</a>
+                    <div class="nav-dropdown__menu">
+                        <a href="/migracao-azure">Microsoft Azure</a>
+                        <a href="/cloud-gerenciada">Microsoft 365 & Entra ID</a>
+                        <a href="/cloud-gerenciada">Microsoft Intune</a>
+                        <a href="/migracao-azure">Oracle Cloud (OCI)</a>
+                        <a href="/cloud-gerenciada">Acronis Cyber Protect</a>
+                        <a href="/ciberseguranca-edr-xdr">Sophos & Fortinet</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="/#services" aria-haspopup="true" aria-expanded="false">Serviços</a>
+                    <div class="nav-dropdown__menu">
+                        <a href="/migracao-azure">Migração para Azure</a>
+                        <a href="/ciberseguranca-edr-xdr">Cibersegurança EDR & XDR</a>
+                        <a href="/cloud-gerenciada">Cloud Gerenciada</a>
+                        <a href="/ia-seguranca">IA para Segurança</a>
+                    </div>
+                </li>
+                <li><a href="/#mission">Missão & Valores</a></li>
+                <li><a href="/#contact" class="btn btn--sm btn--primary">Fale Conosco</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                <svg class="theme-icon theme-icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="theme-icon theme-icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+            <button class="navbar__toggle" id="navToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <header class="page-hero">
+        <div class="container">
+            <p class="page-hero__breadcrumb"><a href="/">Início</a> / <span>Migração para Azure</span></p>
+            <h1 class="page-hero__title">Migração para Azure <span class="gradient-text">sem parar sua operação</span></h1>
+            <p class="page-hero__desc">
+                Mover servidores para a nuvem sem planejamento troca o custo fixo do hardware por uma conta que só cresce. Nós fazemos diferente: assessment completo, migração em ondas validadas e otimização de custos desde o primeiro dia.
+            </p>
+            <div class="page-hero__actions">
+                <a href="/#contact" class="btn btn--primary btn--lg">Solicitar Assessment Gratuito</a>
+                <a href="#processo" class="btn btn--outline btn--lg">Ver como funciona</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== PROBLEMA / ABORDAGEM ===== -->
+    <section class="section">
+        <div class="container prose">
+            <h2>Migrar para a nuvem não é só <span class="gradient-text">copiar máquinas</span></h2>
+            <p>
+                Uma migração mal planejada gera o pior dos dois mundos: a mesma infraestrutura de antes, agora com custo variável e sem ganho real de segurança ou disponibilidade. É por isso que <strong>toda migração da Cloud4Tech começa com um assessment</strong> — mapeamos servidores, dependências entre aplicações, licenciamento e consumo real antes de mover qualquer workload.
+            </p>
+            <p>
+                Seguimos os guias oficiais da Microsoft — o <strong>Cloud Adoption Framework (CAF)</strong> para organizar a jornada e o <strong>Well-Architected Framework (WAF)</strong> para garantir qualidade em confiabilidade, segurança, custo, operação e desempenho.
+            </p>
+            <h3>O que entregamos em cada migração</h3>
+            <ul class="check-list">
+                <li>Assessment com inventário de servidores, dependências e estimativa de custo mensal no Azure</li>
+                <li>Plano de ondas de migração com janelas, riscos e critérios de rollback</li>
+                <li>Landing Zone segura antes de mover qualquer workload: identidade, rede e governança</li>
+                <li>Migração de VMs, bancos de dados (SQL Server → Azure SQL) e aplicações</li>
+                <li>Right-sizing, Reserved Instances e Azure Hybrid Benefit aplicados desde o início</li>
+                <li>Documentação as-built completa e transferência de conhecimento</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== PROCESSO ===== -->
+    <section class="section" id="processo" style="background: var(--c-bg-alt);">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Como Funciona</span>
+                <h2 class="section__title">Do diagnóstico à <span class="gradient-text">operação</span></h2>
+            </div>
+            <div class="steps">
+                <div class="step" data-aos>
+                    <span class="step__num">Etapa 01</span>
+                    <h3>Assessment</h3>
+                    <p>Mapeamos o ambiente atual, dependências, custos e riscos. Daqui sai a estimativa realista de prazo e o plano de ondas.</p>
+                </div>
+                <div class="step" data-aos>
+                    <span class="step__num">Etapa 02</span>
+                    <h3>Landing Zone</h3>
+                    <p>Construímos a base segura antes de mover qualquer workload: identidade, rede, políticas e segurança desde o dia 1.</p>
+                </div>
+                <div class="step" data-aos>
+                    <span class="step__num">Etapa 03</span>
+                    <h3>Migração em ondas</h3>
+                    <p>Movemos em grupos planejados, validando cada onda. Replicação contínua minimiza o downtime na virada.</p>
+                </div>
+                <div class="step" data-aos>
+                    <span class="step__num">Etapa 04</span>
+                    <h3>Otimização</h3>
+                    <p>Right-sizing, reservas e monitoramento de custo. Você recebe o ambiente documentado e otimizado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Dúvidas Frequentes</span>
+                <h2 class="section__title">Perguntas sobre <span class="gradient-text">migração</span></h2>
+            </div>
+            <div class="faq">
+                <details>
+                    <summary>Quanto tempo leva uma migração para o Azure?</summary>
+                    <p>Depende do tamanho e da complexidade do ambiente. Migrações simples de poucos servidores (lift-and-shift) levam de 2 a 6 semanas. Ambientes maiores são migrados em ondas planejadas, validando cada etapa. O assessment inicial é o que gera a estimativa realista de prazo.</p>
+                </details>
+                <details>
+                    <summary>Vou precisar parar minha operação durante a migração?</summary>
+                    <p>Na grande maioria dos casos, não. Replicamos os dados enquanto o ambiente atual continua no ar e fazemos a virada (cutover) em janelas de baixo movimento, geralmente fora do horário comercial. Para cargas críticas, usamos replicação contínua que reduz a indisponibilidade a minutos.</p>
+                </details>
+                <details>
+                    <summary>Quanto custa migrar para o Azure?</summary>
+                    <p>O custo tem dois componentes: o projeto de migração (proporcional ao número de servidores e complexidade) e o consumo mensal do Azure. No assessment gratuito estimamos os dois, incluindo economia com Reserved Instances, Azure Hybrid Benefit e right-sizing — que frequentemente reduzem o consumo em 30% ou mais versus uma migração sem otimização.</p>
+                </details>
+                <details>
+                    <summary>Meus dados ficam no Brasil? E a LGPD?</summary>
+                    <p>Sim. O Azure possui a região Brazil South (São Paulo), permitindo hospedar dados em território nacional com baixa latência. Configuramos controles de acesso, criptografia e governança alinhados à LGPD como parte da arquitetura.</p>
+                </details>
+                <details>
+                    <summary>E depois da migração, quem gerencia o ambiente?</summary>
+                    <p>Você escolhe: sua equipe assume com a documentação completa que entregamos, ou contratamos a gestão contínua — monitoramento, segurança, backup e otimização de custos mensal. Veja nosso serviço de <a href="/cloud-gerenciada">Cloud Gerenciada</a>.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BAND ===== -->
+    <section class="cta-band">
+        <div class="container">
+            <h2>Quanto custaria o seu ambiente <span class="gradient-text">no Azure?</span></h2>
+            <p>Solicite um assessment gratuito: inventário do ambiente, estimativa de custo mensal e plano de migração sem compromisso.</p>
+            <div class="cta-band__actions">
+                <a href="/#contact" class="btn btn--primary btn--lg">Solicitar Assessment Gratuito</a>
+                <a href="https://wa.me/5511987839637?text=Ol%C3%A1!%20Quero%20um%20assessment%20gratuito%20de%20migra%C3%A7%C3%A3o%20para%20Azure."
+                   class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">Falar no WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <a href="/" class="navbar__logo">
+                    <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
+                </a>
+                <p>Segurança, inteligência e infraestrutura cloud.</p>
+            </div>
+            <div class="footer__links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="/#about">Sobre</a></li>
+                    <li><a href="/#services">Serviços</a></li>
+                    <li><a href="/#mission">Missão & Valores</a></li>
+                    <li><a href="/#contact">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="/migracao-azure">Migração para Azure</a></li>
+                    <li><a href="/ciberseguranca-edr-xdr">Cibersegurança EDR & XDR</a></li>
+                    <li><a href="/cloud-gerenciada">Cloud Gerenciada</a></li>
+                    <li><a href="/ia-seguranca">IA para Segurança</a></li>
+                </ul>
+            </div>
+            <div class="footer__links">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="mailto:contato@cloud4tech.com.br">contato@cloud4tech.com.br</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer__bottom">
+                <p>&copy; 2026 Cloud4Tech. Todos os direitos reservados. &middot; <a href="/privacidade">Política de Privacidade</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5511987839637?text=Ol%C3%A1!%20Vim%20pelo%20site%20Cloud4Tech%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+       class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+            <path fill="currentColor" d="M16.003 3C9.376 3 4 8.376 4 15.003c0 2.117.555 4.184 1.61 6.005L4 29l8.184-1.564a12.01 12.01 0 0 0 3.819.622h.005C22.628 28.058 28 22.682 28 16.055 28 9.428 22.628 3 16.003 3zm0 22.66h-.004a9.97 9.97 0 0 1-3.452-.638l-.247-.093-4.86.929.91-4.74-.16-.246a9.95 9.95 0 0 1-1.55-5.336c0-5.5 4.475-9.974 9.974-9.974 2.665 0 5.17 1.038 7.053 2.922a9.91 9.91 0 0 1 2.92 7.05c0 5.5-4.474 9.973-9.974 9.973zm5.47-7.477c-.3-.15-1.772-.873-2.046-.972-.275-.1-.475-.15-.674.15-.2.3-.774.972-.95 1.171-.174.2-.349.225-.648.075-.3-.15-1.265-.466-2.41-1.486-.89-.793-1.49-1.773-1.665-2.072-.175-.3-.018-.462.131-.611.135-.135.3-.349.45-.524.15-.175.2-.3.3-.499.1-.2.05-.374-.025-.524-.075-.15-.674-1.624-.924-2.224-.244-.583-.491-.504-.674-.514l-.574-.01a1.1 1.1 0 0 0-.799.374c-.274.3-1.049 1.025-1.049 2.499s1.074 2.898 1.224 3.099c.15.2 2.114 3.227 5.119 4.527.715.308 1.273.493 1.708.632.717.228 1.37.196 1.886.119.575-.086 1.772-.724 2.022-1.424.25-.7.25-1.299.175-1.424-.075-.124-.275-.2-.575-.349z"/>
+        </svg>
+        <span class="wa-float__pulse" aria-hidden="true"></span>
+    </a>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

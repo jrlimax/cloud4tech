@@ -8,8 +8,8 @@
     <meta name="keywords" content="cibersegurança, EDR, XDR, cloud computing, inteligência artificial, infraestrutura cloud, segurança corporativa, Cloud4Tech">
     <meta name="author" content="Cloud4Tech">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="theme-color" content="#0D0B1E" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#F5F3FF" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0B0D14" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#F7F8FA" media="(prefers-color-scheme: light)">
 
     <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
     <meta property="og:type" content="website">
@@ -17,8 +17,8 @@
     <meta property="og:title" content="Cloud4Tech — Segurança, Inteligência e Infraestrutura Cloud">
     <meta property="og:description" content="Cloud, IA e cibersegurança para ambientes corporativos. Solicite uma consultoria gratuita.">
     <meta property="og:image" content="https://cloud4tech.com.br/assets/images/og-card.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:width" content="950">
+    <meta property="og:image:height" content="498">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:alt" content="Cloud4Tech — Segurança e Cloud para empresas">
     <meta property="og:url" content="https://cloud4tech.com.br/">
@@ -38,7 +38,7 @@
     <link rel="apple-touch-icon" href="assets/images/falcon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" href="assets/images/falcon.png" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=5">
     <script src="assets/js/theme-init.js"></script>
     <script src="assets/js/hcaptcha-bootstrap.js"></script>
     <script src="https://js.hcaptcha.com/1/api.js?recaptchacompat=off&render=explicit&onload=onHCaptchaLoad" async defer></script>
@@ -64,7 +64,7 @@
             "@type": "Country",
             "name": "Brasil"
           },
-          "knowsAbout": ["Cibersegurança", "EDR", "XDR", "Cloud Computing", "Inteligência Artificial", "Infraestrutura em Nuvem"]
+          "knowsAbout": ["Microsoft Azure", "Microsoft 365", "Entra ID", "Intune", "Oracle Cloud Infrastructure", "Acronis Cyber Protect", "Backup e Disaster Recovery", "Sophos", "Fortinet", "EDR", "XDR", "DLP", "Cibersegurança", "Cloud Computing"]
         },
         {
           "@type": "WebSite",
@@ -122,7 +122,27 @@
                 <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
             </a>
             <ul class="navbar__links" id="navLinks">
-                <li><a href="#about">Sobre</a></li>                <li><a href="#partners">Tecnologias</a></li>                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li class="nav-dropdown">
+                    <a href="#partners" aria-haspopup="true" aria-expanded="false">Tecnologias</a>
+                    <div class="nav-dropdown__menu">
+                        <a href="/migracao-azure">Microsoft Azure</a>
+                        <a href="/cloud-gerenciada">Microsoft 365 & Entra ID</a>
+                        <a href="/cloud-gerenciada">Microsoft Intune</a>
+                        <a href="/migracao-azure">Oracle Cloud (OCI)</a>
+                        <a href="/cloud-gerenciada">Acronis Cyber Protect</a>
+                        <a href="/ciberseguranca-edr-xdr">Sophos & Fortinet</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#services" aria-haspopup="true" aria-expanded="false">Serviços</a>
+                    <div class="nav-dropdown__menu">
+                        <a href="/migracao-azure">Migração para Azure</a>
+                        <a href="/ciberseguranca-edr-xdr">Cibersegurança EDR & XDR</a>
+                        <a href="/cloud-gerenciada">Cloud Gerenciada</a>
+                        <a href="/ia-seguranca">IA para Segurança</a>
+                    </div>
+                </li>
                 <li><a href="#mission">Missão & Valores</a></li>
                 <li><a href="#contact" class="btn btn--sm btn--primary">Fale Conosco</a></li>
             </ul>
@@ -235,44 +255,75 @@
         <div class="container">
             <div class="section__header section__header--compact">
                 <span class="section__tag">Ecossistema</span>
-                <h2 class="section__title">Tecnologias com que <span class="gradient-text">trabalhamos</span></h2>
+                <h2 class="section__title">Tecnologias que <span class="gradient-text">dominamos</span></h2>
+                <p class="section__subtitle">Ferramentas que operamos no dia a dia, com certificações oficiais</p>
             </div>
             <div class="partners__bar">
-                <div class="partner">
-                    <span class="partner__icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 0v11.408h11.408V0zm12.594 0v11.408H24V0zM0 12.594V24h11.408V12.594zm12.594 0V24H24V12.594z"/>
-                        </svg>
-                    </span>
-                    <span class="partner__name">Microsoft</span>
-                </div>
-
-                <div class="partner">
+                <a class="partner" href="/migracao-azure">
                     <span class="partner__icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.379 23.343a1.62 1.62 0 0 0 1.536-2.14v.002L17.35 1.76A1.62 1.62 0 0 0 15.816.657H8.184A1.62 1.62 0 0 0 6.65 1.76L.086 21.204a1.62 1.62 0 0 0 1.536 2.139h4.741a1.62 1.62 0 0 0 1.535-1.103l.977-2.892 4.947 3.675c.28.208.618.32.966.32m-3.084-12.531 3.624 10.739a.54.54 0 0 1-.51.713v-.001h-.03a.54.54 0 0 1-.322-.106l-9.287-6.9h4.853m6.313 7.006c.116-.326.13-.694.007-1.058L9.79 1.76a1.722 1.722 0 0 0-.007-.02h6.034a.54.54 0 0 1 .512.366l6.562 19.445a.54.54 0 0 1-.338.684"/>
                         </svg>
                     </span>
-                    <span class="partner__name">Azure</span>
-                </div>
+                    <span class="partner__name">Microsoft Azure</span>
+                    <span class="partner__desc">Provisionamento e gestão de VMs, redes e storage. Migração e sustentação de infraestrutura em nuvem e híbrida.</span>
+                    <span class="partner__cta">Conhecer serviço →</span>
+                </a>
 
-                <div class="partner">
+                <a class="partner" href="/cloud-gerenciada">
+                    <span class="partner__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0v11.408h11.408V0zm12.594 0v11.408H24V0zM0 12.594V24h11.408V12.594zm12.594 0V24H24V12.594z"/>
+                        </svg>
+                    </span>
+                    <span class="partner__name">Microsoft 365 & Entra ID</span>
+                    <span class="partner__desc">Administração de Exchange Online, Teams e SharePoint. Identidade e acesso com Entra ID, Entra Connect e GPO.</span>
+                    <span class="partner__cta">Conhecer serviço →</span>
+                </a>
+
+                <a class="partner" href="/cloud-gerenciada">
+                    <span class="partner__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.38-5.4-5.38z"/>
+                        </svg>
+                    </span>
+                    <span class="partner__name">Microsoft Intune</span>
+                    <span class="partner__desc">Gerenciamento de dispositivos (MDM) e políticas de conformidade para estações, móveis e aplicativos corporativos.</span>
+                    <span class="partner__cta">Conhecer serviço →</span>
+                </a>
+
+                <a class="partner" href="/migracao-azure">
                     <span class="partner__icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.412 4.412h-8.82a7.588 7.588 0 0 0-.008 15.176h8.828a7.588 7.588 0 0 0 0-15.176zm-.193 12.502H7.786a4.915 4.915 0 0 1 0-9.828h8.433a4.914 4.914 0 1 1 0 9.828z"/>
                         </svg>
                     </span>
-                    <span class="partner__name">Oracle</span>
-                </div>
+                    <span class="partner__name">Oracle Cloud (OCI)</span>
+                    <span class="partner__desc">Infraestrutura como serviço na nuvem Oracle: compute, rede e storage com certificação OCI Foundations.</span>
+                    <span class="partner__cta">Conhecer serviço →</span>
+                </a>
 
-                <div class="partner">
+                <a class="partner" href="/cloud-gerenciada">
                     <span class="partner__icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10 1.5h4l8 21h-3.6l-1.7-4.5H7.3l-1.7 4.5H2l8-21zm-1.4 12h6.8l-1.6-4.3H10.2l-1.6 4.3zm2.1-5.6h2.6L12 4.5l-1.3 3.4z"/>
                         </svg>
                     </span>
-                    <span class="partner__name">Acronis</span>
-                </div>
+                    <span class="partner__name">Acronis Cyber Protect</span>
+                    <span class="partner__desc">Backup gerenciado e Disaster Recovery com planos de continuidade de negócio e testes de restauração.</span>
+                    <span class="partner__cta">Conhecer serviço →</span>
+                </a>
+
+                <a class="partner" href="/ciberseguranca-edr-xdr">
+                    <span class="partner__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </span>
+                    <span class="partner__name">Sophos & Fortinet</span>
+                    <span class="partner__desc">Firewalls de próxima geração, EDR, XDR e DLP com monitoramento proativo de endpoints via RMM.</span>
+                    <span class="partner__cta">Conhecer serviço →</span>
+                </a>
             </div>
         </div>
     </section>
@@ -294,6 +345,7 @@
                     <h3 class="service-card__title">EDR</h3>
                     <p class="service-card__subtitle">Endpoint Detection and Response</p>
                     <p class="service-card__desc">Monitoramento contínuo e resposta automatizada em endpoints, identificando e neutralizando ameaças antes que causem danos.</p>
+                    <a href="/ciberseguranca-edr-xdr" class="service-card__link">Saiba mais →</a>
                     <div class="service-card__line"></div>
                 </div>
 
@@ -305,6 +357,7 @@
                     <h3 class="service-card__title">XDR</h3>
                     <p class="service-card__subtitle">Extended Detection and Response</p>
                     <p class="service-card__desc">Visibilidade unificada e correlação de eventos em toda a infraestrutura, com detecção de ameaças estendida e automatizada.</p>
+                    <a href="/ciberseguranca-edr-xdr" class="service-card__link">Saiba mais →</a>
                     <div class="service-card__line"></div>
                 </div>
 
@@ -316,6 +369,8 @@
                     <h3 class="service-card__title">Infraestrutura em Cloud</h3>
                     <p class="service-card__subtitle">Ambientes escaláveis e seguros</p>
                     <p class="service-card__desc">Planejamento, migração e gestão de infraestruturas em nuvem com segurança integrada e otimização de custos.</p>
+                    <a href="/migracao-azure" class="service-card__link">Migração para Azure →</a>
+                    <a href="/cloud-gerenciada" class="service-card__link">Cloud Gerenciada →</a>
                     <div class="service-card__line"></div>
                 </div>
 
@@ -327,6 +382,7 @@
                     <h3 class="service-card__title">Inteligência Artificial</h3>
                     <p class="service-card__subtitle">IA aplicada à segurança</p>
                     <p class="service-card__desc">Algoritmos inteligentes que aprendem padrões, detectam anomalias e automatizam respostas a incidentes de segurança.</p>
+                    <a href="/ia-seguranca" class="service-card__link">Saiba mais →</a>
                     <div class="service-card__line"></div>
                 </div>
 
@@ -338,6 +394,7 @@
                     <h3 class="service-card__title">Cibersegurança Corporativa</h3>
                     <p class="service-card__subtitle">Proteção completa</p>
                     <p class="service-card__desc">Estratégias personalizadas de segurança cibernética, desde avaliação de riscos até implementação de frameworks de proteção.</p>
+                    <a href="/ciberseguranca-edr-xdr" class="service-card__link">Saiba mais →</a>
                     <div class="service-card__line"></div>
                 </div>
             </div>
@@ -447,7 +504,7 @@
                     <div class="form-group form-group--consent">
                         <label class="consent">
                             <input type="checkbox" name="consent" id="field-consent" required>
-                            <span>Li e concordo com a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo o tratamento dos meus dados conforme a LGPD.</span>
+                            <span>Li e concordo com a <a href="/privacidade" target="_blank" rel="noopener">Política de Privacidade</a> e autorizo o tratamento dos meus dados conforme a LGPD.</span>
                         </label>
                     </div>
                     <button type="submit" class="btn btn--primary btn--lg btn--full" id="submitBtn">
@@ -484,10 +541,10 @@
             <div class="footer__links">
                 <h4>Serviços</h4>
                 <ul>
-                    <li><a href="#services">EDR</a></li>
-                    <li><a href="#services">XDR</a></li>
-                    <li><a href="#services">Cloud</a></li>
-                    <li><a href="#services">Cibersegurança</a></li>
+                    <li><a href="/migracao-azure">Migração para Azure</a></li>
+                    <li><a href="/ciberseguranca-edr-xdr">Cibersegurança EDR & XDR</a></li>
+                    <li><a href="/cloud-gerenciada">Cloud Gerenciada</a></li>
+                    <li><a href="/ia-seguranca">IA para Segurança</a></li>
                 </ul>
             </div>
             <div class="footer__links">
@@ -499,7 +556,7 @@
         </div>
         <div class="container">
             <div class="footer__bottom">
-                <p>&copy; 2026 Cloud4Tech. Todos os direitos reservados. &middot; <a href="privacidade.html">Política de Privacidade</a></p>
+                <p>&copy; 2026 Cloud4Tech. Todos os direitos reservados. &middot; <a href="/privacidade">Política de Privacidade</a></p>
             </div>
         </div>
     </footer>
