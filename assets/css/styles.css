@@ -179,6 +179,13 @@ h1, h2, h3, h4 {
     transition: var(--transition);
     position: relative;
     padding-bottom: 4px;
+    white-space: nowrap;
+}
+
+/* Navbar com 6 itens: aperta o espaçamento antes de quebrar */
+@media (max-width: 1360px) and (min-width: 769px) {
+    .navbar__links { gap: 20px; }
+    .navbar__links a { font-size: 0.85rem; }
 }
 
 .navbar__links a:hover { color: var(--c-white); }
@@ -533,8 +540,9 @@ h1, h2, h3, h4 {
 }
 
 .services__grid .service-card {
-    flex: 0 1 calc(33.333% - 16px);
+    flex: 0 1 calc(50% - 12px);
     min-width: 280px;
+    max-width: 560px;
 }
 
 .service-card {
@@ -1090,19 +1098,34 @@ h1, h2, h3, h4 {
 }
 
 .check-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+    position: relative;
+    padding-left: 26px;
     font-size: 1rem;
     color: var(--c-text);
 }
 
 .check-list li::before {
     content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
     color: var(--c-green);
     font-weight: 700;
-    flex-shrink: 0;
     line-height: 1.6;
+}
+
+.check-list li strong { color: var(--c-white); }
+
+/* Destaque do item quando acessado via âncora (ex.: /cloud-gerenciada#m365) */
+.check-list li:target {
+    background: rgba(16,185,129,0.1);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px 8px 30px;
+}
+
+.check-list li:target::before {
+    left: 8px;
+    top: 8px;
 }
 
 /* --- Feature grid (2 col cards) --- */
@@ -1218,6 +1241,136 @@ h1, h2, h3, h4 {
     border-bottom: 1px solid var(--c-border);
     padding: 56px 0;
     text-align: center;
+}
+
+/* --- Blog --- */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.post-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--c-bg-card);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    transition: var(--transition);
+}
+
+/* Stretched link: o card inteiro vira área clicável do título */
+.post-card h2 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.post-card:hover {
+    border-color: rgba(109,40,217,0.25);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+}
+
+.post-card__meta {
+    font-size: 0.8rem;
+    color: var(--c-text-dim);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.post-card__meta .tag {
+    color: var(--c-green);
+    font-weight: 600;
+}
+
+.post-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    line-height: 1.35;
+}
+
+.post-card p {
+    font-size: 0.95rem;
+    color: var(--c-text-dim);
+    margin-bottom: 20px;
+}
+
+.post-card__link {
+    margin-top: auto;
+    font-family: var(--ff-heading);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--c-green);
+}
+
+.post-card__link:hover { color: var(--c-purple-l); }
+
+.post-card h2 a:hover { color: var(--c-green); }
+
+/* --- Voltar ao blog (fim do artigo) --- */
+.post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    font-family: var(--ff-heading);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--c-text-dim);
+    transition: var(--transition);
+}
+
+.post-back:hover { color: var(--c-green); }
+
+.post__meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--c-text-dim);
+    margin-bottom: 8px;
+}
+
+.post__meta .tag { color: var(--c-green); font-weight: 600; }
+
+.prose ul:not(.check-list) {
+    list-style: disc;
+    padding-left: 24px;
+    margin: 0 0 18px;
+    color: var(--c-text);
+}
+
+.prose ul:not(.check-list) li { margin-bottom: 8px; }
+
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 24px;
+    font-size: 0.95rem;
+}
+
+.prose th, .prose td {
+    text-align: left;
+    padding: 12px 14px;
+    border: 1px solid var(--c-border);
+}
+
+.prose th {
+    background: var(--c-bg-card);
+    color: var(--c-white);
+    font-family: var(--ff-heading);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .blog-grid { grid-template-columns: 1fr; }
 }
 
 .cta-band h2 {
