@@ -1,7 +1,7 @@
 {
     "name": "Cloud4Tech",
     "short_name": "Cloud4Tech",
-    "description": "Segurança, Inteligência e Infraestrutura Cloud.",
+    "description": "Nuvem, acesso e proteção de dados para empresas.",
     "start_url": "/",
     "scope": "/",
     "display": "standalone",
@@ -11,8 +11,8 @@
     "dir": "ltr",
     "icons": [
         {
-            "src": "/assets/images/falcon.png",
-            "sizes": "340x340",
+            "src": "/assets/images/falcon-tech.png",
+            "sizes": "768x768",
             "type": "image/png",
             "purpose": "any"
         }

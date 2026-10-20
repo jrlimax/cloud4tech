@@ -16,14 +16,22 @@
     var sections = document.querySelectorAll('section[id]');
 
     // --- Theme toggle (dark/light) ---
-    // Theme is already set by inline script in <head> to avoid FOUC
+    // Theme is set in the head before rendering.
     var themeToggle = document.getElementById('themeToggle');
 
     if (themeToggle) {
+        function updateThemeLabel() {
+            var label = document.documentElement.getAttribute('data-theme') === 'dark'
+                ? 'Ativar tema claro' : 'Ativar tema escuro';
+            themeToggle.setAttribute('aria-label', label);
+            themeToggle.setAttribute('title', label);
+        }
+        updateThemeLabel();
         themeToggle.addEventListener('click', function () {
             var current = document.documentElement.getAttribute('data-theme');
             var next = current === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', next);
+            updateThemeLabel();
             localStorage.setItem('c4t-theme', next);
             if (typeof window.renderC4tHCaptcha === 'function') {
                 window.renderC4tHCaptcha(next);
@@ -52,16 +60,34 @@
 
     // --- Mobile menu toggle ---
     if (navToggle && navLinks) {
+        navToggle.setAttribute('aria-controls', navLinks.id);
+        navToggle.setAttribute('aria-expanded', 'false');
+
+        function closeMenu() {
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
+
         navToggle.addEventListener('click', function () {
-            navLinks.classList.toggle('open');
-            navToggle.classList.toggle('active');
+            var open = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('active', open);
+            navToggle.setAttribute('aria-expanded', String(open));
         });
 
         navAnchors.forEach(function (link) {
-            link.addEventListener('click', function () {
-                navLinks.classList.remove('open');
-                navToggle.classList.remove('active');
-            });
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && navLinks.classList.contains('open')) {
+                closeMenu();
+                navToggle.focus();
+            }
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!navbar.contains(event.target)) closeMenu();
         });
     }
 
@@ -96,7 +122,9 @@
 
         navAnchors.forEach(function (a) {
             if (a.classList.contains('btn')) return;
-            a.classList.toggle('active', a.getAttribute('href') === '#' + activeId);
+            var href = a.getAttribute('href');
+            a.classList.toggle('active', !!activeId && (href === '#' + activeId ||
+                (window.location.pathname === '/' && href === '/#' + activeId)));
         });
     }
 
@@ -117,48 +145,14 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    // =============================================
-    // LOGO ANIMATION: CLOUD4TECH → C4T
-    // =============================================
-    var logoLetters = document.getElementById('logoLetters');
-    var logoFalcon = document.getElementById('logoFalcon');
-    var letters = logoLetters ? logoLetters.querySelectorAll('.logo-anim__letter') : [];
-
-    function runLogoAnimation() {
-        if (!logoLetters) return;
-
-        // Respect prefers-reduced-motion: render final state instantly
-        if (prefersReducedMotion) {
-            letters.forEach(function (letter) {
-                letter.style.opacity = '1';
-                letter.style.transform = 'none';
-            });
-            logoLetters.classList.add('phase-reveal');
-            if (logoFalcon) logoFalcon.classList.add('visible');
+    window.addEventListener('load', function () {
+        var legacyTargets = { '#mission': '/sobre#mission' };
+        if (window.location.pathname === '/' && legacyTargets[window.location.hash]) {
+            window.location.replace(legacyTargets[window.location.hash]);
             return;
         }
-
-        // Phase 1: Reveal letters one by one (staggered)
-        letters.forEach(function (letter, i) {
-            setTimeout(function () {
-                letter.style.opacity = '1';
-                letter.style.transform = 'translateY(0)';
-            }, 150 + i * 100);
-        });
-
-        // After all letters revealed, show falcon
-        var revealDone = 150 + letters.length * 100 + 400;
-
-        setTimeout(function () {
-            logoLetters.classList.add('phase-reveal');
-            if (logoFalcon) logoFalcon.classList.add('visible');
-        }, revealDone);
-    }
-
-    // Start animation on load
-    window.addEventListener('load', function () {
+        handleNavScroll();
         revealOnScroll();
-        setTimeout(runLogoAnimation, 300);
     });
 
     // --- Dropdown aria-expanded (navbar) ---
@@ -170,7 +164,9 @@
         dd.addEventListener('mouseenter', function () { setExpanded('true'); });
         dd.addEventListener('mouseleave', function () { setExpanded('false'); });
         dd.addEventListener('focusin', function () { setExpanded('true'); });
-        dd.addEventListener('focusout', function () { setExpanded('false'); });
+        dd.addEventListener('focusout', function (event) {
+            if (!dd.contains(event.relatedTarget)) setExpanded('false');
+        });
     });
 
     // --- Contact form (Web3Forms) ---
@@ -178,6 +174,59 @@
     if (contactForm) {
         var phoneInput = contactForm.querySelector('.phone-number');
         var formStatus = document.getElementById('formStatus');
+        var topicSelect = document.getElementById('field-topic');
+        var whatsappLink = document.getElementById('contactWhatsapp');
+        var contactTitle = document.getElementById('contactTitle');
+        var contactDescription = document.getElementById('contactDescription');
+        var defaultContactTitle = contactTitle ? contactTitle.textContent : '';
+        var defaultContactDescription = contactDescription ? contactDescription.textContent : '';
+        var contactTopics = {
+            'nuvem': {
+                title: 'Vamos conversar sobre seu projeto em nuvem.',
+                description: 'Conte quais sistemas você precisa implantar ou migrar, o que utiliza hoje e se há uma data prevista para a mudança.'
+            },
+            'gestao': {
+                title: 'Vamos organizar a gestão da sua nuvem.',
+                description: 'Conte quais serviços sua empresa utiliza e quais atividades precisam de acompanhamento, como acessos, consumo e backups.'
+            },
+            'microsoft-365': {
+                title: 'Vamos conversar sobre seu Microsoft 365.',
+                description: 'Conte o que precisa melhorar na administração de contas, e-mails, arquivos, acessos ou dispositivos da empresa.'
+            },
+            'backup': {
+                title: 'Vamos planejar a proteção dos seus dados.',
+                description: 'Conte quais dados e sistemas precisa proteger, como os backups são feitos hoje e se já houve testes de recuperação.'
+            }
+        };
+
+        function updateContactTopic() {
+            var topic = topicSelect ? topicSelect.value : '';
+            var selectedOption = topicSelect ? topicSelect.options[topicSelect.selectedIndex] : null;
+            var topicKey = selectedOption ? selectedOption.dataset.topic : '';
+            var context = Object.prototype.hasOwnProperty.call(contactTopics, topicKey) ? contactTopics[topicKey] : null;
+            if (contactTitle) contactTitle.textContent = context ? context.title : defaultContactTitle;
+            if (contactDescription) contactDescription.textContent = context ? context.description : defaultContactDescription;
+            var subject = contactForm.querySelector('[name="subject"]');
+            if (subject) subject.value = 'Nova mensagem do site Cloud4Tech' + (topic ? ' - ' + topic : '');
+            if (whatsappLink) {
+                var text = 'Olá! Vim pelo site Cloud4Tech e gostaria de conversar sobre ' + (topic || 'meu ambiente') + '.';
+                whatsappLink.href = 'https://wa.me/5511987839637?text=' + encodeURIComponent(text);
+            }
+        }
+
+        if (topicSelect) {
+            var requestedTopic = new URLSearchParams(window.location.search).get('assunto');
+            Array.prototype.forEach.call(topicSelect.options, function (option) {
+                if (option.dataset.topic && option.dataset.topic === requestedTopic) {
+                    topicSelect.value = option.value;
+                }
+            });
+            topicSelect.addEventListener('change', updateContactTopic);
+            contactForm.addEventListener('reset', function () {
+                setTimeout(updateContactTopic, 0);
+            });
+            updateContactTopic();
+        }
 
         function setStatus(message, kind) {
             if (!formStatus) return;
@@ -234,7 +283,7 @@
             }
 
             if (consent && !consent.checked) {
-                setStatus('Você precisa aceitar a Política de Privacidade para enviar.', 'error');
+                setStatus('Confirme a leitura da Política de Privacidade antes de enviar.', 'error');
                 return;
             }
 
@@ -260,7 +309,6 @@
             // Atualiza o campo Telefone com country code antes de enviar
             formData.set('Telefone', fullPhone);
             formData.set('from_name', 'Cloud4Tech Site');
-            formData.set('subject', 'Nova mensagem do site Cloud4Tech');
             // Remove g-recaptcha-response (hCaptcha pode injetar por compat e Web3Forms confunde com Pro feature)
             formData.delete('g-recaptcha-response');
 
@@ -278,7 +326,7 @@
                     else submitBtn.textContent = 'Mensagem Enviada \u2713';
                     submitBtn.classList.remove('btn--loading');
                     submitBtn.classList.add('btn--success');
-                    setStatus('Mensagem enviada com sucesso! Em breve nossa equipe entrará em contato.', 'success');
+                    setStatus('Mensagem enviada com sucesso! A Cloud4Tech recebeu seu contato.', 'success');
                     contactForm.reset();
                     if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch (e) {} }
                 } else {
@@ -290,7 +338,7 @@
                 else submitBtn.textContent = 'Erro ao enviar';
                 submitBtn.classList.remove('btn--loading');
                 submitBtn.classList.add('btn--error');
-                setStatus((err && err.message ? err.message : 'Erro ao enviar.') + ' Tente novamente em instantes ou escreva para contato@cloud4tech.com.br.', 'error');
+                setStatus((err && err.message ? err.message : 'Erro ao enviar.') + ' Tente novamente em instantes ou escreva para comercial@cloud4tech.com.br.', 'error');
                 if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch (e) {} }
             }).finally(function () {
                 setTimeout(function () {

@@ -2,63 +2,68 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://cloud4tech.com.br/</loc>
-        <lastmod>2026-10-15</lastmod>
+        <lastmod>2026-10-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://cloud4tech.com.br/migracao-azure</loc>
-        <lastmod>2026-10-15</lastmod>
+        <loc>https://cloud4tech.com.br/sobre</loc>
+        <lastmod>2026-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://cloud4tech.com.br/contato</loc>
+        <lastmod>2026-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://cloud4tech.com.br/ir-para-nuvem</loc>
+        <lastmod>2026-10-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://cloud4tech.com.br/ciberseguranca-edr-xdr</loc>
-        <lastmod>2026-10-15</lastmod>
+        <loc>https://cloud4tech.com.br/migracao-azure</loc>
+        <lastmod>2026-10-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://cloud4tech.com.br/cloud-gerenciada</loc>
-        <lastmod>2026-10-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://cloud4tech.com.br/ia-seguranca</loc>
-        <lastmod>2026-10-15</lastmod>
+        <lastmod>2026-10-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://cloud4tech.com.br/microsoft-365</loc>
-        <lastmod>2026-10-15</lastmod>
+        <lastmod>2026-10-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://cloud4tech.com.br/intune</loc>
-        <lastmod>2026-10-15</lastmod>
+        <lastmod>2026-10-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://cloud4tech.com.br/oracle-cloud</loc>
-        <lastmod>2026-10-15</lastmod>
+        <lastmod>2026-10-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://cloud4tech.com.br/acronis</loc>
-        <lastmod>2026-10-15</lastmod>
+        <lastmod>2026-10-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://cloud4tech.com.br/privacidade</loc>
-        <lastmod>2026-10-15</lastmod>
+        <lastmod>2026-10-20</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
 </urlset>
-

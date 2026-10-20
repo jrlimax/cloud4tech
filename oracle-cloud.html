@@ -3,29 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oracle Cloud (OCI): Infraestrutura e Gestão | Cloud4Tech</title>
-    <meta name="description" content="Infraestrutura na Oracle Cloud (OCI) com certificação Foundations: provisionamento de compute, rede e storage, gestão do ambiente e otimização de custos. Fale com especialista.">
+    <title>Infraestrutura Oracle Cloud (OCI): Implantação | Cloud4Tech</title>
+    <meta name="description" content="Planejamento e implantação de infraestrutura Oracle Cloud (OCI): máquinas virtuais, redes, armazenamento e acessos, com validação e documentação.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="theme-color" content="#0B0D14" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#F7F8FA" media="(prefers-color-scheme: light)">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Cloud4Tech">
-    <meta property="og:title" content="Oracle Cloud (OCI) sem mistério | Cloud4Tech">
-    <meta property="og:description" content="Provisionamento, gestão e otimização de custos na nuvem Oracle, com certificação OCI Foundations.">
-    <meta property="og:image" content="https://cloud4tech.com.br/assets/images/og-card.png">
+    <meta property="og:title" content="Infraestrutura Oracle Cloud (OCI): Implantação | Cloud4Tech">
+    <meta property="og:description" content="Planejamento e implantação de infraestrutura Oracle Cloud (OCI): máquinas virtuais, redes, armazenamento e acessos, com validação e documentação.">
+    <meta property="og:image" content="https://cloud4tech.com.br/assets/images/og-card-tech.png">
     <meta property="og:url" content="https://cloud4tech.com.br/oracle-cloud">
     <meta property="og:locale" content="pt_BR">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Infraestrutura Oracle Cloud (OCI): Implantação | Cloud4Tech">
+    <meta name="twitter:description" content="Planejamento e implantação de infraestrutura Oracle Cloud (OCI): máquinas virtuais, redes, armazenamento e acessos, com validação e documentação.">
+    <meta name="twitter:image" content="https://cloud4tech.com.br/assets/images/og-card-tech.png">
 
     <link rel="canonical" href="https://cloud4tech.com.br/oracle-cloud">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/assets/images/falcon.png">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=11">
-    <script src="/assets/js/theme-init.js"></script>
+    <link rel="icon" href="/assets/images/favicon-tech.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/images/falcon-tech.png">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=25">
+    <script src="/assets/js/theme-init.js?v=2"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -39,34 +42,29 @@
         },
         {
           "@type": "Service",
-          "name": "Infraestrutura Oracle Cloud (OCI)",
+          "name": "Planejamento e implantação de infraestrutura Oracle Cloud (OCI)",
           "serviceType": "Cloud Infrastructure",
           "provider": { "@id": "https://cloud4tech.com.br/#organization" },
           "areaServed": "BR",
-          "description": "Provisionamento e gestão de infraestrutura na Oracle Cloud: compute, rede, storage e otimização de custos, com certificação OCI Foundations."
+          "description": "Planejamento e criação de infraestrutura na OCI: máquinas virtuais, redes, armazenamento, compartimentos e acessos, com requisitos e escopo definidos antes da implantação."
         },
         {
           "@type": "FAQPage",
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Por que escolher a OCI em vez de Azure ou AWS?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Depende do caso. A OCI costuma ter preço agressivo em compute e banda de saída, e é a casa natural de quem roda Oracle Database ou aplicações Oracle (EBS, licenciamento mais favorável). Para outros cenários, Azure pode fazer mais sentido. A gente avalia seu caso sem viés de revenda." }
+              "name": "Como começa uma avaliação de OCI?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Começamos pelo objetivo da demanda, os recursos existentes e os requisitos de acesso, rede e armazenamento. A análise inicial permite verificar a viabilidade e delimitar quais atividades podem compor uma proposta." }
             },
             {
               "@type": "Question",
-              "name": "O free tier da OCI serve para produção?",
-              "acceptedAnswer": { "@type": "Answer", "text": "O Always Free da OCI é generoso (VMs ARM, bancos autônomos e storage sem custo), e serve bem para ambientes de teste, homologação e cargas pequenas. Para produção, ajudamos a dimensionar recursos pagos com o custo certo." }
+              "name": "Quais informações ajudam a definir o escopo?",
+              "acceptedAnswer": { "@type": "Answer", "text": "O objetivo da demanda, o inventário dos recursos, as dependências da aplicação, os requisitos de acesso e o orçamento disponível. Não envie senhas ou chaves de acesso no contato comercial." }
             },
             {
               "@type": "Question",
-              "name": "Vocês gerenciam um ambiente OCI que já existe?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Sim. Fazemos análise do ambiente atual, organizamos compartimentos, políticas e rede, e assumimos a operação contínua como parte da Cloud Gerenciada." }
-            },
-            {
-              "@type": "Question",
-              "name": "Dá para usar OCI junto com Azure?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Dá, e é comum: banco Oracle na OCI com aplicações no Azure, por exemplo. Existe interconexão dedicada entre os dois provedores com baixa latência. Desenhamos e operamos esse cenário multicloud." }
+              "name": "O que pode ser criado na OCI?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Máquinas virtuais, redes virtuais, armazenamento, compartimentos e permissões para uma infraestrutura nova. Capacidade, conectividade e dependências são levantadas antes da implantação para definir as atividades do projeto." }
             }
           ]
         }
@@ -78,37 +76,25 @@
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar scrolled" id="navbar">
         <div class="container navbar__inner">
-            <a href="/" class="navbar__logo">
-                <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
-            </a>
+            <a href="/" class="navbar__logo" aria-label="Cloud4Tech, início"><img class="brand-symbol" src="/assets/images/falcon-tech.png" alt="" width="80" height="80" decoding="async"><span class="brand-wordmark"><span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span></span></a>
             <ul class="navbar__links" id="navLinks">
-                <li><a href="/#about">Sobre</a></li>
+                <li class="nav-dropdown"><a href="/#services" aria-haspopup="true" aria-expanded="false">Soluções</a><div class="nav-dropdown__menu"><a href="/ir-para-nuvem">Ir para a nuvem</a><a href="/cloud-gerenciada">Gerenciar serviços em nuvem</a><a href="/microsoft-365">Organizar e-mails e acessos</a><a href="/acronis">Proteger e recuperar dados</a></div></li>
                 <li class="nav-dropdown">
                     <a href="/#partners" aria-haspopup="true" aria-expanded="false">Tecnologias</a>
                     <div class="nav-dropdown__menu">
                         <a href="/migracao-azure">Microsoft Azure</a>
-                        <a href="/microsoft-365">Microsoft 365 & Entra ID</a>
+                        <a href="/microsoft-365">Microsoft 365</a>
                         <a href="/intune">Microsoft Intune</a>
                         <a href="/oracle-cloud">Oracle Cloud (OCI)</a>
                         <a href="/acronis">Acronis Cyber Protect</a>
-                        <a href="/ciberseguranca-edr-xdr">Microsoft Defender</a>
                     </div>
                 </li>
-                <li class="nav-dropdown">
-                    <a href="/#services" aria-haspopup="true" aria-expanded="false">Serviços</a>
-                    <div class="nav-dropdown__menu">
-                        <a href="/migracao-azure">Infraestrutura Azure</a>
-                        <a href="/ciberseguranca-edr-xdr">Cibersegurança EDR & XDR</a>
-                        <a href="/cloud-gerenciada">Cloud Gerenciada</a>
-                        <a href="/ia-seguranca">IA para Segurança</a>
-                    </div>
-                </li>
-                <li><a href="/#mission">Missão & Valores</a></li>
-                <li><a href="/#contact" class="btn btn--sm btn--primary">Fale Conosco</a></li>
+                <li><a href="/sobre">Sobre</a></li>
+                <li><a href="/contato" class="btn btn--sm btn--primary">Contato</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-                <svg class="theme-icon theme-icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                <svg class="theme-icon theme-icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="theme-icon theme-icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+                <svg class="theme-icon theme-icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 0 1 11.2 3 9 9 0 1 0 21 12.8Z"/></svg>
             </button>
             <button class="navbar__toggle" id="navToggle" aria-label="Menu">
                 <span></span><span></span><span></span>
@@ -120,13 +106,13 @@
     <header class="page-hero">
         <div class="container">
             <p class="page-hero__breadcrumb"><a href="/">Início</a> / <span>Oracle Cloud (OCI)</span></p>
-            <h1 class="page-hero__title">Oracle Cloud <span class="gradient-text">sem mistério</span></h1>
+            <h1 class="page-hero__title">Infraestrutura Oracle Cloud <span class="gradient-text">planejada para seus sistemas.</span></h1>
             <p class="page-hero__desc">
-                A OCI tem preço agressivo em compute e é a casa natural de quem roda Oracle Database. Mas o console, os compartimentos e as políticas têm lógica própria. A gente provisiona, organiza e opera seu ambiente OCI com certificação Foundations.
+                Implantamos servidores virtuais, redes e armazenamento na Oracle Cloud (OCI). O projeto parte dos requisitos dos seus sistemas para definir capacidade, conexões, permissões e uma estimativa de consumo.
             </p>
             <div class="page-hero__actions">
-                <a href="/#contact" class="btn btn--primary btn--lg">Falar com Especialista</a>
-                <a href="#o-que-fazemos" class="btn btn--outline btn--lg">O que fazemos</a>
+                <a href="/contato?assunto=nuvem" class="btn btn--primary btn--lg">Conversar sobre meu projeto</a>
+                <a href="#o-que-fazemos" class="btn btn--outline btn--lg">Conheça as entregas</a>
             </div>
         </div>
     </header>
@@ -134,20 +120,20 @@
     <!-- ===== CONTEÚDO ===== -->
     <section class="section" id="o-que-fazemos">
         <div class="container prose">
-            <h2>Quando a OCI é <span class="gradient-text">a escolha certa</span></h2>
+            <h2>A estrutura precisa funcionar <span class="gradient-text">como um conjunto.</span></h2>
             <p>
-                A Oracle Cloud brilha em três cenários: <strong>cargas com banco Oracle</strong> (licenciamento e desempenho favorecem rodar na OCI), <strong>compute com bom custo-benefício</strong> (as instâncias ARM e o preço de banda de saída costumam bater os concorrentes) e <strong>multicloud com Azure</strong>, usando a interconexão dedicada entre os dois provedores.
+                O preço de uma máquina virtual não representa todo o custo do ambiente. Rede, armazenamento e tráfego também entram na conta, assim como as necessidades de acesso e a compatibilidade da aplicação. Avaliamos esses pontos antes de definir a implantação.
             </p>
             <p>
-                O desafio é que a OCI organiza tudo do jeito dela: compartimentos, políticas IAM com sintaxe própria, VCNs. Quem vem do Azure ou da AWS estranha. É aí que a gente entra, <strong>com certificação OCI Foundations e operação no dia a dia</strong>.
+                Você recebe a definição do que será criado, das responsabilidades e das validações previstas antes da proposta comercial. Após a aprovação, executamos a implantação e registramos as configurações e os testes na documentação do projeto.
             </p>
-            <h3>O que fazemos</h3>
+            <h3>O que pode fazer parte da implantação</h3>
             <ul class="check-list">
-                <li><strong>Desenho e provisionamento</strong>: compute (x86 e ARM), VCN, storage e bancos autônomos</li>
-                <li><strong>Organização do tenancy</strong>: compartimentos, políticas IAM e grupos com governança clara</li>
-                <li><strong>Otimização de custos</strong>: dimensionamento certo, Always Free bem aproveitado e reservas quando compensa</li>
-                <li><strong>Cenário multicloud</strong>: OCI + Azure interconectados, cada carga no lugar que faz sentido</li>
-                <li><strong>Operação contínua</strong> como parte da <a href="/cloud-gerenciada">Cloud Gerenciada</a></li>
+                <li><strong>Máquinas virtuais</strong>: dimensionamento e criação de instâncias conforme os requisitos</li>
+                <li><strong>Rede e armazenamento</strong>: configuração de redes virtuais, conectividade e volumes</li>
+                <li><strong>Acessos</strong>: organização dos recursos por área ou projeto e definição de quem pode administrá-los</li>
+                <li><strong>Consumo</strong>: estimativa de recursos e configuração de alertas de orçamento</li>
+                <li><strong>Validação e documentação</strong>: verificação dos recursos e registro das configurações entregues</li>
             </ul>
         </div>
     </section>
@@ -161,20 +147,16 @@
             </div>
             <div class="faq">
                 <details>
-                    <summary>Por que escolher a OCI em vez de Azure ou AWS?</summary>
-                    <p>Depende do caso. A OCI costuma ter preço agressivo em compute e banda de saída, e é a casa natural de quem roda Oracle Database ou aplicações Oracle (EBS, licenciamento mais favorável). Para outros cenários, Azure pode fazer mais sentido. A gente avalia seu caso sem viés de revenda.</p>
+                    <summary>Como começa uma avaliação de OCI?</summary>
+                    <p>Começamos pelo objetivo da demanda, os recursos existentes e os requisitos de acesso, rede e armazenamento. A análise inicial permite verificar a viabilidade e delimitar quais atividades podem compor uma proposta.</p>
                 </details>
                 <details>
-                    <summary>O free tier da OCI serve para produção?</summary>
-                    <p>O Always Free da OCI é generoso (VMs ARM, bancos autônomos e storage sem custo), e serve bem para ambientes de teste, homologação e cargas pequenas. Para produção, ajudamos a dimensionar recursos pagos com o custo certo.</p>
+                    <summary>Quais informações ajudam a definir o escopo?</summary>
+                    <p>O objetivo da demanda, o inventário dos recursos, as dependências da aplicação, os requisitos de acesso e o orçamento disponível. Não envie senhas ou chaves de acesso no contato comercial.</p>
                 </details>
                 <details>
-                    <summary>Vocês gerenciam um ambiente OCI que já existe?</summary>
-                    <p>Sim. Fazemos análise do ambiente atual, organizamos compartimentos, políticas e rede, e assumimos a operação contínua como parte da <a href="/cloud-gerenciada">Cloud Gerenciada</a>.</p>
-                </details>
-                <details>
-                    <summary>Dá para usar OCI junto com Azure?</summary>
-                    <p>Dá, e é comum: banco Oracle na OCI com aplicações no Azure, por exemplo. Existe interconexão dedicada entre os dois provedores com baixa latência. Desenhamos e operamos esse cenário multicloud.</p>
+                    <summary>O que pode ser criado na OCI?</summary>
+                    <p>Máquinas virtuais, redes virtuais, armazenamento, compartimentos e permissões para uma infraestrutura nova. Capacidade, conectividade e dependências são levantadas antes da implantação para definir as atividades do projeto.</p>
                 </details>
             </div>
         </div>
@@ -183,12 +165,12 @@
     <!-- ===== CTA BAND ===== -->
     <section class="cta-band">
         <div class="container">
-            <h2>Pensando em OCI ou já tem <span class="gradient-text">um tenancy rodando?</span></h2>
-            <p>Conta teu cenário pra gente: avaliamos se a OCI faz sentido pro teu caso e o que dá pra otimizar no que já existe.</p>
+            <h2>Seu projeto precisa de uma estrutura <span class="gradient-text">na Oracle Cloud?</span></h2>
+            <p>Conte qual sistema será utilizado, quem precisa acessá-lo e se há uma previsão de capacidade. Vamos avaliar o que a implantação exige.</p>
             <div class="cta-band__actions">
-                <a href="/#contact" class="btn btn--primary btn--lg">Falar com Especialista</a>
+                <a href="/contato?assunto=nuvem" class="btn btn--primary btn--lg">Conversar sobre meu projeto</a>
                 <a href="https://wa.me/5511987839637?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20Oracle%20Cloud%20(OCI)."
-                   class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">Falar no WhatsApp</a>
+                   class="btn btn--text btn--lg" target="_blank" rel="noopener">Falar no WhatsApp</a>
             </div>
         </div>
     </section>
@@ -197,32 +179,27 @@
     <footer class="footer">
         <div class="container footer__inner">
             <div class="footer__brand">
-                <a href="/" class="navbar__logo">
-                    <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
-                </a>
-                <p>Segurança, inteligência e infraestrutura cloud.</p>
+                <a href="/" class="navbar__logo" aria-label="Cloud4Tech, início"><img class="brand-symbol" src="/assets/images/falcon-tech.png" alt="" width="80" height="80" decoding="async"><span class="brand-wordmark"><span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span></span></a>
+                <p>Nuvem, acesso e proteção de dados para empresas.</p>
             </div>
             <div class="footer__links">
-                <h4>Navegação</h4>
+                <h4>Institucional</h4>
                 <ul>
-                    <li><a href="/#about">Sobre</a></li>
-                    <li><a href="/#services">Serviços</a></li>
-                    <li><a href="/#contact">Contato</a></li>
+                    <li><a href="/sobre">Sobre a Cloud4Tech</a></li>
+                    <li><a href="/sobre#mission">Nossos compromissos</a></li>
+                    <li><a href="/#partners">Tecnologias</a></li>
+                    <li><a href="/contato">Contato</a></li>
                 </ul>
             </div>
             <div class="footer__links">
-                <h4>Serviços</h4>
-                <ul>
-                    <li><a href="/migracao-azure">Infraestrutura Azure</a></li>
-                    <li><a href="/ciberseguranca-edr-xdr">Cibersegurança EDR & XDR</a></li>
-                    <li><a href="/cloud-gerenciada">Cloud Gerenciada</a></li>
-                    <li><a href="/ia-seguranca">IA para Segurança</a></li>
-                </ul>
+                <h4>Soluções</h4>
+                <ul><li><a href="/ir-para-nuvem">Ir para a nuvem</a></li><li><a href="/cloud-gerenciada">Gerenciar serviços em nuvem</a></li><li><a href="/microsoft-365">Organizar e-mails e acessos</a></li><li><a href="/acronis">Proteger e recuperar dados</a></li></ul>
             </div>
             <div class="footer__links">
                 <h4>Contato</h4>
                 <ul>
-                    <li><a href="mailto:contato@cloud4tech.com.br">contato@cloud4tech.com.br</a></li>
+                    <li><a href="mailto:comercial@cloud4tech.com.br">comercial@cloud4tech.com.br</a></li>
+                    <li><a href="https://wa.me/5511987839637" target="_blank" rel="noopener">WhatsApp</a></li>
                 </ul>
             </div>
         </div>
@@ -241,6 +218,6 @@
         <span class="wa-float__pulse" aria-hidden="true"></span>
     </a>
 
-    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/main.js?v=18"></script>
 </body>
 </html>

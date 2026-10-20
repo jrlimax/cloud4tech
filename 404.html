@@ -10,9 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=11">
-    <script src="/assets/js/theme-init.js"></script>
+    <link rel="icon" href="/assets/images/favicon-tech.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=25">
+    <script src="/assets/js/theme-init.js?v=2"></script>
     <style>
         .nf {
             position: relative;
@@ -74,7 +74,7 @@
 
         /* --- Falcão astronauta flutuando --- */
         .nf__falcon {
-            width: clamp(140px, 22vw, 220px);
+            width: clamp(112px, 18vw, 180px);
             margin-bottom: 8px;
             animation: nf-float 6s ease-in-out infinite;
             filter: contrast(1.1) saturate(1.1) brightness(0.92) drop-shadow(0 0 40px rgba(109,40,217,0.35));
@@ -128,7 +128,7 @@
         <div class="nf__planet" data-depth="1.4" aria-hidden="true"></div>
 
         <div class="nf__content">
-            <img class="nf__falcon" data-depth="2" src="/assets/images/falcon.png" alt="" width="220" height="220">
+            <img class="nf__falcon" data-depth="2" src="/assets/images/falcon-tech.png" alt="" width="220" height="220">
             <div class="nf__code gradient-text" data-depth="1.2">404</div>
             <h1>Houston, essa página não existe</h1>
             <p>O endereço que você acessou se perdeu no espaço ou mudou de órbita. Vamos te levar de volta pra base.</p>
@@ -138,6 +138,15 @@
             </div>
         </div>
     </main>
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand"><a href="/" class="navbar__logo" aria-label="Cloud4Tech, início"><img class="brand-symbol" src="/assets/images/falcon-tech.png" alt="" width="80" height="80" decoding="async"><span class="brand-wordmark"><span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span></span></a><p>Nuvem, acesso e proteção de dados para empresas.</p></div>
+            <div class="footer__links"><h4>Institucional</h4><ul><li><a href="/sobre">Sobre a Cloud4Tech</a></li><li><a href="/sobre#mission">Nossos compromissos</a></li><li><a href="/#partners">Tecnologias</a></li><li><a href="/contato">Contato</a></li></ul></div>
+            <div class="footer__links"><h4>Soluções</h4><ul><li><a href="/ir-para-nuvem">Ir para a nuvem</a></li><li><a href="/cloud-gerenciada">Gerenciar serviços em nuvem</a></li><li><a href="/microsoft-365">Organizar e-mails e acessos</a></li><li><a href="/acronis">Proteger e recuperar dados</a></li></ul></div>
+            <div class="footer__links"><h4>Contato</h4><ul><li><a href="mailto:comercial@cloud4tech.com.br">comercial@cloud4tech.com.br</a></li><li><a href="https://wa.me/5511987839637" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
+        </div>
+        <div class="container"><div class="footer__bottom"><p>&copy; 2026 Cloud4Tech. Todos os direitos reservados. &middot; <a href="/privacidade">Política de Privacidade</a></p></div></div>
+    </footer>
     <script src="/assets/js/404.js"></script>
 </body>
 </html>

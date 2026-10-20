@@ -3,29 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microsoft Intune: Gestão de Dispositivos (MDM) | Cloud4Tech</title>
-    <meta name="description" content="Gestão de dispositivos com Microsoft Intune: notebooks, celulares e aplicativos corporativos com políticas de conformidade, criptografia e apagamento remoto. Implantação e operação.">
+    <title>Gestão de Dispositivos com Microsoft Intune | Cloud4Tech</title>
+    <meta name="description" content="Gestão de dispositivos e aplicativos com Microsoft Intune. Configure políticas de conformidade e acesso com Entra ID, conforme licenciamento e escopo.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="theme-color" content="#0B0D14" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#F7F8FA" media="(prefers-color-scheme: light)">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Cloud4Tech">
-    <meta property="og:title" content="Todo dispositivo da empresa sob controle | Cloud4Tech">
-    <meta property="og:description" content="Intune bem implantado: conformidade, criptografia e apagamento remoto para notebooks e celulares.">
-    <meta property="og:image" content="https://cloud4tech.com.br/assets/images/og-card.png">
+    <meta property="og:title" content="Gestão de Dispositivos com Microsoft Intune | Cloud4Tech">
+    <meta property="og:description" content="Gestão de dispositivos e aplicativos com Microsoft Intune. Configure políticas de conformidade e acesso com Entra ID, conforme licenciamento e escopo.">
+    <meta property="og:image" content="https://cloud4tech.com.br/assets/images/og-card-tech.png">
     <meta property="og:url" content="https://cloud4tech.com.br/intune">
     <meta property="og:locale" content="pt_BR">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gestão de Dispositivos com Microsoft Intune | Cloud4Tech">
+    <meta name="twitter:description" content="Gestão de dispositivos e aplicativos com Microsoft Intune. Configure políticas de conformidade e acesso com Entra ID, conforme licenciamento e escopo.">
+    <meta name="twitter:image" content="https://cloud4tech.com.br/assets/images/og-card-tech.png">
 
     <link rel="canonical" href="https://cloud4tech.com.br/intune">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/assets/images/falcon.png">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=11">
-    <script src="/assets/js/theme-init.js"></script>
+    <link rel="icon" href="/assets/images/favicon-tech.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/images/falcon-tech.png">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=25">
+    <script src="/assets/js/theme-init.js?v=2"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,7 +46,7 @@
           "serviceType": "Mobile Device Management",
           "provider": { "@id": "https://cloud4tech.com.br/#organization" },
           "areaServed": "BR",
-          "description": "Implantação e operação do Microsoft Intune: registro de dispositivos, políticas de conformidade, distribuição de aplicativos, criptografia e apagamento remoto."
+          "description": "Administração de dispositivos e aplicativos com Microsoft Intune: registro, políticas de configuração, conformidade e integração com acesso condicional, conforme compatibilidade, licenciamento e escopo."
         },
         {
           "@type": "FAQPage",
@@ -51,22 +54,22 @@
             {
               "@type": "Question",
               "name": "O que acontece se um notebook da empresa for roubado?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Com Intune implantado: o disco está criptografado com BitLocker (os dados são ilegíveis sem a senha) e você dispara o apagamento remoto pelo console assim que o equipamento aparecer online. Sem MDM, os dados vão embora junto com a máquina." }
+              "acceptedAnswer": { "@type": "Answer", "text": "As ações dependem das políticas previamente aplicadas, do sistema e do tipo de registro. É possível avaliar bloqueio de acesso e comandos de remoção de dados, que dependem de comunicação com o dispositivo. Ter Intune não significa que a criptografia esteja habilitada ou que a remoção será imediata." }
             },
             {
               "@type": "Question",
               "name": "Funciona com celular pessoal do funcionário (BYOD)?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Sim, sem invadir o lado pessoal: o Intune cria um perfil de trabalho isolado no aparelho. A empresa controla só os apps e dados corporativos, e consegue removê-los sem tocar nas fotos e conversas da pessoa." }
+              "acceptedAnswer": { "@type": "Answer", "text": "O Intune oferece opções de proteção de aplicativos e gerenciamento para dispositivos pessoais. A abordagem depende do sistema, dos aplicativos e do tipo de registro. As políticas de privacidade e as ações permitidas devem ser esclarecidas antes da implantação." }
             },
             {
               "@type": "Question",
               "name": "Qual licença do Microsoft 365 inclui o Intune?",
-              "acceptedAnswer": { "@type": "Answer", "text": "O Intune vem no Microsoft 365 Business Premium (até 300 usuários), nos planos E3/E5 e também como licença avulsa. Se você já tem Business Premium, provavelmente está pagando por ele sem usar. A gente ativa e configura." }
+              "acceptedAnswer": { "@type": "Answer", "text": "O Intune Plan 1 está incluído em ofertas como Microsoft 365 Business Premium e Microsoft 365 E3/E5 e também pode ser contratado separadamente. Office 365 E3/E5 não equivale a Microsoft 365 E3/E5. Conferimos o plano e os recursos necessários antes de definir o escopo." }
             },
             {
               "@type": "Question",
               "name": "A empresa consegue ver o que o funcionário faz no dispositivo?",
-              "acceptedAnswer": { "@type": "Answer", "text": "O Intune não é ferramenta de vigilância: ele gerencia configuração, segurança e aplicativos, não grava tela nem lê mensagens. Em dispositivos pessoais com perfil de trabalho, a visibilidade é restrita ao contêiner corporativo." }
+              "acceptedAnswer": { "@type": "Answer", "text": "O Intune é voltado à gestão de dispositivos e aplicativos, não à leitura de mensagens pessoais ou gravação de tela. A visibilidade administrativa varia conforme o sistema, a propriedade do dispositivo e o tipo de registro. Esses limites devem ser comunicados aos usuários." }
             }
           ]
         }
@@ -78,37 +81,25 @@
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar scrolled" id="navbar">
         <div class="container navbar__inner">
-            <a href="/" class="navbar__logo">
-                <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
-            </a>
+            <a href="/" class="navbar__logo" aria-label="Cloud4Tech, início"><img class="brand-symbol" src="/assets/images/falcon-tech.png" alt="" width="80" height="80" decoding="async"><span class="brand-wordmark"><span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span></span></a>
             <ul class="navbar__links" id="navLinks">
-                <li><a href="/#about">Sobre</a></li>
+                <li class="nav-dropdown"><a href="/#services" aria-haspopup="true" aria-expanded="false">Soluções</a><div class="nav-dropdown__menu"><a href="/ir-para-nuvem">Ir para a nuvem</a><a href="/cloud-gerenciada">Gerenciar serviços em nuvem</a><a href="/microsoft-365">Organizar e-mails e acessos</a><a href="/acronis">Proteger e recuperar dados</a></div></li>
                 <li class="nav-dropdown">
                     <a href="/#partners" aria-haspopup="true" aria-expanded="false">Tecnologias</a>
                     <div class="nav-dropdown__menu">
                         <a href="/migracao-azure">Microsoft Azure</a>
-                        <a href="/microsoft-365">Microsoft 365 & Entra ID</a>
+                        <a href="/microsoft-365">Microsoft 365</a>
                         <a href="/intune">Microsoft Intune</a>
                         <a href="/oracle-cloud">Oracle Cloud (OCI)</a>
                         <a href="/acronis">Acronis Cyber Protect</a>
-                        <a href="/ciberseguranca-edr-xdr">Microsoft Defender</a>
                     </div>
                 </li>
-                <li class="nav-dropdown">
-                    <a href="/#services" aria-haspopup="true" aria-expanded="false">Serviços</a>
-                    <div class="nav-dropdown__menu">
-                        <a href="/migracao-azure">Infraestrutura Azure</a>
-                        <a href="/ciberseguranca-edr-xdr">Cibersegurança EDR & XDR</a>
-                        <a href="/cloud-gerenciada">Cloud Gerenciada</a>
-                        <a href="/ia-seguranca">IA para Segurança</a>
-                    </div>
-                </li>
-                <li><a href="/#mission">Missão & Valores</a></li>
-                <li><a href="/#contact" class="btn btn--sm btn--primary">Fale Conosco</a></li>
+                <li><a href="/sobre">Sobre</a></li>
+                <li><a href="/contato" class="btn btn--sm btn--primary">Contato</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-                <svg class="theme-icon theme-icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                <svg class="theme-icon theme-icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="theme-icon theme-icon--dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+                <svg class="theme-icon theme-icon--light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 0 1 11.2 3 9 9 0 1 0 21 12.8Z"/></svg>
             </button>
             <button class="navbar__toggle" id="navToggle" aria-label="Menu">
                 <span></span><span></span><span></span>
@@ -120,12 +111,12 @@
     <header class="page-hero">
         <div class="container">
             <p class="page-hero__breadcrumb"><a href="/">Início</a> / <span>Microsoft Intune</span></p>
-            <h1 class="page-hero__title">Todo dispositivo da empresa <span class="gradient-text">sob controle</span></h1>
+            <h1 class="page-hero__title">Microsoft Intune: <span class="gradient-text">controle dos dispositivos, onde o trabalho acontece.</span></h1>
             <p class="page-hero__desc">
-                Notebook roubado, celular perdido, funcionário desligado com arquivos da empresa no aparelho pessoal. Com o Intune bem implantado, você reduz drasticamente o risco: criptografia, conformidade e apagamento remoto nos dispositivos gerenciados.
+                Computadores e celulares acessam informações da empresa dentro e fora do escritório. Com o Microsoft Intune, centralizamos a administração dos dispositivos compatíveis, distribuímos aplicativos e aplicamos regras para o acesso aos dados de trabalho.
             </p>
             <div class="page-hero__actions">
-                <a href="/#contact" class="btn btn--primary btn--lg">Falar com Especialista</a>
+                <a href="/contato?assunto=microsoft-365" class="btn btn--primary btn--lg">Falar sobre meus dispositivos</a>
                 <a href="#o-que-fazemos" class="btn btn--outline btn--lg">O que fazemos</a>
             </div>
         </div>
@@ -134,24 +125,24 @@
     <!-- ===== CONTEÚDO ===== -->
     <section class="section" id="o-que-fazemos">
         <div class="container prose">
-            <h2>O perímetro da empresa hoje é <span class="gradient-text">cada dispositivo</span></h2>
+            <h2>Menos ajustes individuais. <span class="gradient-text">Mais gestão centralizada.</span></h2>
             <p>
-                Com home office e trabalho híbrido, os dados da empresa circulam em notebooks na casa dos funcionários e em celulares na rua. Firewall não alcança isso. O <strong>Microsoft Intune</strong> leva as políticas de segurança até onde o dispositivo estiver: exige criptografia, senha forte e antivírus ativo antes de liberar o acesso ao e-mail e aos arquivos.
+                O <strong>Microsoft Intune</strong> permite acompanhar os dispositivos registrados, distribuir configurações e verificar se atendem aos requisitos da empresa. Em conjunto com o Entra ID, essas informações podem orientar as regras de acesso a e-mails e arquivos.
             </p>
             <p>
-                E o detalhe que muita empresa não sabe: <strong>se você tem Microsoft 365 Business Premium, o Intune já está pago</strong>. Só falta implantar direito.
+                Equipamentos corporativos e pessoais exigem abordagens diferentes. Antes de implantar, avaliamos sistemas, licenças e formas de registro, esclarecemos os limites de privacidade e testamos as políticas em um grupo definido.
             </p>
             <h3>O que fazemos</h3>
             <ul class="check-list">
-                <li><strong>Registro de dispositivos</strong>: Windows, macOS, Android e iOS no inventário, incluindo Autopilot pra notebook novo chegar pronto</li>
-                <li><strong>Políticas de conformidade</strong>: criptografia BitLocker, senha forte, atualizações em dia; fora da regra, sem acesso</li>
-                <li><strong>Acesso condicional com o Entra ID</strong>: só dispositivo conforme entra no ambiente</li>
-                <li><strong>Distribuição de aplicativos</strong>: apps corporativos instalados e atualizados sem tocar máquina a máquina</li>
-                <li><strong>BYOD com perfil de trabalho</strong>: dados corporativos isolados no celular pessoal, removíveis sem apagar a vida da pessoa</li>
-                <li><strong>Apagamento remoto</strong> de equipamento perdido, roubado ou de colaborador desligado</li>
+                <li><strong>Registro e inventário</strong>: organização dos dispositivos compatíveis previstos no escopo</li>
+                <li><strong>Políticas de configuração</strong>: ajustes de segurança conforme os recursos do sistema e do licenciamento</li>
+                <li><strong>Regras para acesso</strong>: definição dos requisitos que o dispositivo precisa atender, com integração ao Entra ID</li>
+                <li><strong>Aplicativos</strong>: distribuição e acompanhamento dos programas de trabalho compatíveis</li>
+                <li><strong>Proteção de dados em aplicativos</strong>: regras para o uso e a proteção dos dados corporativos nos aplicativos compatíveis, conforme as necessidades do negócio</li>
+                <li><strong>Entrada e retirada de equipamentos</strong>: revisão de cadastros e ações de remoção autorizadas quando o dispositivo deixa de ser usado no trabalho</li>
             </ul>
             <p>
-                A operação contínua do Intune faz parte da nossa <a href="/cloud-gerenciada">Cloud Gerenciada</a>, junto com o restante do ambiente Microsoft.
+                A administração do Intune pode fazer parte da <a href="/cloud-gerenciada">Gestão de cloud e backup</a>, com atividades e condições de atendimento definidas em contrato.
             </p>
         </div>
     </section>
@@ -166,19 +157,19 @@
             <div class="faq">
                 <details>
                     <summary>O que acontece se um notebook da empresa for roubado?</summary>
-                    <p>Com Intune implantado: o disco está criptografado com BitLocker (os dados são ilegíveis sem a senha) e você dispara o apagamento remoto pelo console assim que o equipamento aparecer online. Sem MDM, os dados vão embora junto com a máquina.</p>
+                    <p>As ações dependem das políticas previamente aplicadas, do sistema e do tipo de registro. É possível avaliar bloqueio de acesso e comandos de remoção de dados, que dependem de comunicação com o dispositivo. Ter Intune não significa que a criptografia esteja habilitada ou que a remoção será imediata.</p>
                 </details>
                 <details>
                     <summary>Funciona com celular pessoal do funcionário (BYOD)?</summary>
-                    <p>Sim, sem invadir o lado pessoal: o Intune cria um perfil de trabalho isolado no aparelho. A empresa controla só os apps e dados corporativos, e consegue removê-los sem tocar nas fotos e conversas da pessoa.</p>
+                    <p>O Intune oferece opções de proteção de aplicativos e gerenciamento para dispositivos pessoais. A abordagem depende do sistema, dos aplicativos e do tipo de registro. As políticas de privacidade e as ações permitidas devem ser esclarecidas antes da implantação.</p>
                 </details>
                 <details>
                     <summary>Qual licença do Microsoft 365 inclui o Intune?</summary>
-                    <p>O Intune vem no Microsoft 365 Business Premium (até 300 usuários), nos planos E3/E5 e também como licença avulsa. Se você já tem Business Premium, provavelmente está pagando por ele sem usar. A gente ativa e configura.</p>
+                    <p>O Intune Plan 1 está incluído em ofertas como Microsoft 365 Business Premium e Microsoft 365 E3/E5 e também pode ser contratado separadamente. Office 365 E3/E5 não equivale a Microsoft 365 E3/E5. Conferimos o plano e os recursos necessários antes de definir o escopo.</p>
                 </details>
                 <details>
                     <summary>A empresa consegue ver o que o funcionário faz no dispositivo?</summary>
-                    <p>O Intune não é ferramenta de vigilância: ele gerencia configuração, segurança e aplicativos, não grava tela nem lê mensagens. Em dispositivos pessoais com perfil de trabalho, a visibilidade é restrita ao contêiner corporativo.</p>
+                    <p>O Intune é voltado à gestão de dispositivos e aplicativos, não à leitura de mensagens pessoais ou gravação de tela. A visibilidade administrativa varia conforme o sistema, a propriedade do dispositivo e o tipo de registro. Esses limites devem ser comunicados aos usuários.</p>
                 </details>
             </div>
         </div>
@@ -187,12 +178,12 @@
     <!-- ===== CTA BAND ===== -->
     <section class="cta-band">
         <div class="container">
-            <h2>Quantos dispositivos da sua empresa estão <span class="gradient-text">fora de controle?</span></h2>
-            <p>Se você tem Business Premium, o Intune já está pago. Solicite uma avaliação gratuita e descubra o que falta pra ativar.</p>
+            <h2>Organize a gestão <span class="gradient-text">dos seus dispositivos</span></h2>
+            <p>Conte quantos computadores e celulares são usados no trabalho e se pertencem à empresa ou aos funcionários. Avaliamos as formas de gerenciamento e as licenças necessárias.</p>
             <div class="cta-band__actions">
-                <a href="/#contact" class="btn btn--primary btn--lg">Solicitar Avaliação Gratuita</a>
+                <a href="/contato?assunto=microsoft-365" class="btn btn--primary btn--lg">Conversar sobre dispositivos</a>
                 <a href="https://wa.me/5511987839637?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20gest%C3%A3o%20de%20dispositivos%20com%20Intune."
-                   class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">Falar no WhatsApp</a>
+                   class="btn btn--text btn--lg" target="_blank" rel="noopener">Falar no WhatsApp</a>
             </div>
         </div>
     </section>
@@ -201,32 +192,27 @@
     <footer class="footer">
         <div class="container footer__inner">
             <div class="footer__brand">
-                <a href="/" class="navbar__logo">
-                    <span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span>
-                </a>
-                <p>Segurança, inteligência e infraestrutura cloud.</p>
+                <a href="/" class="navbar__logo" aria-label="Cloud4Tech, início"><img class="brand-symbol" src="/assets/images/falcon-tech.png" alt="" width="80" height="80" decoding="async"><span class="brand-wordmark"><span class="logo-text">CLOUD</span><span class="logo-accent">4</span><span class="logo-text">TECH</span></span></a>
+                <p>Nuvem, acesso e proteção de dados para empresas.</p>
             </div>
             <div class="footer__links">
-                <h4>Navegação</h4>
+                <h4>Institucional</h4>
                 <ul>
-                    <li><a href="/#about">Sobre</a></li>
-                    <li><a href="/#services">Serviços</a></li>
-                    <li><a href="/#contact">Contato</a></li>
+                    <li><a href="/sobre">Sobre a Cloud4Tech</a></li>
+                    <li><a href="/sobre#mission">Nossos compromissos</a></li>
+                    <li><a href="/#partners">Tecnologias</a></li>
+                    <li><a href="/contato">Contato</a></li>
                 </ul>
             </div>
             <div class="footer__links">
-                <h4>Serviços</h4>
-                <ul>
-                    <li><a href="/migracao-azure">Infraestrutura Azure</a></li>
-                    <li><a href="/ciberseguranca-edr-xdr">Cibersegurança EDR & XDR</a></li>
-                    <li><a href="/cloud-gerenciada">Cloud Gerenciada</a></li>
-                    <li><a href="/ia-seguranca">IA para Segurança</a></li>
-                </ul>
+                <h4>Soluções</h4>
+                <ul><li><a href="/ir-para-nuvem">Ir para a nuvem</a></li><li><a href="/cloud-gerenciada">Gerenciar serviços em nuvem</a></li><li><a href="/microsoft-365">Organizar e-mails e acessos</a></li><li><a href="/acronis">Proteger e recuperar dados</a></li></ul>
             </div>
             <div class="footer__links">
                 <h4>Contato</h4>
                 <ul>
-                    <li><a href="mailto:contato@cloud4tech.com.br">contato@cloud4tech.com.br</a></li>
+                    <li><a href="mailto:comercial@cloud4tech.com.br">comercial@cloud4tech.com.br</a></li>
+                    <li><a href="https://wa.me/5511987839637" target="_blank" rel="noopener">WhatsApp</a></li>
                 </ul>
             </div>
         </div>
@@ -245,6 +231,6 @@
         <span class="wa-float__pulse" aria-hidden="true"></span>
     </a>
 
-    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/main.js?v=18"></script>
 </body>
 </html>

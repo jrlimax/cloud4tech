@@ -1,7 +1,7 @@
 /* TEAM */
     Empresa: Cloud4Tech
     Site:    https://cloud4tech.com.br
-    E-mail:  contato@cloud4tech.com.br
+    E-mail:  comercial@cloud4tech.com.br
     Local:   Brasil
 
 /* THANKS */
