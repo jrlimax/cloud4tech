@@ -280,7 +280,7 @@ As referências atuais usam os WebP responsivos. Metadados da organização e ma
 
 ### GitHub
 
-O README técnico usa [og-card-tech.png](../assets/images/og-card-tech.png) como capa. Nome, descrição e link devem refletir a Cloud4Tech e o catálogo atual.
+O README institucional usa [og-card-tech.png](../assets/images/og-card-tech.png) como capa e apresenta a empresa, seus serviços e canais de contato. Nome, descrição e link devem refletir a Cloud4Tech e o catálogo atual.
 
 A prévia social do repositório depende de upload em **Settings → General → Social preview**. O arquivo no repositório ou o Open Graph do site não alteram essa configuração automaticamente.
 
@@ -363,6 +363,6 @@ Não é necessário reiniciar o conceito. O objetivo é consolidar o falcão apr
 
 ---
 
-**Referências de implementação:** [README técnico](../README.md), [estilos](../assets/css/styles.css), [home](../index.html) e [arquivos de imagem](../assets/images).
+**Referências:** [apresentação da Cloud4Tech](../README.md), [estilos](../assets/css/styles.css), [home](../index.html) e [arquivos de imagem](../assets/images).
 
 Mudanças no código ou neste guia não atualizam automaticamente perfis externos, materiais impressos ou configurações do GitHub. Publicações e substituições nesses canais exigem execução e autorização próprias.
