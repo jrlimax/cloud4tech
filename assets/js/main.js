@@ -108,7 +108,16 @@
     }
 
     // --- Active link highlight (CSS class-based) ---
-    function highlightNav() {
+    function highlightNav(activeId) {
+        navAnchors.forEach(function (a) {
+            if (a.classList.contains('btn')) return;
+            var href = a.getAttribute('href');
+            a.classList.toggle('active', !!activeId && (href === '#' + activeId ||
+                (window.location.pathname === '/' && href === '/#' + activeId)));
+        });
+    }
+
+    function highlightNavFallback() {
         var scrollPos = window.scrollY + 120;
         var activeId = '';
 
@@ -120,12 +129,43 @@
             }
         }
 
-        navAnchors.forEach(function (a) {
-            if (a.classList.contains('btn')) return;
-            var href = a.getAttribute('href');
-            a.classList.toggle('active', !!activeId && (href === '#' + activeId ||
-                (window.location.pathname === '/' && href === '/#' + activeId)));
+        highlightNav(activeId);
+    }
+
+    var hasObservers = 'IntersectionObserver' in window;
+    if (hasObservers) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            });
+        }, { rootMargin: '0px 0px -80px 0px' });
+        aosElements.forEach(function (el) {
+            if (prefersReducedMotion) el.classList.add('visible');
+            else revealObserver.observe(el);
         });
+
+        var sectionObserver;
+        var activeSections = new Set();
+        function observeSections() {
+            if (sectionObserver) sectionObserver.disconnect();
+            activeSections.clear();
+            sectionObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) activeSections.add(entry.target);
+                    else activeSections.delete(entry.target);
+                });
+                var activeId = '';
+                sections.forEach(function (section) {
+                    if (activeSections.has(section)) activeId = section.id;
+                });
+                highlightNav(activeId);
+            }, { rootMargin: '-120px 0px -' + Math.max(0, window.innerHeight - 121) + 'px 0px' });
+            sections.forEach(function (section) { sectionObserver.observe(section); });
+        }
+        observeSections();
+        window.addEventListener('resize', observeSections);
     }
 
     // --- Unified scroll handler with rAF throttle ---
@@ -135,8 +175,10 @@
         if (!scrollTicking) {
             requestAnimationFrame(function () {
                 handleNavScroll();
-                if (aosElements.length) revealOnScroll();
-                highlightNav();
+                if (!hasObservers) {
+                    if (aosElements.length) revealOnScroll();
+                    highlightNavFallback();
+                }
                 scrollTicking = false;
             });
             scrollTicking = true;
@@ -152,7 +194,10 @@
             return;
         }
         handleNavScroll();
-        revealOnScroll();
+        if (!hasObservers) {
+            revealOnScroll();
+            highlightNavFallback();
+        }
     });
 
     // --- Dropdown aria-expanded (navbar) ---
@@ -234,6 +279,16 @@
             formStatus.className = 'form-status' + (kind ? ' form-status--' + kind : '');
         }
 
+        function resetCaptcha() {
+            if (!window.hcaptcha) return;
+            try {
+                window.hcaptcha.reset();
+            } catch (error) {
+                console.error('Cloud4Tech: falha ao reiniciar a verificação de segurança.', error);
+                setStatus(formStatus.textContent + ' Não foi possível reiniciar a verificação de segurança. Recarregue a página antes de um novo envio, guardando sua mensagem.', 'error');
+            }
+        }
+
         if (phoneInput) {
             phoneInput.addEventListener('input', function () {
                 var v = this.value.replace(/\D/g, '').slice(0, 11);
@@ -312,13 +367,19 @@
             // Remove g-recaptcha-response (hCaptcha pode injetar por compat e Web3Forms confunde com Pro feature)
             formData.delete('g-recaptcha-response');
 
+            var controller = new AbortController();
+            var timeout = setTimeout(function () { controller.abort(); }, 20000);
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: { 'Accept': 'application/json' },
-                body: formData
+                body: formData,
+                signal: controller.signal
             }).then(function (res) {
                 return res.json().then(function (data) {
                     return { ok: res.ok, data: data };
+                }, function (error) {
+                    if (error.name === 'AbortError') throw error;
+                    throw new Error('O serviço de envio retornou uma resposta inválida.');
                 });
             }).then(function (result) {
                 if (result.ok && result.data && result.data.success) {
@@ -328,19 +389,24 @@
                     submitBtn.classList.add('btn--success');
                     setStatus('Mensagem enviada com sucesso! A Cloud4Tech recebeu seu contato.', 'success');
                     contactForm.reset();
-                    if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch (e) {} }
+                    resetCaptcha();
                 } else {
                     var apiMsg = (result.data && result.data.message) ? result.data.message : 'Não foi possível enviar a mensagem.';
                     throw new Error(apiMsg);
                 }
             }).catch(function (err) {
+                console.error('Cloud4Tech: falha no envio do formulário.', err);
                 if (btnLabel) btnLabel.textContent = 'Erro ao enviar';
                 else submitBtn.textContent = 'Erro ao enviar';
                 submitBtn.classList.remove('btn--loading');
                 submitBtn.classList.add('btn--error');
-                setStatus((err && err.message ? err.message : 'Erro ao enviar.') + ' Tente novamente em instantes ou escreva para comercial@cloud4tech.com.br.', 'error');
-                if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch (e) {} }
+                var errorMessage = err && err.name === 'AbortError'
+                    ? 'O serviço demorou para responder e não foi possível confirmar o envio. Sua mensagem foi mantida; confira se houve recebimento antes de reenviar.'
+                    : (err && err.message ? err.message : 'Erro ao enviar.');
+                setStatus(errorMessage + ' Tente novamente em instantes ou escreva para comercial@cloud4tech.com.br.', 'error');
+                resetCaptcha();
             }).finally(function () {
+                clearTimeout(timeout);
                 setTimeout(function () {
                     if (btnLabel) btnLabel.textContent = originalText;
                     else submitBtn.textContent = originalText;

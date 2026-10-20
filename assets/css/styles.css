@@ -344,12 +344,12 @@ a:focus-visible, button:focus-visible {
    ============================ */
 .hero {
     position: relative;
-    min-height: 660px;
+    min-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 136px 0 88px;
+    padding: 128px 0 64px;
     background: var(--c-bg);
 }
 
@@ -360,53 +360,13 @@ a:focus-visible, button:focus-visible {
     align-items: center;
     justify-content: center;
     min-width: 0;
-    padding: 16px 0;
-}
-
-.hero__art {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 100%;
-    aspect-ratio: 1;
-    isolation: isolate;
-    background: radial-gradient(circle, rgba(109,40,217,0.15), transparent 68%);
-}
-
-.hero__art::before,
-.hero__art::after {
-    content: '';
-    position: absolute;
-    inset: 8%;
-    border: 1px solid rgba(157,141,240,0.24);
-    border-radius: 50%;
-    z-index: -1;
-}
-
-.hero__art::after {
-    inset: 0;
-    border-color: var(--c-border);
-    border-radius: 24%;
-    transform: rotate(-12deg);
+    padding: 0;
 }
 
 .hero__falcon {
     width: 84%;
-    max-width: 340px;
+    max-width: 240px;
     height: auto;
-    filter: drop-shadow(0 12px 32px rgba(109,40,217,0.18));
-}
-
-.hero__visual-caption {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.hero__visual-caption p {
-    margin-top: 8px;
-    font-family: var(--ff-heading);
-    font-size: 1.1rem;
-    color: var(--c-text);
 }
 
 /* --- Hero layout --- */
@@ -1716,43 +1676,23 @@ a:focus-visible, button:focus-visible {
     }
 
     .hero {
-        min-height: auto;
-        padding-top: 100px;
-        padding-bottom: 48px;
+        padding: 104px 0 40px;
     }
 
     .hero__inner {
-        grid-template-columns: 1fr;
-        gap: 24px;
+        grid-template-columns: minmax(0, 1fr) 128px;
+        gap: 20px;
     }
 
     .hero__visual {
         flex-direction: row;
         gap: 20px;
-        justify-content: flex-start;
+        justify-content: center;
         padding: 0;
     }
 
-    .hero__art {
-        width: 112px;
-        flex-shrink: 0;
-    }
-
     .hero__falcon {
-        width: 88%;
-    }
-
-    .hero__visual-caption {
-        margin-top: 0;
-        text-align: left;
-    }
-
-    .hero__visual-caption .section__tag {
-        font-size: 0.7rem;
-    }
-
-    .hero__visual-caption p {
-        font-size: 0.9rem;
+        width: 100%;
     }
 
     .hero__scroll {
@@ -2407,20 +2347,6 @@ a:focus-visible, button:focus-visible {
     text-underline-offset: 6px;
 }
 
-.home .hero {
-    min-height: 0;
-    padding: 128px 0 64px;
-}
-
-.home .hero__visual {
-    padding: 0;
-}
-
-.home .hero__falcon {
-    max-width: 240px;
-    filter: none;
-}
-
 .home .section {
     padding: 56px 0;
 }
@@ -2626,23 +2552,6 @@ a:focus-visible, button:focus-visible {
 }
 
 @media (max-width: 768px) {
-    .home .hero {
-        padding: 104px 0 40px;
-    }
-
-    .home .hero__inner {
-        grid-template-columns: minmax(0, 1fr) 128px;
-        gap: 20px;
-    }
-
-    .home .hero__visual {
-        justify-content: center;
-    }
-
-    .home .hero__falcon {
-        width: 100%;
-    }
-
     .company-summary__inner {
         grid-template-columns: 1fr;
         gap: 24px;

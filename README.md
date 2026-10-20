@@ -61,16 +61,21 @@ As páginas antigas foram removidas do catálogo e do sitemap.
 
 ## Identidade visual
 
+O guia completo de conceito, símbolo, cores, tipografia, aplicações e usos incorretos está em [Identidade visual da Cloud4Tech](./identidade-visual/README.md). Este README mantém as informações técnicas do site.
+
 O símbolo atual é o falcão roxo com detalhes amarelos e conexões tecnológicas integradas ao corpo. O nome **CLOUD4TECH** mantém o **4 verde**.
 
 | Arquivo | Aplicação |
 |---|---|
 | [falcon-tech.png](./assets/images/falcon-tech.png) | Símbolo com fundo externo transparente, 768 × 768 px |
+| `falcon-tech-{96,192,320,640}.webp` | Imagens responsivas do cabeçalho, rodapé, home e 404 |
 | [favicon-tech.ico](./assets/images/favicon-tech.ico) | Ícone do navegador em múltiplas resoluções |
 | [og-card-tech.png](./assets/images/og-card-tech.png) | Imagem de compartilhamento, 1200 × 630 px |
 | [site.webmanifest](./site.webmanifest) | Nome, cores e ícone da aplicação |
 
 O novo símbolo é rasterizado; não é um arquivo vetorial. Os arquivos anteriores [falcon.png](./assets/images/falcon.png), [logo.png](./assets/images/logo.png), [og-card.png](./assets/images/og-card.png) e [favicon.ico](./favicon.ico) foram preservados, sem substituição.
+
+Cabeçalho e rodapé usam WebP de 96 px (5.652 bytes), com alternativa de 192 px (13.260 bytes) para telas de maior densidade. Home e 404 usam 320 px (24.910 bytes) ou 640 px (57.378 bytes). As imagens mantêm transparência e usam `srcset`; o preload da home acompanha as mesmas alternativas. Em relação aos 405.540 bytes do PNG, as reduções são de aproximadamente 94% na imagem de 320 px e 99% na de 96 px, sem alterar o arquivo original. O PNG continua no manifesto e nos metadados de organização.
 
 ### Apresentação no GitHub
 
@@ -118,6 +123,10 @@ HTML semântico, CSS e JavaScript sem framework, sem banco próprio de contatos 
 │   │   ├── hcaptcha-bootstrap.js
 │   │   └── 404.js
 │   └── images/
+├── tests/
+│   ├── main.test.cjs
+│   ├── validate_site.py
+│   └── layout.cjs
 ├── .well-known/security.txt
 ├── _headers, _redirects
 ├── robots.txt, sitemap.xml, humans.txt
@@ -127,7 +136,7 @@ HTML semântico, CSS e JavaScript sem framework, sem banco próprio de contatos 
 └── README.md
 ```
 
-Não há `package.json` nem runner de testes versionado. O diretório local `.wrangler` é ignorado pelo Git. O manifesto não implica suporte offline: não há service worker implementado.
+Não há `package.json` nem dependências de testes a instalar. Os testes usam o runner nativo do Node.js e a biblioteca padrão do Python. O diretório local `.wrangler` é ignorado pelo Git. O manifesto não implica suporte offline: não há service worker implementado.
 
 ## Formulário e canais
 
@@ -137,6 +146,8 @@ O formulário de [contato.html](./contato.html) envia `FormData` por HTTPS para 
 - Validação no navegador, máscara de telefone, honeypot e hCaptcha.
 - hCaptcha carregado na página de contato, com renderização que acompanha o tema.
 - Botão com estado de envio e mensagens de resultado em região acessível.
+- Timeout de 20 segundos, tratamento explícito de respostas inválidas e preservação dos campos quando não há confirmação de sucesso. Um timeout não comprova ausência de entrega: o aviso orienta conferir o recebimento antes de reenviar.
+- Falhas de envio ou reinicialização do captcha são registradas no console e informadas ao visitante.
 - Confirmação obrigatória de leitura da política, sem autorização genérica para publicidade.
 - Nas chamadas finais dos serviços, o formulário é a ação principal e o WhatsApp é a alternativa.
 - O botão flutuante de WhatsApp foi mantido onde já existia; sua animação de pulso permanece desativada.
@@ -180,6 +191,8 @@ As verificações locais não substituem a conferência dos cabeçalhos em produ
 - Botões de tema e menu com área de 44 × 44 px; ícones e nomes acessíveis consistentes.
 - Navegação móvel com listas estáticas e links acessíveis; fechamento por Escape e interação externa.
 
+As revelações e o destaque das seções usam `IntersectionObserver`, evitando consultar a geometria das seções a cada rolagem. A revelação deixa de observar elementos já exibidos; com movimento reduzido eles aparecem imediatamente. Navegadores sem a API mantêm o comportamento anterior por rolagem. O efeito da barra continua limitado por `requestAnimationFrame`. O CSS da abertura foi consolidado e as regras de arte e legendas que não existem mais no HTML foram removidas, preservando as dimensões responsivas.
+
 A redação parte de situações concretas e entregas verificáveis, explicando termos técnicos sem ampliar o catálogo. Não inserir clientes, depoimentos, selos, certificações, métricas ou promessas não confirmadas. A marcação estruturada não garante posição ou apresentação especial nos buscadores.
 
 Após publicar, verificar sitemap, canônicas e indexação no Google Search Console. O arquivo de verificação existente foi preservado, mas não comprova acesso à propriedade. Medir desempenho na versão publicada; não há pontuação Lighthouse documentada para esta revisão.
@@ -204,7 +217,7 @@ O fluxo de publicação informado para o projeto usa integração nativa Cloudfl
 
 Os arquivos de `/assets/*` têm cache imutável de um ano. Ao mudar CSS ou JavaScript, atualize as referências versionadas em todas as páginas que os carregam. Para novas imagens, prefira nomes novos para evitar reutilizar conteúdo em cache.
 
-Versões desta revisão: `styles.css?v=25`, `main.js?v=18` e `theme-init.js?v=2`. As regras de revalidação e cache de HTML, sitemap, robots e favicon estão em [_headers](./_headers); confirme o comportamento nas rotas públicas.
+Versões desta revisão: `styles.css?v=26`, `main.js?v=19`, `hcaptcha-bootstrap.js?v=2` e `theme-init.js?v=2`. As regras de revalidação e cache de HTML, sitemap, robots e favicon estão em [_headers](./_headers); confirme o comportamento nas rotas públicas.
 
 ## Validação e manutenção
 
@@ -216,16 +229,34 @@ Na revisão de 20/10/2026 foram usados validadores externos ao repositório e na
 - 13 documentos HTML, 10 blocos JSON-LD, 7 pares FAQ/schema e 404 links/recursos locais verificados.
 - 11 rotas do sitemap, quatro redirecionamentos permanentes, metadados e resposta 404 conferidos no preview.
 
-Esses auxiliares não estão versionados: os resultados são um registro da revisão, não comandos disponíveis após clonar o projeto.
+Essa revisão de navegador ocorreu antes das otimizações descritas acima. Os testes atuais estão em [tests](./tests), sem caminhos específicos de uma máquina e sem envio real ao Web3Forms.
 
-Verificações básicas reproduzíveis na raiz:
+Verificações locais reproduzíveis na raiz (Node.js 22 ou superior e Python 3):
 
 ```powershell
+node --test tests\main.test.cjs
+python tests\validate_site.py
 git diff --check
 node --check assets\js\main.js
 node --check assets\js\theme-init.js
 node --check assets\js\hcaptcha-bootstrap.js
 node --check assets\js\404.js
 ```
+
+Os testes unitários cobrem sucesso, timeout durante requisição e leitura de resposta, JSON inválido, rejeição da API, falha de rede, validação, falhas do captcha, observadores e fallback de rolagem. O validador Python verifica conteúdo, links, `srcset`, rodapés, metadados, FAQs, sitemap, definições de redirect, consistência das versões e limites de peso dos WebP, sem acesso à rede por padrão.
+
+Com um preview já disponível, é possível conferir respostas HTTP:
+
+```powershell
+python tests\validate_site.py --base-url http://127.0.0.1:8787
+```
+
+O teste de layout precisa de um navegador Chromium/Edge já iniciado pelo responsável com uma porta de depuração local dedicada. Ele não inicia navegadores nem instala ferramentas:
+
+```powershell
+node tests\layout.cjs --base-url http://127.0.0.1:8787 --cdp http://127.0.0.1:9222
+```
+
+O script cria e fecha sua própria aba, desativa cache nela e confere 192 combinações de página/largura/tema, imagens carregadas, alinhamento e exceções de execução. Use apenas uma sessão dedicada, sem abas pessoais; não exponha a porta de depuração à rede. Não foram repetidos testes de navegador nesta rodada porque houve relato de bloqueio pelo Defender na execução do preview. Não desative proteções para executar os testes.
 
 Antes de publicar alterações, conferir também páginas em tema claro/escuro e celular/desktop, imagens carregadas, rodapés iguais, links, formulário sem disparos de teste desnecessários, FAQ visível versus JSON-LD, canônicas, sitemap e redirects. Validar recebimento real somente com autorização. Não adicionar credenciais privadas ao código.
